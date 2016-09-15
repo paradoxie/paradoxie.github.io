@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="hexo,github," />
 
 
 
@@ -84,15 +84,31 @@
 
 
 
-<meta name="description" content="终于有自己的技术博客啦">
-<meta property="og:type" content="website">
-<meta property="og:title" content="谢盒盒的小黑屋">
-<meta property="og:url" content="http://blog.prozin.xyz/index.html">
+<meta name="description" content="虽然这样的博客已经很多的，但是自己在搭建的事后还是遇到了不少问题，而且是在我看了好几篇文章的情况下。我觉得主要还是不熟悉，但是谁一开始就会对自己没做过的事情熟悉呢？
+所以我写这篇博客记录一下自己的搭建过程，自己博客的第一篇内容，也算是帮助想要搭建博客的人多一条参考。
+
+本次搭建主要是参考了以下两篇文章：
+1.手把手教你建github技术博客
+2.CentOS下搭建Hexo + github 博客">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Mac OS使用github+hexo搭建自己的博客">
+<meta property="og:url" content="http://blog.prozin.xyz/2016/09/16/macos使用github+hexo搭建自己的博客/index.html">
 <meta property="og:site_name" content="谢盒盒的小黑屋">
-<meta property="og:description" content="终于有自己的技术博客啦">
+<meta property="og:description" content="虽然这样的博客已经很多的，但是自己在搭建的事后还是遇到了不少问题，而且是在我看了好几篇文章的情况下。我觉得主要还是不熟悉，但是谁一开始就会对自己没做过的事情熟悉呢？
+所以我写这篇博客记录一下自己的搭建过程，自己博客的第一篇内容，也算是帮助想要搭建博客的人多一条参考。
+
+本次搭建主要是参考了以下两篇文章：
+1.手把手教你建github技术博客
+2.CentOS下搭建Hexo + github 博客">
+<meta property="og:updated_time" content="2016-09-15T17:26:53.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="谢盒盒的小黑屋">
-<meta name="twitter:description" content="终于有自己的技术博客啦">
+<meta name="twitter:title" content="Mac OS使用github+hexo搭建自己的博客">
+<meta name="twitter:description" content="虽然这样的博客已经很多的，但是自己在搭建的事后还是遇到了不少问题，而且是在我看了好几篇文章的情况下。我觉得主要还是不熟悉，但是谁一开始就会对自己没做过的事情熟悉呢？
+所以我写这篇博客记录一下自己的搭建过程，自己博客的第一篇内容，也算是帮助想要搭建博客的人多一条参考。
+
+本次搭建主要是参考了以下两篇文章：
+1.手把手教你建github技术博客
+2.CentOS下搭建Hexo + github 博客">
 
 
 
@@ -113,9 +129,9 @@
 
 
 
-  <link rel="canonical" href="http://blog.prozin.xyz/"/>
+  <link rel="canonical" href="http://blog.prozin.xyz/2016/09/16/macos使用github+hexo搭建自己的博客/"/>
 
-  <title> 谢盒盒的小黑屋 </title>
+  <title> Mac OS使用github+hexo搭建自己的博客 | 谢盒盒的小黑屋 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -136,9 +152,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left 
-   page-home 
- ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -215,9 +229,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
   
@@ -237,10 +251,7 @@
             
             
               
-                
-                <a class="post-title-link" href="/2016/09/16/macos使用github+hexo搭建自己的博客/" itemprop="url">
-                  Mac OS使用github+hexo搭建自己的博客
-                </a>
+                Mac OS使用github+hexo搭建自己的博客
               
             
           </h1>
@@ -306,9 +317,7 @@
       
 
       
-        
-          
-            <p>虽然这样的博客已经很多的，但是自己在搭建的事后还是遇到了不少问题，而且是在我看了好几篇文章的情况下。<br>我觉得主要还是不熟悉，但是谁一开始就会对自己没做过的事情熟悉呢？</p>
+        <p>虽然这样的博客已经很多的，但是自己在搭建的事后还是遇到了不少问题，而且是在我看了好几篇文章的情况下。<br>我觉得主要还是不熟悉，但是谁一开始就会对自己没做过的事情熟悉呢？</p>
 <p>所以我写这篇博客记录一下自己的搭建过程，自己博客的第一篇内容，也算是帮助想要搭建博客的人多一条参考。</p>
 <hr>
 <p>本次搭建主要是参考了以下两篇文章：</p>
@@ -378,36 +387,47 @@ tags: [hexo,github] #文章标签，多于一项时用这种格式
 <p>###6.访问</p>
 <p>以我的地址为例：<a href="https://paradoxie(替换用户名).github.io/" target="_blank" rel="external">https://paradoxie(替换用户名).github.io/</a></p>
 
-          
+      
+    </div>
+
+    <div>
+      
         
+
       
     </div>
 
     <div>
       
-    </div>
+        
 
-    <div>
       
     </div>
 
     <footer class="post-footer">
       
-
+        <div class="post-tags">
+          
+            <a href="/tags/hexo/" rel="tag">#hexo</a>
+          
+            <a href="/tags/github/" rel="tag">#github</a>
+          
+        </div>
       
 
       
+
       
-        <div class="post-eof"></div>
       
     </footer>
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -415,6 +435,14 @@ tags: [hexo,github] #文章标签，多于一项时用这种格式
 
 
           
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/09/16/macos使用github+hexo搭建自己的博客/"
+           data-title="Mac OS使用github+hexo搭建自己的博客" data-url="http://blog.prozin.xyz/2016/09/16/macos使用github+hexo搭建自己的博客/">
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -434,8 +462,17 @@ tags: [hexo,github] #文章标签，多于一项时用这种格式
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.jpeg"
@@ -485,6 +522,17 @@ tags: [hexo,github] #文章标签，多于一项时用这种格式
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <p class="post-toc-empty">此文章未包含目录</p>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -588,6 +636,10 @@ tags: [hexo,github] #文章标签，多于一项时用这种格式
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
 
   
 
