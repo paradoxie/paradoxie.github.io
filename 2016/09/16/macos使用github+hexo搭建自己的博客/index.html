@@ -1,0 +1,867 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="hexo,github," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="虽然这样的博客已经很多的，但是自己在搭建的事后还是遇到了不少问题，而且是在我看了好几篇文章的情况下。我觉得主要还是不熟悉，但是谁一开始就会对自己没做过的事情熟悉呢？
+所以我写这篇博客记录一下自己的搭建过程，自己博客的第一篇内容，也算是帮助想要搭建博客的人多一条参考。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Mac OS使用github+hexo搭建自己的博客">
+<meta property="og:url" content="http://blog.prozin.xyz/2016/09/16/macos使用github+hexo搭建自己的博客/index.html">
+<meta property="og:site_name" content="谢盒盒的小黑屋">
+<meta property="og:description" content="虽然这样的博客已经很多的，但是自己在搭建的事后还是遇到了不少问题，而且是在我看了好几篇文章的情况下。我觉得主要还是不熟悉，但是谁一开始就会对自己没做过的事情熟悉呢？
+所以我写这篇博客记录一下自己的搭建过程，自己博客的第一篇内容，也算是帮助想要搭建博客的人多一条参考。">
+<meta property="og:updated_time" content="2016-09-16T04:43:35.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Mac OS使用github+hexo搭建自己的博客">
+<meta name="twitter:description" content="虽然这样的博客已经很多的，但是自己在搭建的事后还是遇到了不少问题，而且是在我看了好几篇文章的情况下。我觉得主要还是不熟悉，但是谁一开始就会对自己没做过的事情熟悉呢？
+所以我写这篇博客记录一下自己的搭建过程，自己博客的第一篇内容，也算是帮助想要搭建博客的人多一条参考。">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 6330556493342967000,
+      author: 'paradoxie'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://blog.prozin.xyz/2016/09/16/macos使用github+hexo搭建自己的博客/"/>
+
+  <title> Mac OS使用github+hexo搭建自己的博客 | 谢盒盒的小黑屋 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-84302302-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">谢盒盒的小黑屋</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">the boxie in the paradox</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Mac OS使用github+hexo搭建自己的博客
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-09-16T00:15:29+08:00" content="2016-09-16">
+              2016-09-16
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/hexo/" itemprop="url" rel="index">
+                    <span itemprop="name">hexo</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/09/16/macos使用github+hexo搭建自己的博客/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/16/macos使用github+hexo搭建自己的博客/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>虽然这样的博客已经很多的，但是自己在搭建的事后还是遇到了不少问题，而且是在我看了好几篇文章的情况下。<br>我觉得主要还是不熟悉，但是谁一开始就会对自己没做过的事情熟悉呢？</p>
+<p>所以我写这篇博客记录一下自己的搭建过程，自己博客的第一篇内容，也算是帮助想要搭建博客的人多一条参考。</p>
+<a id="more"></a>
+<hr>
+<p>本次搭建主要是参考了以下两篇文章：</p>
+<p>1.<a href="http://www.jianshu.com/p/701b1095da11" target="_blank" rel="external">手把手教你建github技术博客</a></p>
+<p>2.<a href="http://www.jianshu.com/p/0823e387c019" target="_blank" rel="external">CentOS下搭建Hexo + github 博客</a></p>
+<p>所以能看到这篇博客的朋友，可以根据上面两篇对照着看，确保自己踩坑量达到最少。</p>
+<hr>
+<h2 id="好，开始"><a href="#好，开始" class="headerlink" title="好，开始"></a>好，开始</h2><p>先讲讲思路：</p>
+<p>①. 本地在一个特定的环境(hexo文件夹)中写文章(语法markdown)。</p>
+<p>②. 利用命令行把项目『编译』成静态网页(node.js)的形式，达到本地可访问的目的。</p>
+<p>③. 在github新建一个仓库，命名要求：你的github用户名.github.io。(注：用户名就是你新建一个仓库过后，项目名的【/】前面那个)</p>
+<p>④. 配置自己生成的SSH密钥到github，达到链接github的作用。</p>
+<p>⑤. 配置hexo里面的_config.yml文件，这里面倒数第二行的repo: 关键字，链接第三步的仓库用，值为仓库地址。</p>
+<p>⑥. 然后就是hexo的几个常用命令的用法了，新建-&gt;编辑—&gt;部署。</p>
+<pre><code>新建文章：hexo new &quot;标题&quot;
+
+发布之前清除缓存：hexo clean
+
+生成静态页面：hexo generate
+
+本地预览，localhost:4000可访问看看效果：hexo server #&apos;Ctrl+C&apos;关闭
+
+部署到github，外网可访问：hexo deploy
+
+以下信息表示部署成功即可访问：[info] Deploy done: git
+</code></pre><hr>
+<h3 id="1-前提准备工作"><a href="#1-前提准备工作" class="headerlink" title="1.前提准备工作"></a>1.前提准备工作</h3><p>①. 有自己的git环境，没有的去安装，环境变量什么的该弄好弄好。</p>
+<p>②. 熟悉github的套路，至少会新建项目以及clone过别人的项目。</p>
+<p>③. 会用MarkDown语法，可以不用熟悉，写博客的时候临时百度也是可以的。</p>
+<p>④. 安装<a href="https://nodejs.org/en/" target="_blank" rel="external">Node.js</a>环境，一路安装就行了，静态网页依赖于这个。</p>
+<h3 id="2-安装hexo"><a href="#2-安装hexo" class="headerlink" title="2.安装hexo"></a>2.安装hexo</h3><p>①. 命令行输入：</p>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm <span class="keyword">install</span> -g hexo</div></pre></td></tr></table></figure>
+<p>②. 在想要存放博客文章的位置新建一个hexo文件夹，比如我直接在Documents文件夹新建的。</p>
+<p>③. 命令行切换到hexo路径下，执行以下命令：</p>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">hexo init</span></div></pre></td></tr></table></figure>
+<p>安装依赖包</p>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm <span class="keyword">install</span></div></pre></td></tr></table></figure>
+<h4 id="这样本地的事情就算完了，利用本地地址应该可以访问到了。接下来是如何跟github街上关系，使得大家都能通过互联网访问。"><a href="#这样本地的事情就算完了，利用本地地址应该可以访问到了。接下来是如何跟github街上关系，使得大家都能通过互联网访问。" class="headerlink" title="这样本地的事情就算完了，利用本地地址应该可以访问到了。接下来是如何跟github街上关系，使得大家都能通过互联网访问。"></a>这样本地的事情就算完了，利用本地地址应该可以访问到了。接下来是如何跟github街上关系，使得大家都能通过互联网访问。</h4><h3 id="3-连接github"><a href="#3-连接github" class="headerlink" title="3.连接github"></a>3.连接github</h3><p>①.    新建仓库，仓库名需要和你的账号对应，格式：yourname.github.io，拿我的举例：paradoxie.github.io</p>
+<p>②. 本地生成SSH密钥，命令行：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">ssh-keygen</span> <span class="selector-tag">-t</span> <span class="selector-tag">rsa</span> <span class="selector-tag">-C</span> <span class="selector-tag">paradoxieix</span>@<span class="keyword">gmail</span>.<span class="keyword">com</span></div></pre></td></tr></table></figure>
+<p>主要C后面的邮箱地址替换成自己的。然后应该回让设置密码，可以全部为空。然后我在我的/Users/用户名/.ssh路径下看到了两个新生成的东西：id_rsa和id_rsa.pub，我们需要复制.pub里面的全部内容，最好用sublime打开。</p>
+<p>③. 打开<a href="https://github.com/settings/ssh，点击New" target="_blank" rel="external">https://github.com/settings/ssh，点击New</a> SSH key,然后粘贴.pub里面的全部内容进去，然后Add SSH key.</p>
+<p>④.然后在hexo文件夹内找到_config.yml配置文件，sublime打开编辑</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Hexo Configuration  </span></div><div class="line"><span class="comment">## Docs: https://hexo.io/docs/configuration.html</span></div><div class="line"><span class="comment">## Source: https://github.com/hexojs/hexo/</span></div><div class="line"></div><div class="line"><span class="comment"># Site 站点信息设置</span></div><div class="line"><span class="attr">title:</span>  <span class="comment">#站名</span></div><div class="line"><span class="attr">subtitle:</span>  <span class="comment">#副标题</span></div><div class="line"><span class="attr">description:</span> <span class="comment">#站描述</span></div><div class="line"><span class="attr">author:</span>  <span class="comment">#作者</span></div><div class="line"><span class="attr">language:</span> zh-CN <span class="comment">#语言</span></div><div class="line"><span class="attr">timezone:</span></div><div class="line"></div><div class="line"><span class="comment"># URL 链接设置</span></div><div class="line"><span class="comment">## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'</span></div><div class="line"><span class="attr">url:</span> http://blog.prozin.xyz</div><div class="line"><span class="attr">root:</span> /</div><div class="line"><span class="attr">permalink:</span> :year/:month/:day/:title/</div><div class="line"><span class="attr">permalink_defaults:</span></div><div class="line"></div><div class="line"><span class="comment"># Directory 文件目录</span></div><div class="line"><span class="attr">source_dir:</span> source</div><div class="line"><span class="attr">public_dir:</span> public</div><div class="line"><span class="attr">tag_dir:</span> tags</div><div class="line"><span class="attr">archive_dir:</span> archives</div><div class="line"><span class="attr">category_dir:</span> categories</div><div class="line"><span class="attr">code_dir:</span> downloads/code</div><div class="line"><span class="attr">i18n_dir:</span> :lang</div><div class="line"><span class="attr">skip_render:</span></div><div class="line"></div><div class="line"><span class="comment"># Writing 文章</span></div><div class="line"><span class="attr">new_post_name:</span> :title.md <span class="comment"># File name of new posts</span></div><div class="line"><span class="attr">default_layout:</span> post</div><div class="line"><span class="attr">titlecase:</span> <span class="literal">false</span> <span class="comment"># Transform title into titlecase</span></div><div class="line"><span class="attr">external_link:</span> <span class="literal">true</span> <span class="comment"># Open external links in new tab</span></div><div class="line"><span class="attr">filename_case:</span> <span class="number">0</span></div><div class="line"><span class="attr">render_drafts:</span> <span class="literal">false</span></div><div class="line"><span class="attr">post_asset_folder:</span> <span class="literal">false</span></div><div class="line"><span class="attr">relative_link:</span> <span class="literal">false</span></div><div class="line"><span class="attr">future:</span> <span class="literal">true</span></div><div class="line"><span class="attr">highlight:</span></div><div class="line"><span class="attr">  enable:</span> <span class="literal">true</span></div><div class="line"><span class="attr">  line_number:</span> <span class="literal">true</span></div><div class="line"><span class="attr">  auto_detect:</span> <span class="literal">true</span></div><div class="line"><span class="attr">  tab_replace:</span></div><div class="line"></div><div class="line"><span class="comment"># Category &amp; Tag</span></div><div class="line"><span class="attr">default_category:</span> uncategorized</div><div class="line"><span class="attr">category_map:</span></div><div class="line"><span class="attr">tag_map:</span></div><div class="line"></div><div class="line"><span class="comment"># Date / Time format 日期</span></div><div class="line"><span class="comment">## Hexo uses Moment.js to parse and display date</span></div><div class="line"><span class="comment">## You can customize the date format as defined in</span></div><div class="line"><span class="comment">## http://momentjs.com/docs/#/displaying/format/</span></div><div class="line"><span class="attr">date_format:</span> YYYY-MM-DD</div><div class="line"><span class="attr">time_format:</span> HH:mm:ss</div><div class="line"></div><div class="line"><span class="comment"># Pagination 分页</span></div><div class="line"><span class="comment">## Set per_page to 0 to disable pagination</span></div><div class="line"><span class="attr">per_page:</span> <span class="number">20</span></div><div class="line"><span class="attr">pagination_dir:</span> page</div><div class="line"></div><div class="line"><span class="comment"># Extensions 扩展</span></div><div class="line"><span class="comment">## Plugins: https://hexo.io/plugins/</span></div><div class="line"><span class="comment">## Themes: https://hexo.io/themes/</span></div><div class="line"><span class="attr">theme:</span> landscape <span class="comment">#默认主题</span></div><div class="line"></div><div class="line"><span class="comment"># Deployment 这里设置了Git获</span></div><div class="line"><span class="comment">#这里一定要注意不要写错了，否则部署到Github上会出问题</span></div><div class="line"><span class="comment">## Docs: https://hexo.io/docs/deployment.html</span></div><div class="line"><span class="attr">deploy:</span></div><div class="line"><span class="attr">  type:</span> git</div><div class="line"><span class="attr">  repo:</span> 仓库地址</div><div class="line"><span class="attr">  branch:</span> master</div><div class="line"><span class="attr">  message:</span> <span class="string">'站点更新:<span class="template-variable">&#123;&#123;now("YYYY-MM-DD HH/mm/ss")&#125;&#125;</span>'</span></div></pre></td></tr></table></figure>
+<h4 id="以上部分有个坑需要注意：——-“-”后面都有一个空格。"><a href="#以上部分有个坑需要注意：——-“-”后面都有一个空格。" class="headerlink" title="以上部分有个坑需要注意：——   “:”后面都有一个空格。"></a>以上部分有个坑需要注意：——   “:”后面都有一个空格。</h4><p>保存后退出，执行生成网页命令，然后部署命令，部署成功后就可以访问了。</p>
+<h3 id="4-更改主题"><a href="#4-更改主题" class="headerlink" title="4.更改主题"></a>4.更改主题</h3><p>默认的主题虽然也不错，但是一般大家还有更好的选择：NexT</p>
+<p>①. 切换到hexo目录下，执行拉去NexT主题项目的命令。<br>②. 好吧具体的流程在这里：<a href="http://theme-next.iissnan.com/getting-started.html" target="_blank" rel="external">NexT的配置使用</a></p>
+<h3 id="5-博客"><a href="#5-博客" class="headerlink" title="5.博客"></a>5.博客</h3><p>①. 命令：</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo <span class="keyword">new</span> <span class="string">"标题"</span></div></pre></td></tr></table></figure>
+<p>后会在sourse/ _posts文件夹下生 .md文件，然后就可以编辑内容了</p>
+<pre><code>title: Hello World
+date: 2015-07-30 07:56:29 #发表日期，一般不改动
+categories: hexo #文章文类
+tags: [hexo,github] #文章标签，多于一项时用这种格式
+---
+正文，使用Markdown语法书写
+</code></pre><p>②. 发布</p>
+<figure class="highlight verilog"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">hexo clean</div><div class="line">hexo <span class="keyword">generate</span></div><div class="line">hexo deploy</div></pre></td></tr></table></figure>
+<p><strong>以下信息表示部署成功即可访问：[info] Deploy done: git
+</strong></p>
+<h3 id="6-访问"><a href="#6-访问" class="headerlink" title="6.访问"></a>6.访问</h3><p>以我的地址为例：<a href="https://paradoxie(替换用户名).github.io/" target="_blank" rel="external">https://paradoxie(替换用户名).github.io/</a></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/hexo/" rel="tag">#hexo</a>
+          
+            <a href="/tags/github/" rel="tag">#github</a>
+          
+        </div>
+      
+
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2016/09/16/macos使用github+hexo搭建自己的博客/"
+     data-title="Mac OS使用github+hexo搭建自己的博客"
+     data-content=""
+     data-url="http://blog.prozin.xyz/2016/09/16/macos使用github+hexo搭建自己的博客/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  <p>热评文章</p>
+  <div class="ds-top-threads" data-range="weekly" data-num-items="4"></div>
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/09/16/macos使用github+hexo搭建自己的博客/"
+           data-title="Mac OS使用github+hexo搭建自己的博客" data-url="http://blog.prozin.xyz/2016/09/16/macos使用github+hexo搭建自己的博客/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpeg"
+               alt="paradoxie" />
+          <p class="site-author-name" itemprop="name">paradoxie</p>
+          <p class="site-description motion-element" itemprop="description">终于有自己的技术博客啦</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">1</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/paradoxie" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#好，开始"><span class="nav-number">1.</span> <span class="nav-text">好，开始</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-前提准备工作"><span class="nav-number">1.1.</span> <span class="nav-text">1.前提准备工作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-安装hexo"><span class="nav-number">1.2.</span> <span class="nav-text">2.安装hexo</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#这样本地的事情就算完了，利用本地地址应该可以访问到了。接下来是如何跟github街上关系，使得大家都能通过互联网访问。"><span class="nav-number">1.2.1.</span> <span class="nav-text">这样本地的事情就算完了，利用本地地址应该可以访问到了。接下来是如何跟github街上关系，使得大家都能通过互联网访问。</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-连接github"><span class="nav-number">1.3.</span> <span class="nav-text">3.连接github</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#以上部分有个坑需要注意：——-“-”后面都有一个空格。"><span class="nav-number">1.3.1.</span> <span class="nav-text">以上部分有个坑需要注意：——   “:”后面都有一个空格。</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-更改主题"><span class="nav-number">1.4.</span> <span class="nav-text">4.更改主题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-博客"><span class="nav-number">1.5.</span> <span class="nav-text">5.博客</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-访问"><span class="nav-number">1.6.</span> <span class="nav-text">6.访问</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">paradoxie</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"paradoxie"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+       search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+            // get the contents from search data
+            isfetched = true;
+            $('.popup').detach().appendTo('.header-inner');
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "url" , this).text()
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var matchcounts = 0;
+                var str='<ul class=\"search-result-list\">';
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length > 1) {
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = true;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '' && data_content != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title < 0 && index_content < 0 ){
+                                isMatch = false;
+                            } else {
+                                if (index_content < 0) {
+                                    index_content = 0;
+                                }
+                                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            }
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+                        matchcounts += 1;
+                        str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 50;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substring(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                            });
+
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                })};
+                str += "</ul>";
+                if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+                if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+                $resultContent.innerHTML = str;
+            });
+            proceedsearch();
+        }
+    });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+
+  
+
+  
+
+</body>
+</html>
