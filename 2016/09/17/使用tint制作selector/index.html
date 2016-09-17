@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Android,Android UI," />
 
 
 
@@ -84,15 +84,23 @@
 
 
 
-<meta name="description" content="终于有自己的技术博客啦">
-<meta property="og:type" content="website">
-<meta property="og:title" content="谢盒盒的小黑屋">
-<meta property="og:url" content="http://blog.prozin.xyz/categories/hexo/index.html">
+<meta name="description" content="Android 有时候制作按下的效果挺麻烦的，得放色值不同的两张图，这个就比较尴尬了，明明是相同的资源。现在Android Material Design 中提供了一个东西：Tint，一张矢量图是能适配所有的颜色。
+tip:内有音乐自动播放。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android使用tint一张图制作selector">
+<meta property="og:url" content="http://blog.prozin.xyz/2016/09/17/使用tint制作selector/index.html">
 <meta property="og:site_name" content="谢盒盒的小黑屋">
-<meta property="og:description" content="终于有自己的技术博客啦">
+<meta property="og:description" content="Android 有时候制作按下的效果挺麻烦的，得放色值不同的两张图，这个就比较尴尬了，明明是相同的资源。现在Android Material Design 中提供了一个东西：Tint，一张矢量图是能适配所有的颜色。
+tip:内有音乐自动播放。">
+<meta property="og:image" content="http://img.blog.csdn.net/20150814145505737">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1916953-d516fd40ac84f38f.gif?imageMogr2/auto-orient/strip&_=1984448366">
+<meta property="og:image" content="http://img.blog.csdn.net/20141122233658247">
+<meta property="og:updated_time" content="2016-09-17T16:45:32.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="谢盒盒的小黑屋">
-<meta name="twitter:description" content="终于有自己的技术博客啦">
+<meta name="twitter:title" content="Android使用tint一张图制作selector">
+<meta name="twitter:description" content="Android 有时候制作按下的效果挺麻烦的，得放色值不同的两张图，这个就比较尴尬了，明明是相同的资源。现在Android Material Design 中提供了一个东西：Tint，一张矢量图是能适配所有的颜色。
+tip:内有音乐自动播放。">
+<meta name="twitter:image" content="http://img.blog.csdn.net/20150814145505737">
 
 
 
@@ -113,9 +121,9 @@
 
 
 
-  <link rel="canonical" href="http://blog.prozin.xyz/categories/hexo/"/>
+  <link rel="canonical" href="http://blog.prozin.xyz/2016/09/17/使用tint制作selector/"/>
 
-  <title> 分类: hexo | 谢盒盒的小黑屋 </title>
+  <title> Android使用tint一张图制作selector | 谢盒盒的小黑屋 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -145,7 +153,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -276,54 +284,257 @@
           <div id="content" class="content">
             
 
-  <section id="posts" class="posts-collapse">
-    <div class="collection-title">
-      <h2 >
-        hexo
-        <small>分类</small>
-      </h2>
-    </div>
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
 
     
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Android使用tint一张图制作selector
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-09-17T23:29:07+08:00" content="2016-09-17">
+              2016-09-17
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/09/17/使用tint制作selector/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/17/使用tint制作selector/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/09/17/使用tint制作selector/" class="leancloud_visitors" data-flag-title="Android使用tint一张图制作selector">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+              &nbsp; | &nbsp;
+              <span class="page-pv"><i class="fa fa-file-o"></i>
+              <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+              </span>
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
       
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+      
+        <p>Android 有时候制作按下的效果挺麻烦的，得放色值不同的两张图，这个就比较尴尬了，明明是相同的资源。现在Android Material Design 中提供了一个东西：Tint，一张矢量图是能适配所有的颜色。</p>
+<p>tip:内有音乐自动播放。</p>
+<a id="more"></a>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="http://music.163.com/outchain/player?type=2&id=35476049&auto=1&height=66"></iframe>
 
-      <h1 class="post-title">
+<hr>
+<h1 id="1-首先这个东西可以直接对-ImageView-上色渲染"><a href="#1-首先这个东西可以直接对-ImageView-上色渲染" class="headerlink" title="1.首先这个东西可以直接对 ImageView 上色渲染"></a>1.首先这个东西可以直接对 ImageView 上色渲染</h1><p>如下，相同的两个图，使用 tint 改变颜色:</p>
+<pre><code>&lt;ImageView
+    android:layout_width=&quot;wrap_content&quot;
+    android:layout_height=&quot;wrap_content&quot;
+    android:layout_margin=&quot;10dp&quot;
+    android:src=&quot;@mipmap/ic_launcher&quot; /&gt;
+
+&lt;ImageView
+    android:layout_width=&quot;wrap_content&quot;
+    android:layout_height=&quot;wrap_content&quot;
+    android:layout_margin=&quot;10dp&quot;
+    android:src=&quot;@mipmap/ic_launcher&quot;
+    android:tint=&quot;#FFF&quot; /&gt;
+</code></pre><h1 id="2-使用-tint-制作selector"><a href="#2-使用-tint-制作selector" class="headerlink" title="2.使用 tint 制作selector"></a>2.使用 tint 制作selector</h1><h2 id="以下为成品的-selector，selector-bg-xml"><a href="#以下为成品的-selector，selector-bg-xml" class="headerlink" title="以下为成品的 selector，selector_bg.xml:"></a>以下为成品的 selector，selector_bg.xml:</h2><pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;selector xmlns:android=&quot;http://schemas.android.com/    apk/res/android&quot;&gt;
+    &lt;item android:drawable=&quot;@drawable/btn_begin_pressed&quot; android:state_pressed=&quot;true&quot;&gt;
+    &lt;/item&gt;
+    &lt;item android:drawable=&quot;@drawable/btn_begin&quot;&gt;
+    &lt;/item&gt;
+&lt;/selector&gt;
+</code></pre><p>其中btn_begin为png图片，而btn_begin_pressed则是使用此图进行tint着色后的xml文件.</p>
+<h2 id="btn-begin-pressed-xml"><a href="#btn-begin-pressed-xml" class="headerlink" title="btn_begin_pressed.xml:"></a>btn_begin_pressed.xml:</h2><pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;bitmap xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+    android:src=&quot;@drawable/btn_begin_down&quot;
+    android:tint=&quot;#7b5b5b&quot;
+    android:tintMode=&quot;multiply&quot;&gt;
+&lt;/bitmap&gt;
+</code></pre><p>android:tint： 设置的是颜色</p>
+<p>android:tintMode：设置的是类型(src_in,src_over,src_atop,add,screen,multiply)</p>
+<p>各个属性效果如图：</p>
+<p><img src="http://img.blog.csdn.net/20150814145505737" alt="tinMode"></p>
+<p><strong>然后不管在xml布局中android:background，还是java代码setBackgroundResource，都可以直接使用成品背景图了</strong></p>
+<h1 id="3-改变MD下的-EditText-背景色和光标颜色"><a href="#3-改变MD下的-EditText-背景色和光标颜色" class="headerlink" title="3.改变MD下的 EditText 背景色和光标颜色"></a>3.改变MD下的 EditText 背景色和光标颜色</h1><p>为了实现 Material Design的效果，使用的主题里的颜色配置比如 primaryColor，colorControlNormal，colorControlActived什么的会让 EditText 自动适配背景颜色，<br>其实现方式就是使用了 tint ,如下图:</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1916953-d516fd40ac84f38f.gif?imageMogr2/auto-orient/strip&amp;_=1984448366" alt="随便举个栗子"></p>
+<p>先不用在意那个 TextInputLayout,看背景色，对就是那条线./抠鼻~<br>然后我们不想用这个颜色怎么办捏？</p>
+<p>对于那条线可以直接设置:</p>
+<pre><code>android:backgroundTint=&quot;@color/颜色&quot;
+</code></pre><p>额，那个光标也想改了？？需要新建一个 cursor_shape.xml:</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;shape xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot; &gt;
+        &lt;size android:width=&quot;1dp&quot; /&gt;
+    &lt;solid android:color=&quot;@color/颜色&quot; /&gt;
+&lt;/shape&gt;
+</code></pre><p>然后就可以设置:</p>
+<pre><code>android:textCursorDrawable=&quot;@drawable/cursor_shape&quot;
+</code></pre><h1 id="4-关于-tint-的源码分析参考："><a href="#4-关于-tint-的源码分析参考：" class="headerlink" title="4.关于 tint 的源码分析参考："></a>4.关于 tint 的源码分析参考：</h1><p><a href="https://segmentfault.com/a/1190000003038675" target="_blank" rel="external">谈谈Android Material Design 中的Tint（着色）</a></p>
+<h1 id="5-再说点儿"><a href="#5-再说点儿" class="headerlink" title="5.再说点儿"></a>5.再说点儿</h1><p>说到了 tint 着色，不得不提一下Android5.0加入的取色器：Palette,可以根据Bitmap显示出来的东西提取颜色，然后到处 set，达到背景或者 toolBar 和图片达到和谐，看看效果：</p>
+<p><img src="http://img.blog.csdn.net/20141122233658247" alt="MD大法好"></p>
+<p>好吧随便盗的图，就提一下这个东西，还没有 Demo…</p>
+<hr>
+<p>本文来自：<a href="http://www.paradoxie.tk/" target="_blank" rel="external">谢盒盒的小黑屋</a>，感谢阅读(<em>^__^</em>)~</p>
+
+      
+    </div>
+
+    <div>
+      
         
-            <a class="post-title-link" href="/2016/09/16/macos使用github+hexo搭建自己的博客/" itemprop="url">
-              
-                <span itemprop="name">Mac OS使用github+hexo搭建自己的博客</span>
-              
-            </a>
+
+      
+    </div>
+
+    <div>
+      
         
-      </h1>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-09-16T00:15:29+08:00"
-              content="2016-09-16" >
-          09-16
-        </time>
-      </div>
+      
+    </div>
 
-    </header>
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Android/" rel="tag">#Android</a>
+          
+            <a href="/tags/Android-UI/" rel="tag">#Android UI</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/09/17/博客需要完善的/" rel="next" title="博客需要完善的">
+                <i class="fa fa-chevron-left"></i> 博客需要完善的
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2016/09/17/使用tint制作selector/"
+     data-title="Android使用tint一张图制作selector"
+     data-content=""
+     data-url="http://blog.prozin.xyz/2016/09/17/使用tint制作selector/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
 
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
 
 
           </div>
           
 
+  <p>热评文章</p>
+  <div class="ds-top-threads" data-range="weekly" data-num-items="4"></div>
+
 
           
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/09/17/使用tint制作selector/"
+           data-title="Android使用tint一张图制作selector" data-url="http://blog.prozin.xyz/2016/09/17/使用tint制作selector/">
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -343,8 +554,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.jpg"
@@ -405,6 +625,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-首先这个东西可以直接对-ImageView-上色渲染"><span class="nav-number">1.</span> <span class="nav-text">1.首先这个东西可以直接对 ImageView 上色渲染</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-使用-tint-制作selector"><span class="nav-number">2.</span> <span class="nav-text">2.使用 tint 制作selector</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#以下为成品的-selector，selector-bg-xml"><span class="nav-number">2.1.</span> <span class="nav-text">以下为成品的 selector，selector_bg.xml:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#btn-begin-pressed-xml"><span class="nav-number">2.2.</span> <span class="nav-text">btn_begin_pressed.xml:</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-改变MD下的-EditText-背景色和光标颜色"><span class="nav-number">3.</span> <span class="nav-text">3.改变MD下的 EditText 背景色和光标颜色</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-关于-tint-的源码分析参考："><span class="nav-number">4.</span> <span class="nav-text">4.关于 tint 的源码分析参考：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-再说点儿"><span class="nav-number">5.</span> <span class="nav-text">5.再说点儿</span></a></li></ol></div>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -524,6 +755,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
 
   
 

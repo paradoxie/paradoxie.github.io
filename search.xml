@@ -4,6 +4,69 @@
   
     
     <entry>
+      <title><![CDATA[Android使用tint一张图制作selector]]></title>
+      <url>http://blog.prozin.xyz/2016/09/17/%E4%BD%BF%E7%94%A8tint%E5%88%B6%E4%BD%9Cselector/</url>
+      <content type="html"><![CDATA[<p>Android 有时候制作按下的效果挺麻烦的，得放色值不同的两张图，这个就比较尴尬了，明明是相同的资源。现在Android Material Design 中提供了一个东西：Tint，一张矢量图是能适配所有的颜色。</p>
+<p>tip:内有音乐自动播放。</p>
+<a id="more"></a>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="http://music.163.com/outchain/player?type=2&id=35476049&auto=1&height=66"></iframe>
+
+<hr>
+<h1 id="1-首先这个东西可以直接对-ImageView-上色渲染"><a href="#1-首先这个东西可以直接对-ImageView-上色渲染" class="headerlink" title="1.首先这个东西可以直接对 ImageView 上色渲染"></a>1.首先这个东西可以直接对 ImageView 上色渲染</h1><p>如下，相同的两个图，使用 tint 改变颜色:</p>
+<pre><code>&lt;ImageView
+    android:layout_width=&quot;wrap_content&quot;
+    android:layout_height=&quot;wrap_content&quot;
+    android:layout_margin=&quot;10dp&quot;
+    android:src=&quot;@mipmap/ic_launcher&quot; /&gt;
+
+&lt;ImageView
+    android:layout_width=&quot;wrap_content&quot;
+    android:layout_height=&quot;wrap_content&quot;
+    android:layout_margin=&quot;10dp&quot;
+    android:src=&quot;@mipmap/ic_launcher&quot;
+    android:tint=&quot;#FFF&quot; /&gt;
+</code></pre><h1 id="2-使用-tint-制作selector"><a href="#2-使用-tint-制作selector" class="headerlink" title="2.使用 tint 制作selector"></a>2.使用 tint 制作selector</h1><h2 id="以下为成品的-selector，selector-bg-xml"><a href="#以下为成品的-selector，selector-bg-xml" class="headerlink" title="以下为成品的 selector，selector_bg.xml:"></a>以下为成品的 selector，selector_bg.xml:</h2><pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;selector xmlns:android=&quot;http://schemas.android.com/    apk/res/android&quot;&gt;
+    &lt;item android:drawable=&quot;@drawable/btn_begin_pressed&quot; android:state_pressed=&quot;true&quot;&gt;
+    &lt;/item&gt;
+    &lt;item android:drawable=&quot;@drawable/btn_begin&quot;&gt;
+    &lt;/item&gt;
+&lt;/selector&gt;
+</code></pre><p>其中btn_begin为png图片，而btn_begin_pressed则是使用此图进行tint着色后的xml文件.</p>
+<h2 id="btn-begin-pressed-xml"><a href="#btn-begin-pressed-xml" class="headerlink" title="btn_begin_pressed.xml:"></a>btn_begin_pressed.xml:</h2><pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;bitmap xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+    android:src=&quot;@drawable/btn_begin_down&quot;
+    android:tint=&quot;#7b5b5b&quot;
+    android:tintMode=&quot;multiply&quot;&gt;
+&lt;/bitmap&gt;
+</code></pre><p>android:tint： 设置的是颜色</p>
+<p>android:tintMode：设置的是类型(src_in,src_over,src_atop,add,screen,multiply)</p>
+<p>各个属性效果如图：</p>
+<p><img src="http://img.blog.csdn.net/20150814145505737" alt="tinMode"></p>
+<p><strong>然后不管在xml布局中android:background，还是java代码setBackgroundResource，都可以直接使用成品背景图了</strong></p>
+<h1 id="3-改变MD下的-EditText-背景色和光标颜色"><a href="#3-改变MD下的-EditText-背景色和光标颜色" class="headerlink" title="3.改变MD下的 EditText 背景色和光标颜色"></a>3.改变MD下的 EditText 背景色和光标颜色</h1><p>为了实现 Material Design的效果，使用的主题里的颜色配置比如 primaryColor，colorControlNormal，colorControlActived什么的会让 EditText 自动适配背景颜色，<br>其实现方式就是使用了 tint ,如下图:</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1916953-d516fd40ac84f38f.gif?imageMogr2/auto-orient/strip&amp;_=1984448366" alt="随便举个栗子"></p>
+<p>先不用在意那个 TextInputLayout,看背景色，对就是那条线./抠鼻~<br>然后我们不想用这个颜色怎么办捏？</p>
+<p>对于那条线可以直接设置:</p>
+<pre><code>android:backgroundTint=&quot;@color/颜色&quot;
+</code></pre><p>额，那个光标也想改了？？需要新建一个 cursor_shape.xml:</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;shape xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot; &gt;
+        &lt;size android:width=&quot;1dp&quot; /&gt;
+    &lt;solid android:color=&quot;@color/颜色&quot; /&gt;
+&lt;/shape&gt;
+</code></pre><p>然后就可以设置:</p>
+<pre><code>android:textCursorDrawable=&quot;@drawable/cursor_shape&quot;
+</code></pre><h1 id="4-关于-tint-的源码分析参考："><a href="#4-关于-tint-的源码分析参考：" class="headerlink" title="4.关于 tint 的源码分析参考："></a>4.关于 tint 的源码分析参考：</h1><p><a href="https://segmentfault.com/a/1190000003038675" target="_blank" rel="external">谈谈Android Material Design 中的Tint（着色）</a></p>
+<h1 id="5-再说点儿"><a href="#5-再说点儿" class="headerlink" title="5.再说点儿"></a>5.再说点儿</h1><p>说到了 tint 着色，不得不提一下Android5.0加入的取色器：Palette,可以根据Bitmap显示出来的东西提取颜色，然后到处 set，达到背景或者 toolBar 和图片达到和谐，看看效果：</p>
+<p><img src="http://img.blog.csdn.net/20141122233658247" alt="MD大法好"></p>
+<p>好吧随便盗的图，就提一下这个东西，还没有 Demo…</p>
+<hr>
+<p>本文来自：<a href="http://www.paradoxie.tk/" target="_blank" rel="external">谢盒盒的小黑屋</a>，感谢阅读(<em>^__^</em>)~</p>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[博客需要完善的]]></title>
       <url>http://blog.prozin.xyz/2016/09/17/%E5%8D%9A%E5%AE%A2%E9%9C%80%E8%A6%81%E5%AE%8C%E5%96%84%E7%9A%84/</url>
       <content type="html"><![CDATA[<p>一边装饰环境，一边发布博客咯，记录一些开发中遇到的可以模块化的东西，管它简不简单容不容易实现呢~<br><a id="more"></a></p>
