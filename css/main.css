@@ -1549,7 +1549,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #463ca8;
+  background: #2da68c;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2034,6 +2034,24 @@ a.search-result {
   left: 44%;
   top: 42%;
   color: #ccc;
+}
+#tstart-toolbar-top-jory {
+  top: 0;
+/*最上*/
+  color: #3e3e3e;
+  right: 0;
+  position: fixed;
+  text-align: left;
+  width: 100%;
+  z-index: 10000;
+  overflow: visible;
+}
+#tstart-toolbar-top-jory .tstart-right {
+  float: right; /*在右*/
+  margin: 10px 30px 5px 5px;
+  padding: 10px;
+  -moz-box-shadow: 0px 0px 5px #000;
+  -webkit-box-shadow: 0px 0px 5px #000;
 }
 .busuanzi-count:before {
   content: " ";
