@@ -1,0 +1,1107 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Android studio,ConstraintLayout," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="Google I/O 2016上，Android团队为开发者带来了ConstraintLayout，一种构建于弹性Constraints（约束）系统的新型Android Layout，据说它将大大改变今后的Android布局界面开发方式，据说也许以后Android开发没有那么多布局需要学习，只需要熟悉这一种布局即可。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【译】使用约束布局(ConstraintLayout)构建灵活的UI">
+<meta property="og:url" content="http://blog.prozin.xyz/2016/09/22/constraintlayout/index.html">
+<meta property="og:site_name" content="谢盒盒的小黑屋">
+<meta property="og:description" content="Google I/O 2016上，Android团队为开发者带来了ConstraintLayout，一种构建于弹性Constraints（约束）系统的新型Android Layout，据说它将大大改变今后的Android布局界面开发方式，据说也许以后Android开发没有那么多布局需要学习，只需要熟悉这一种布局即可。">
+<meta property="og:image" content="https://github.com/paradoxie/MarkDownPictures/blob/master/ConstraintLayout/%E5%9B%BE1.png">
+<meta property="og:image" content="https://github.com/paradoxie/MarkDownPictures/blob/master/ConstraintLayout/%E5%9B%BE2.png">
+<meta property="og:image" content="https://github.com/paradoxie/MarkDownPictures/blob/master/ConstraintLayout/%E5%9B%BE3.png">
+<meta property="og:image" content="https://github.com/paradoxie/MarkDownPictures/blob/master/ConstraintLayout/%E5%9B%BE4.png">
+<meta property="og:image" content="https://github.com/paradoxie/MarkDownPictures/blob/master/ConstraintLayout/%E5%9B%BE5.png">
+<meta property="og:image" content="https://github.com/paradoxie/MarkDownPictures/blob/master/ConstraintLayout/%E5%9B%BE6.png">
+<meta property="og:image" content="https://github.com/paradoxie/MarkDownPictures/blob/master/ConstraintLayout/%E5%9B%BE7.png">
+<meta property="og:image" content="https://github.com/paradoxie/MarkDownPictures/blob/master/ConstraintLayout/%E5%9B%BE8.png">
+<meta property="og:image" content="https://github.com/paradoxie/MarkDownPictures/blob/master/ConstraintLayout/%E5%9B%BE9.png">
+<meta property="og:image" content="https://github.com/paradoxie/MarkDownPictures/blob/master/ConstraintLayout/%E5%9B%BE10.png">
+<meta property="og:image" content="https://github.com/paradoxie/MarkDownPictures/blob/master/ConstraintLayout/%E5%9B%BE11.png">
+<meta property="og:updated_time" content="2016-09-22T05:23:54.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="【译】使用约束布局(ConstraintLayout)构建灵活的UI">
+<meta name="twitter:description" content="Google I/O 2016上，Android团队为开发者带来了ConstraintLayout，一种构建于弹性Constraints（约束）系统的新型Android Layout，据说它将大大改变今后的Android布局界面开发方式，据说也许以后Android开发没有那么多布局需要学习，只需要熟悉这一种布局即可。">
+<meta name="twitter:image" content="https://github.com/paradoxie/MarkDownPictures/blob/master/ConstraintLayout/%E5%9B%BE1.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 6330556493342967000,
+      author: 'paradoxie'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://blog.prozin.xyz/2016/09/22/constraintlayout/"/>
+
+  <title> 【译】使用约束布局(ConstraintLayout)构建灵活的UI | 谢盒盒的小黑屋 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-84302302-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">谢盒盒的小黑屋</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">the boxie in the paradox</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                【译】使用约束布局(ConstraintLayout)构建灵活的UI
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-09-22T13:17:02+08:00" content="2016-09-22">
+              2016-09-22
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/09/22/constraintlayout/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/22/constraintlayout/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/09/22/constraintlayout/" class="leancloud_visitors" data-flag-title="【译】使用约束布局(ConstraintLayout)构建灵活的UI">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+              &nbsp; | &nbsp;
+              <span class="page-pv"><i class="fa fa-file-o"></i>
+              <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+              </span>
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>Google I/O 2016上，Android团队为开发者带来了ConstraintLayout，一种构建于弹性Constraints（约束）系统的新型Android Layout，据说它将大大改变今后的Android布局界面开发方式，据说也许以后Android开发没有那么多布局需要学习，只需要熟悉这一种布局即可。</p>
+<a id="more"></a>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言:"></a>前言:</h1><blockquote>
+<p>1.本文系<a href="https://developer.android.com/training内对约束布局(ConstraintLayout)文章的翻译" target="_blank" rel="external">https://developer.android.com/training内对约束布局(ConstraintLayout)文章的翻译</a></p>
+<p>2.阅读本文可以对照原文<a href="https://developer.android.com/training/constraint-layout/index.html#adjust-the-view-margins" target="_blank" rel="external">Build a Responsive UI with ConstraintLayout</a>，科学上网</p>
+<p>3.本文可对照实战入门教程食用：<a href="http://www.jianshu.com/p/792d2682c538" target="_blank" rel="external">安卓约束控件(ConstraintLayout)扁平化布局入门</a></p>
+<p>4.文章内view均翻译为视图，也可理解为控件</p>
+<p>5.文章中涉及的video我还不知道怎么转移哇，要看视频演示的点进原文，还有涉及的一些关键词链接，科学上网你懂的。原文用到的图片我转移到了github，但是github你们也懂的，有时候是真不给力ಥ_ಥ</p>
+<p>6.水平有限，翻译上的错误和偏差求指导求轻喷ಥ_ಥ</p>
+</blockquote>
+<hr>
+<h1 id="使用约束布局-ConstraintLayout-构建灵活的UI"><a href="#使用约束布局-ConstraintLayout-构建灵活的UI" class="headerlink" title="使用约束布局(ConstraintLayout)构建灵活的UI"></a>使用约束布局(ConstraintLayout)构建灵活的UI</h1><p>约束布局允许你在相同视图层级中(不是相互层叠的视图组合)制作大而复杂的布局。它类似于相对布局那样所有的视图位置是根据子布局或父布局决定的，但是它比相对布局更加灵活，并且在Android studio布局编辑器中更加易用。<br>你可以直接在布局编辑器的可视化工具中做约束布局中所做的所有事，因为布局API和布局编辑器已经做了特地融合。所以你可以通过拖拽使用约束布局构建你的布局，而不需要再去编辑XML文件。</p>
+<p><img src="https://github.com/paradoxie/MarkDownPictures/blob/master/ConstraintLayout/%E5%9B%BE1.png" alt="图1，布局编辑器中的约束布局"></p>
+<p>约束布局可以在兼容Android2.3(API 9)或者更高的API库中使用，而新的布局编辑器则在Android studio2.2中可用。</p>
+<p>这篇文章提供了一个在Android studio中使用约束布局构建一个布局的指导。如果你想要了解关于布局编辑器更多信息，在这个 <a href="https://developer.android.com/studio/write/layout-editor.html" target="_blank" rel="external">Build a UI with Layout Editor</a>Android studio指导中查看.</p>
+<h1 id="约束概述"><a href="#约束概述" class="headerlink" title="约束概述"></a>约束概述</h1><p>为了定义在约束布局中视图的位置，你必须为视图添加两个或更多约束条件。每个约束代表了和另个视图、父布局或不可见指引线的联系或对齐。每个约束限定了视图是沿着垂直轴还是水平轴的位置，所以每个视图必须在每个轴最少拥有一个约束，但经常需要更多。</p>
+<p>当你往布局编辑器中拖拽一个视图时，它会停留在你扔下它的位置，即使它没有任何约束。然鹅，这只是为了使编辑更简单。当一个视图没有任何约束时，你在设备上运行起来后，它会被绘制在左上角[0,0]的位置。</p>
+<p>在图2里面，布局在编辑器中看起来不错，但是对于TextView B没有对其进行竖直方向上的约束。当这个布局被绘制到设备上时，TextView B会在水平方向上水平与ImageView的左右边缘对齐，但是出现在屏幕的顶部，因为它没有数值方向上的约束。</p>
+<p><img src="https://github.com/paradoxie/MarkDownPictures/blob/master/ConstraintLayout/%E5%9B%BE2.png" alt="图2，缺少垂直方向约束的TextView B"></p>
+<p><img src="https://github.com/paradoxie/MarkDownPictures/blob/master/ConstraintLayout/%E5%9B%BE3.png" alt="图3，TextView B现在在垂直方向上约束于ImageView"></p>
+<p>虽然缺少约束条件不会造成编译错误，但布局编辑器会在ToolBar中展示为一个错误指示缺少约束条件。要查看错误或者其他警告，可以点击<a href="">Show Warnings and Errors</a>.为了帮你避免忽视约束条件，布局编辑器会使用<a href="https://developer.android.com/training/constraint-layout/index.html#use-autoconnect-and-infer-constraints" target="_blank" rel="external"> Autoconnect and infer constraints</a>功能为你自动添加约束。</p>
+<h1 id="在你的工程中添加约束布局"><a href="#在你的工程中添加约束布局" class="headerlink" title="在你的工程中添加约束布局"></a>在你的工程中添加约束布局</h1><p>要在你的工程中使用约束布局，步骤如下：</p>
+<p>1，确定你有最新的Constraint Layout library；</p>
+<pre><code>1.点击Tools &gt; Android &gt; SDK Manager.
+2.点击 SDK Tools栏.
+3.展开Support Repository，然后检查ConstraintLayout for Android，
+    并且Solver for ConstraintLayout.
+    检查Show Package Details，注意你下载的版本（你需要的是下面这个）。
+4.点击OK.
+5.在你的module-level build.gradle文件里面添加ConstraintLayout library作为依赖：
+</code></pre><figure class="highlight gradle"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">dependencies</span> &#123;</div><div class="line">    <span class="keyword">compile</span> <span class="string">'com.android.support.constraint:constraint-layout:1.0.0-alpha8'</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>你下载的库版本或许会更高，所以确保你指定的版本跟第三步中的版本相匹配。</p>
+</blockquote>
+<pre><code>6.在toolbar或者sync提示中，点击Sync Project with Gradle Files.
+</code></pre><p>现在你可以使用ConstraintLayout构建布局了.</p>
+<h2 id="转换布局"><a href="#转换布局" class="headerlink" title="转换布局"></a>转换布局</h2><p>按照以下步骤，将现有的布局转换为约束布局：</p>
+<pre><code>1.在Android Studio打开你的布局，点击编辑器窗口最下面的Design标签.
+2.在Component Tree窗口，右键布局，然后点击Convert layout to ConstraintLayout.
+</code></pre><p><img src="https://github.com/paradoxie/MarkDownPictures/blob/master/ConstraintLayout/%E5%9B%BE4.png" alt="图4,转换为ConstraintLayout的功能菜单"></p>
+<h2 id="新建布局"><a href="#新建布局" class="headerlink" title="新建布局"></a>新建布局</h2><p>以下步骤开始新建一个约束布局文件：</p>
+<pre><code>1.在Project窗口任意位置右键，然后选择File &gt; New &gt; XML &gt; Layout XML.
+2.输入布局文件名字，然后输入&quot;android.support.constraint.ConstraintLayout&quot;
+ 作为布局根标签.
+3.点击完成.
+</code></pre><h2 id="添加约束"><a href="#添加约束" class="headerlink" title="添加约束"></a>添加约束</h2><p>首先从Palette窗口拖拽一个视图到编辑器。当你在约束布局中添加一个视图时，它显示为一个每个角都带有正方形手柄，并且每边都带有的环形手柄的边框</p>
+<p>点击选中视图，然后点击并按住约束手柄之一并拖动线到可用的锚点(另一个视图的边缘，布局的边缘，或者一条引导线)。当你释放的时候，约束生成，带有默认的<a href="https://developer.android.com/training/constraint-layout/index.html#adjust-the-view-margins" target="_blank" rel="external">a default margin</a>分离两个视图。</p>
+<p><a href="https://storage.googleapis.com/androiddevelopers/videos/studio/studio-constraint-first.mp4" target="_blank" rel="external">video1,视图左侧被约束到布局左侧</a></p>
+<p>video1</p>
+<p>新建约束时，记住以下规则：</p>
+<figure class="highlight gams"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">*每一个视图至少有两个约束：一个垂直方向，一个水平方向。</span></div><div class="line"><span class="comment">*只有在约束手柄和锚点在同一平面时才能新建约束，</span></div><div class="line">	所以一个视图的垂直平面(左右侧)只能被约束到另一垂直平面。</div><div class="line">	并且基线只能约束到其他基线。</div><div class="line"><span class="comment">*每个约束手柄只能被用于一个约束，但是可以对同一个锚点创建多个约束(从不同的视图)</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p>选中一个视图然后点击约束手柄，可以删除一个约束。</p>
+</blockquote>
+<p>如果你在一个视图中添加对立的约束，约束线变成像弹簧一样的波浪来表示反动势力，就像<a href="https://storage.googleapis.com/androiddevelopers/videos/studio/studio-constraint-second.mp4" target="_blank" rel="external">video2</a>中展示的一样。</p>
+<p>当视图的大小被设为『fixed』或者『wrap content』时，这种情况下视图位于约束条件中心时，效果最为明显。如果你希望视图撑开尺寸以满足约束条件，改变尺寸至”any size”；或者如果想保持目前的大小，单移动视图，使其不居中，可以调整约束偏置。</p>
+<h1 id="有许多方式可以来约束一个视图，但下面的约束类型提供了基本构建模板"><a href="#有许多方式可以来约束一个视图，但下面的约束类型提供了基本构建模板" class="headerlink" title="有许多方式可以来约束一个视图，但下面的约束类型提供了基本构建模板"></a>有许多方式可以来约束一个视图，但下面的约束类型提供了基本构建模板</h1><h2 id="父约束"><a href="#父约束" class="headerlink" title="父约束"></a>父约束</h2><p>视图的侧面连接到相应布局的边缘。</p>
+<p><img src="https://github.com/paradoxie/MarkDownPictures/blob/master/ConstraintLayout/%E5%9B%BE5.png" alt="图5"></p>
+<p>图5中，视图的左边被连接到父布局的左边缘.</p>
+<h2 id="位置约束"><a href="#位置约束" class="headerlink" title="位置约束"></a>位置约束</h2><p>给两个视图定义出现的次序，垂直或者水平。</p>
+<p><img src="https://github.com/paradoxie/MarkDownPictures/blob/master/ConstraintLayout/%E5%9B%BE6.png" alt="图6"></p>
+<p>图6中，Button被约束于ImageView下边缘24dp处，</p>
+<h2 id="对齐约束"><a href="#对齐约束" class="headerlink" title="对齐约束"></a>对齐约束</h2><p>对齐视图的边缘到其他视图的同意边缘。</p>
+<p><img src="https://github.com/paradoxie/MarkDownPictures/blob/master/ConstraintLayout/%E5%9B%BE7.png" alt="图7"></p>
+<p>图7中，Button的左边缘被对齐到ImageView的左边缘。<br>你可以从约束向里拖动视图校准偏移。比如，在</p>
+<p><img src="https://github.com/paradoxie/MarkDownPictures/blob/master/ConstraintLayout/%E5%9B%BE8.png" alt="图8"></p>
+<p>图8中，展示了相同的Button偏移了24dp，这是通过约束视图边界限定的偏移。</p>
+<h2 id="基线对齐约束"><a href="#基线对齐约束" class="headerlink" title="基线对齐约束"></a>基线对齐约束</h2><p>对齐视图的文本基线到其他视图的文本基线。</p>
+<p><img src="https://github.com/paradoxie/MarkDownPictures/blob/master/ConstraintLayout/%E5%9B%BE9.png" alt="图9"></p>
+<p>图9中，第一行的TextView被对齐到Button的text。<br>将鼠标悬停在基线手柄两秒钟，直至手柄闪烁白色。然后点击并拖出一条线到另一个基线，创建出一个基线约束。</p>
+<h2 id="引导线约束"><a href="#引导线约束" class="headerlink" title="引导线约束"></a>引导线约束</h2><p>在想附加约束的地方可以添加水平或垂直的引导线，你可以在布局内部基于相对于布局边缘的dp或是百分比定位引导线。</p>
+<p>在toolbar中点击Guidelines，然后再点击Add Vertical Guidelin或者Add Horizontal Guideline创建引导线。</p>
+<p>点击引导线边缘的环形toggle，切换用于定位引导线的测量值(从布局边缘的百分比或dp单位)</p>
+<p>引导线不会对用户可见。</p>
+<p><a href="https://storage.googleapis.com/androiddevelopers/videos/studio/add-layout-guideline_2-2.mp4" target="_blank" rel="external">video3</a></p>
+<h2 id="使用自动连接并推断约束"><a href="#使用自动连接并推断约束" class="headerlink" title="使用自动连接并推断约束"></a>使用自动连接并推断约束</h2><p>自动连接是一个持久的模式，会为你添加到布局中的每一个视图自动创建两个或多个约束，默认为不可使用状态。你可以在布局编辑器的ToolBar中点击Turn on Autoconnect来启用。</p>
+<p>当其可用时，你添加的每个视图都会为你自动创建约束。它不会对布局中已经存在的视图创建约束。一旦约束创建，如果你想拖拽视图,约束不会改变。所以如果你想明显的重新定位视图的位置，必须先删除约束。</p>
+<p>或者，你可以点击Infer Constraints为布局中所有的视图创建约束。</p>
+<p>推断约束（Infer Constraints）是一次性的动作，以扫描整个布局以确定所有视图最有效的约束，因此它可能创建彼此相隔很远之间的约束。然鹅，自动连接(Autoconnect)创建的约束只是在你添加的视图上，并且它创建的约束只会在附近的元素上。这两种情况下，你可以随时通过点击约束手柄删除修改约束，然后创建一个新的约束。</p>
+<p><a href="https://storage.googleapis.com/androiddevelopers/videos/studio/constraint-autoconnect_2-2.mp4" target="_blank" rel="external">video4</a></p>
+<h2 id="调整视图大小"><a href="#调整视图大小" class="headerlink" title="调整视图大小"></a>调整视图大小</h2><p>你可以用视图每个角的额手柄来改变视图的大小，但是你应该规避对大多数视图做宽度和高度的硬编码，应为硬编码视图大小无法适应不同的内容和屏幕尺寸。点击视图，打开编辑器右侧的Properties窗口，选择一种动态调整大小的模式或者定义更多具体的尺寸。如</p>
+<p><img src="https://github.com/paradoxie/MarkDownPictures/blob/master/ConstraintLayout/%E5%9B%BE10.png" alt="图10，Properties窗口包括①视图尺寸，②边距，③约束偏置"></p>
+<p>图10，Properties窗口包括①视图尺寸，②边距，③约束偏置,在窗口顶部是视图检查器。</p>
+<p>灰色方框代表选中的视图，方框内的符号(卧槽这个符号我就用字符代替了哈ಠ౪ಠ)表示宽度和高度值可以用如下方式设置：</p>
+<pre><code>* &gt;&gt;&gt;Wrap Content:视图自适应为其内容大小。
+* |-/|/|/-|Any Size:视图按照匹配的约束适应大小。
+    视图没有指定明确的尺寸，实际值为0dp，但是它按照满足需求的约束调整了大小。
+    然而，如果给定的尺寸只有一个约束，那么该视图自适应其内容。
+    另一种思路可以认为它是&quot;match constraints&quot;（等同于match_parent）。
+    因为它会在满足每个约束和边距条件后，尽可能的扩展视图。
+*|---|Fixed:在文本框中指定尺寸，或者在编辑器中调整视图大小。
+</code></pre><p>点击符号，可在这些设置之间切换。</p>
+<blockquote>
+<p>Note:在约束布局中的所有视图，都应该使用match_parent，而不是 “Any Size” (0dp)。</p>
+</blockquote>
+<h2 id="调整约束偏置"><a href="#调整约束偏置" class="headerlink" title="调整约束偏置"></a>调整约束偏置</h2><p>当你在一个视图（相同尺寸的视图大小为”fixed”或”wrap content”）两侧添加一个约束时，默认情况下该视图成为两个锚点的中心，偏置为50%。你可以通过在Properties窗口中拖动偏置滑块或者直接拖动视图来调整偏置，如<a href="https://storage.googleapis.com/androiddevelopers/videos/studio/adjust-constraint-bias.mp4" target="_blank" rel="external">video5,调整约束偏置</a>.</p>
+<p>如果你想让视图满足约束的情况下撑开大小，切换视图尺寸至任何大小”any size”。</p>
+<p>##调整视图边距</p>
+<p>为了确保你所有的视图是均匀分布，点击ToolBar中的Margin 8，对你添加进布局的视图选择默认边距。这个按钮会变为显示你当前边距的选项，你对默认边距的修改只会应用于修改之后添加的所有的视图。</p>
+<p><img src="https://github.com/paradoxie/MarkDownPictures/blob/master/ConstraintLayout/%E5%9B%BE11.png" alt="图11，ToolBar的Margin按钮，点击调整默认边距"></p>
+<p>你可以通过点击在Properties窗口里面代表约束线上面的数字，来控制每个视图的边距（图10中，每个边距被设置为16dp）.</p>
+<p>工具提供的所有边距为8dp的原因是为了让你的视图跟随Material Design大法的<a href="https://material.google.com/layout/metrics-keylines.html" target="_blank" rel="external"> 8dp square grid recommendations</a></p>
+<h1 id="以上"><a href="#以上" class="headerlink" title="以上"></a>以上</h1><hr>
+<blockquote>
+<p>本文作者：paradoxie</p>
+<p>个人主页：<a href="http://www.paradoxie.cf/" target="_blank" rel="external">谢盒盒的小黑屋</a></p>
+<p>简书地址：<a href="http://www.jianshu.com/users/05f39939cbf3/latest_articles" target="_blank" rel="external">简书主页</a></p>
+<p>github地址：<a href="https://github.com/paradoxie" target="_blank" rel="external">paradoxie</a></p>
+<p>转载请注明出处，蟹蟹!</p>
+<p>——-我的梦想真的是做一条咸鱼！</p>
+</blockquote>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Android-studio/" rel="tag">#Android studio</a>
+          
+            <a href="/tags/ConstraintLayout/" rel="tag">#ConstraintLayout</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/09/18/环信IM问题汇总/" rel="next" title="环信IM问题汇总">
+                <i class="fa fa-chevron-left"></i> 环信IM问题汇总
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2016/09/22/constraintlayout/"
+     data-title="【译】使用约束布局(ConstraintLayout)构建灵活的UI"
+     data-content=""
+     data-url="http://blog.prozin.xyz/2016/09/22/constraintlayout/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  <p>热评文章</p>
+  <div class="ds-top-threads" data-range="weekly" data-num-items="4"></div>
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/09/22/constraintlayout/"
+           data-title="【译】使用约束布局(ConstraintLayout)构建灵活的UI" data-url="http://blog.prozin.xyz/2016/09/22/constraintlayout/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="paradoxie" />
+          <p class="site-author-name" itemprop="name">paradoxie</p>
+          <p class="site-description motion-element" itemprop="description">抱歉，我的梦想是当一条咸鱼</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">5</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/paradoxie" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用约束布局-ConstraintLayout-构建灵活的UI"><span class="nav-number">2.</span> <span class="nav-text">使用约束布局(ConstraintLayout)构建灵活的UI</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#约束概述"><span class="nav-number">3.</span> <span class="nav-text">约束概述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#在你的工程中添加约束布局"><span class="nav-number">4.</span> <span class="nav-text">在你的工程中添加约束布局</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#转换布局"><span class="nav-number">4.1.</span> <span class="nav-text">转换布局</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#新建布局"><span class="nav-number">4.2.</span> <span class="nav-text">新建布局</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#添加约束"><span class="nav-number">4.3.</span> <span class="nav-text">添加约束</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#有许多方式可以来约束一个视图，但下面的约束类型提供了基本构建模板"><span class="nav-number">5.</span> <span class="nav-text">有许多方式可以来约束一个视图，但下面的约束类型提供了基本构建模板</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#父约束"><span class="nav-number">5.1.</span> <span class="nav-text">父约束</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#位置约束"><span class="nav-number">5.2.</span> <span class="nav-text">位置约束</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对齐约束"><span class="nav-number">5.3.</span> <span class="nav-text">对齐约束</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基线对齐约束"><span class="nav-number">5.4.</span> <span class="nav-text">基线对齐约束</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#引导线约束"><span class="nav-number">5.5.</span> <span class="nav-text">引导线约束</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用自动连接并推断约束"><span class="nav-number">5.6.</span> <span class="nav-text">使用自动连接并推断约束</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#调整视图大小"><span class="nav-number">5.7.</span> <span class="nav-text">调整视图大小</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#调整约束偏置"><span class="nav-number">5.8.</span> <span class="nav-text">调整约束偏置</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#以上"><span class="nav-number">6.</span> <span class="nav-text">以上</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">paradoxie</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv"><i class="fa fa-user"></i><span class="busuanzi-value" id="busuanzi_value_site_uv"></span></span>
+  
+
+  
+    <span class="site-pv"><i class="fa fa-eye"></i><span class="busuanzi-value" id="busuanzi_value_site_pv"></span></span>
+  
+  
+</div>
+
+
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"paradoxie"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+       search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+            // get the contents from search data
+            isfetched = true;
+            $('.popup').detach().appendTo('.header-inner');
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "url" , this).text()
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var matchcounts = 0;
+                var str='<ul class=\"search-result-list\">';
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length > 1) {
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = true;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '' && data_content != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title < 0 && index_content < 0 ){
+                                isMatch = false;
+                            } else {
+                                if (index_content < 0) {
+                                    index_content = 0;
+                                }
+                                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            }
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+                        matchcounts += 1;
+                        str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 50;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substring(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                            });
+
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                })};
+                str += "</ul>";
+                if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+                if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+                $resultContent.innerHTML = str;
+            });
+            proceedsearch();
+        }
+    });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("14ITxsrDSyDpUVG0DDl7KLUG-gzGzoHsz", "grMiCPWi1w73ufSbLzxy2doC");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+</body>
+</html>
