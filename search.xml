@@ -6,10 +6,10 @@
     <entry>
       <title><![CDATA[【译】使用约束布局(ConstraintLayout)构建灵活的UI]]></title>
       <url>http://blog.prozin.xyz/2016/09/22/constraintlayout/</url>
-      <content type="html"><![CDATA[<p>Google I/O 2016上，Android团队为开发者带来了ConstraintLayout，一种构建于弹性Constraints（约束）系统的新型Android Layout，据说它将大大改变今后的Android布局界面开发方式，据说也许以后Android开发没有那么多布局需要学习，只需要熟悉这一种布局即可。</p>
+      <content type="html"><![CDATA[<p>Google I/O 2016上，Android团队为开发者带来了ConstraintLayout，一种构建于弹性Constraints（约束）系统的新型Android Layout，据说它将大大改变今后的Android布局界面开发方式，据说也许以后Android开发没有那么多布局需要学习，只需要熟悉这一种布局即可。前两天Android studio 2.2正式版发布了，更多的Android 开发者会接触并(可能)使用这个布局。</p>
 <a id="more"></a>
 <h1 id="前言"><a href="#前言" class="headerlink" title="前言:"></a>前言:</h1><blockquote>
-<p>1.本文系<a href="https://developer.android.com/training内对约束布局(ConstraintLayout)文章的翻译" target="_blank" rel="external">https://developer.android.com/training内对约束布局(ConstraintLayout)文章的翻译</a></p>
+<p>1.本文系<a href="https://developer.android.com/training" target="_blank" rel="external">https://developer.android.com/training</a> 内对约束布局(ConstraintLayout)  文章的翻译</p>
 <p>2.阅读本文可以对照原文<a href="https://developer.android.com/training/constraint-layout/index.html#adjust-the-view-margins" target="_blank" rel="external">Build a Responsive UI with ConstraintLayout</a>，科学上网</p>
 <p>3.本文可对照实战入门教程食用：<a href="http://www.jianshu.com/p/792d2682c538" target="_blank" rel="external">安卓约束控件(ConstraintLayout)扁平化布局入门</a></p>
 <p>4.文章内view均翻译为视图，也可理解为控件</p>
@@ -18,14 +18,14 @@
 </blockquote>
 <hr>
 <h1 id="使用约束布局-ConstraintLayout-构建灵活的UI"><a href="#使用约束布局-ConstraintLayout-构建灵活的UI" class="headerlink" title="使用约束布局(ConstraintLayout)构建灵活的UI"></a>使用约束布局(ConstraintLayout)构建灵活的UI</h1><p>约束布局允许你在相同视图层级中(不是相互层叠的视图组合)制作大而复杂的布局。它类似于相对布局那样所有的视图位置是根据子布局或父布局决定的，但是它比相对布局更加灵活，并且在Android studio布局编辑器中更加易用。<br>你可以直接在布局编辑器的可视化工具中做约束布局中所做的所有事，因为布局API和布局编辑器已经做了特地融合。所以你可以通过拖拽使用约束布局构建你的布局，而不需要再去编辑XML文件。</p>
-<p><img src="https://github.com/paradoxie/MarkDownPictures/blob/master/ConstraintLayout/%E5%9B%BE1.png" alt="图1，布局编辑器中的约束布局"></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/532408-56580854d286a98d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图1，布局编辑器中的约束布局"></p>
 <p>约束布局可以在兼容Android2.3(API 9)或者更高的API库中使用，而新的布局编辑器则在Android studio2.2中可用。</p>
 <p>这篇文章提供了一个在Android studio中使用约束布局构建一个布局的指导。如果你想要了解关于布局编辑器更多信息，在这个 <a href="https://developer.android.com/studio/write/layout-editor.html" target="_blank" rel="external">Build a UI with Layout Editor</a>Android studio指导中查看.</p>
 <h1 id="约束概述"><a href="#约束概述" class="headerlink" title="约束概述"></a>约束概述</h1><p>为了定义在约束布局中视图的位置，你必须为视图添加两个或更多约束条件。每个约束代表了和另个视图、父布局或不可见指引线的联系或对齐。每个约束限定了视图是沿着垂直轴还是水平轴的位置，所以每个视图必须在每个轴最少拥有一个约束，但经常需要更多。</p>
 <p>当你往布局编辑器中拖拽一个视图时，它会停留在你扔下它的位置，即使它没有任何约束。然鹅，这只是为了使编辑更简单。当一个视图没有任何约束时，你在设备上运行起来后，它会被绘制在左上角[0,0]的位置。</p>
 <p>在图2里面，布局在编辑器中看起来不错，但是对于TextView B没有对其进行竖直方向上的约束。当这个布局被绘制到设备上时，TextView B会在水平方向上水平与ImageView的左右边缘对齐，但是出现在屏幕的顶部，因为它没有数值方向上的约束。</p>
-<p><img src="https://github.com/paradoxie/MarkDownPictures/blob/master/ConstraintLayout/%E5%9B%BE2.png" alt="图2，缺少垂直方向约束的TextView B"></p>
-<p><img src="https://github.com/paradoxie/MarkDownPictures/blob/master/ConstraintLayout/%E5%9B%BE3.png" alt="图3，TextView B现在在垂直方向上约束于ImageView"></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/532408-15a78dddc41fc2b0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图2，缺少垂直方向约束的TextView B"></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/532408-9b5a11e1d285fe50.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图3，TextView B现在在垂直方向上约束于ImageView"></p>
 <p>虽然缺少约束条件不会造成编译错误，但布局编辑器会在ToolBar中展示为一个错误指示缺少约束条件。要查看错误或者其他警告，可以点击<a href="">Show Warnings and Errors</a>.为了帮你避免忽视约束条件，布局编辑器会使用<a href="https://developer.android.com/training/constraint-layout/index.html#use-autoconnect-and-infer-constraints" target="_blank" rel="external"> Autoconnect and infer constraints</a>功能为你自动添加约束。</p>
 <h1 id="在你的工程中添加约束布局"><a href="#在你的工程中添加约束布局" class="headerlink" title="在你的工程中添加约束布局"></a>在你的工程中添加约束布局</h1><p>要在你的工程中使用约束布局，步骤如下：</p>
 <p>1，确定你有最新的Constraint Layout library；</p>
@@ -45,7 +45,7 @@
 <h2 id="转换布局"><a href="#转换布局" class="headerlink" title="转换布局"></a>转换布局</h2><p>按照以下步骤，将现有的布局转换为约束布局：</p>
 <pre><code>1.在Android Studio打开你的布局，点击编辑器窗口最下面的Design标签.
 2.在Component Tree窗口，右键布局，然后点击Convert layout to ConstraintLayout.
-</code></pre><p><img src="https://github.com/paradoxie/MarkDownPictures/blob/master/ConstraintLayout/%E5%9B%BE4.png" alt="图4,转换为ConstraintLayout的功能菜单"></p>
+</code></pre><p><img src="http://upload-images.jianshu.io/upload_images/532408-1e00744a541d9d27.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图4,转换为ConstraintLayout的功能菜单"></p>
 <h2 id="新建布局"><a href="#新建布局" class="headerlink" title="新建布局"></a>新建布局</h2><p>以下步骤开始新建一个约束布局文件：</p>
 <pre><code>1.在Project窗口任意位置右键，然后选择File &gt; New &gt; XML &gt; Layout XML.
 2.输入布局文件名字，然后输入&quot;android.support.constraint.ConstraintLayout&quot;
@@ -63,18 +63,18 @@
 <p>如果你在一个视图中添加对立的约束，约束线变成像弹簧一样的波浪来表示反动势力，就像<a href="https://storage.googleapis.com/androiddevelopers/videos/studio/studio-constraint-second.mp4" target="_blank" rel="external">video2</a>中展示的一样。</p>
 <p>当视图的大小被设为『fixed』或者『wrap content』时，这种情况下视图位于约束条件中心时，效果最为明显。如果你希望视图撑开尺寸以满足约束条件，改变尺寸至”any size”；或者如果想保持目前的大小，单移动视图，使其不居中，可以调整约束偏置。</p>
 <h1 id="有许多方式可以来约束一个视图，但下面的约束类型提供了基本构建模板"><a href="#有许多方式可以来约束一个视图，但下面的约束类型提供了基本构建模板" class="headerlink" title="有许多方式可以来约束一个视图，但下面的约束类型提供了基本构建模板"></a>有许多方式可以来约束一个视图，但下面的约束类型提供了基本构建模板</h1><h2 id="父约束"><a href="#父约束" class="headerlink" title="父约束"></a>父约束</h2><p>视图的侧面连接到相应布局的边缘。</p>
-<p><img src="https://github.com/paradoxie/MarkDownPictures/blob/master/ConstraintLayout/%E5%9B%BE5.png" alt="图5"></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/532408-4db943ba21b8a160.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图5"></p>
 <p>图5中，视图的左边被连接到父布局的左边缘.</p>
 <h2 id="位置约束"><a href="#位置约束" class="headerlink" title="位置约束"></a>位置约束</h2><p>给两个视图定义出现的次序，垂直或者水平。</p>
-<p><img src="https://github.com/paradoxie/MarkDownPictures/blob/master/ConstraintLayout/%E5%9B%BE6.png" alt="图6"></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/532408-8864929ec98e938c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图6"></p>
 <p>图6中，Button被约束于ImageView下边缘24dp处，</p>
 <h2 id="对齐约束"><a href="#对齐约束" class="headerlink" title="对齐约束"></a>对齐约束</h2><p>对齐视图的边缘到其他视图的同意边缘。</p>
-<p><img src="https://github.com/paradoxie/MarkDownPictures/blob/master/ConstraintLayout/%E5%9B%BE7.png" alt="图7"></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/532408-8da3d7f3aaf8a0d3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图7"></p>
 <p>图7中，Button的左边缘被对齐到ImageView的左边缘。<br>你可以从约束向里拖动视图校准偏移。比如，在</p>
-<p><img src="https://github.com/paradoxie/MarkDownPictures/blob/master/ConstraintLayout/%E5%9B%BE8.png" alt="图8"></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/532408-ba2409311b7a46b8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图8"></p>
 <p>图8中，展示了相同的Button偏移了24dp，这是通过约束视图边界限定的偏移。</p>
 <h2 id="基线对齐约束"><a href="#基线对齐约束" class="headerlink" title="基线对齐约束"></a>基线对齐约束</h2><p>对齐视图的文本基线到其他视图的文本基线。</p>
-<p><img src="https://github.com/paradoxie/MarkDownPictures/blob/master/ConstraintLayout/%E5%9B%BE9.png" alt="图9"></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/532408-e59f711d399ed75b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图9"></p>
 <p>图9中，第一行的TextView被对齐到Button的text。<br>将鼠标悬停在基线手柄两秒钟，直至手柄闪烁白色。然后点击并拖出一条线到另一个基线，创建出一个基线约束。</p>
 <h2 id="引导线约束"><a href="#引导线约束" class="headerlink" title="引导线约束"></a>引导线约束</h2><p>在想附加约束的地方可以添加水平或垂直的引导线，你可以在布局内部基于相对于布局边缘的dp或是百分比定位引导线。</p>
 <p>在toolbar中点击Guidelines，然后再点击Add Vertical Guidelin或者Add Horizontal Guideline创建引导线。</p>
@@ -87,7 +87,7 @@
 <p>推断约束（Infer Constraints）是一次性的动作，以扫描整个布局以确定所有视图最有效的约束，因此它可能创建彼此相隔很远之间的约束。然鹅，自动连接(Autoconnect)创建的约束只是在你添加的视图上，并且它创建的约束只会在附近的元素上。这两种情况下，你可以随时通过点击约束手柄删除修改约束，然后创建一个新的约束。</p>
 <p><a href="https://storage.googleapis.com/androiddevelopers/videos/studio/constraint-autoconnect_2-2.mp4" target="_blank" rel="external">video4</a></p>
 <h2 id="调整视图大小"><a href="#调整视图大小" class="headerlink" title="调整视图大小"></a>调整视图大小</h2><p>你可以用视图每个角的额手柄来改变视图的大小，但是你应该规避对大多数视图做宽度和高度的硬编码，应为硬编码视图大小无法适应不同的内容和屏幕尺寸。点击视图，打开编辑器右侧的Properties窗口，选择一种动态调整大小的模式或者定义更多具体的尺寸。如</p>
-<p><img src="https://github.com/paradoxie/MarkDownPictures/blob/master/ConstraintLayout/%E5%9B%BE10.png" alt="图10，Properties窗口包括①视图尺寸，②边距，③约束偏置"></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/532408-ea29b54fe5488be1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图10，Properties窗口包括①视图尺寸，②边距，③约束偏置"></p>
 <p>图10，Properties窗口包括①视图尺寸，②边距，③约束偏置,在窗口顶部是视图检查器。</p>
 <p>灰色方框代表选中的视图，方框内的符号(卧槽这个符号我就用字符代替了哈ಠ౪ಠ)表示宽度和高度值可以用如下方式设置：</p>
 <pre><code>* &gt;&gt;&gt;Wrap Content:视图自适应为其内容大小。
@@ -105,7 +105,7 @@
 <p>如果你想让视图满足约束的情况下撑开大小，切换视图尺寸至任何大小”any size”。</p>
 <p>##调整视图边距</p>
 <p>为了确保你所有的视图是均匀分布，点击ToolBar中的Margin 8，对你添加进布局的视图选择默认边距。这个按钮会变为显示你当前边距的选项，你对默认边距的修改只会应用于修改之后添加的所有的视图。</p>
-<p><img src="https://github.com/paradoxie/MarkDownPictures/blob/master/ConstraintLayout/%E5%9B%BE11.png" alt="图11，ToolBar的Margin按钮，点击调整默认边距"></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/532408-98f2549e2ac45200.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图11，ToolBar的Margin按钮，点击调整默认边距"></p>
 <p>你可以通过点击在Properties窗口里面代表约束线上面的数字，来控制每个视图的边距（图10中，每个边距被设置为16dp）.</p>
 <p>工具提供的所有边距为8dp的原因是为了让你的视图跟随Material Design大法的<a href="https://material.google.com/layout/metrics-keylines.html" target="_blank" rel="external"> 8dp square grid recommendations</a></p>
 <h1 id="以上"><a href="#以上" class="headerlink" title="以上"></a>以上</h1><hr>
