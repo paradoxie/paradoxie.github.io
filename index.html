@@ -302,6 +302,159 @@
             
               
                 
+                <a class="post-title-link" href="/2016/10/14/流式标签/" itemprop="url">
+                  《Android APP可能有的东西》之UI篇：流式标签&搜索历史
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-10-14T17:26:50+08:00" content="2016-10-14">
+              2016-10-14
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/10/14/流式标签/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/14/流式标签/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/10/14/流式标签/" class="leancloud_visitors" data-flag-title="《Android APP可能有的东西》之UI篇：流式标签&搜索历史">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="说在前面"><a href="#说在前面" class="headerlink" title="说在前面"></a>说在前面</h2><p>很多APP都有热门排行热门搜索什么的，这个时候可能需要用到标签，也就是流式布局，而还有可能用到的就是搜索历史记录，这种一般都是使用listview展示。但是，相当有可能是反过来的UI展示效果，热门排行用listview,历史记录使用流式标签。所以这里给出相结合的Demo实例以及说明。</p>
+<h3 id="上代码！FlowLayout-SearchHistory"><a href="#上代码！FlowLayout-SearchHistory" class="headerlink" title="上代码！FlowLayout-SearchHistory"></a>上代码！<a href="https://github.com/paradoxie/FlowLayout-SearchHistory/tree/master" target="_blank" rel="external">FlowLayout-SearchHistory</a></h3><h2 id="FlowLayout流式标签"><a href="#FlowLayout流式标签" class="headerlink" title="FlowLayout流式标签"></a>FlowLayout流式标签</h2><p>使用了继承至ViewGroup的自定义控件，数据载入方式为String数组。此自定义控件可以直接使用。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">initData</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; datas.length; i++) &#123;</div><div class="line">            TextView tv = (TextView) mInflater.inflate(</div><div class="line">                    R.layout.search_label_tv, mFlowLayout, <span class="keyword">false</span>);</div><div class="line">            tv.setText(datas[i]);</div><div class="line">            <span class="keyword">final</span> String str = tv.getText().toString();</div><div class="line">            <span class="comment">//点击事件</span></div><div class="line">            tv.setOnClickListener(<span class="keyword">new</span> View.OnClickListener() &#123;</div><div class="line">                <span class="meta">@Override</span></div><div class="line">                <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>&#123;</div><div class="line">                    <span class="comment">//加入搜索历史纪录记录</span></div><div class="line">                    Toast.makeText(MainActivity.<span class="keyword">this</span>, str, Toast.LENGTH_LONG).show();</div><div class="line">                &#125;</div><div class="line">            &#125;);</div><div class="line">            mFlowLayout.addView(tv);</div><div class="line">        &#125;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<p>标签的展示样式可以通过Demo里面的search_label_tv布局去自定义修改，这里的逻辑并不麻烦，详细代码查看demo代码。</p>
+<p><strong>插播一个效果图：</strong></p>
+<p><img src="http://odpd0x6u7.bkt.clouddn.com/FlowLayout.jpeg" alt="插播一个效果图"></p>
+<h2 id="SearchHistory搜索历史"><a href="#SearchHistory搜索历史" class="headerlink" title="SearchHistory搜索历史"></a>SearchHistory搜索历史</h2><p>使用SharedPreferences记录搜索历史。</p>
+<p>主要的方法如下：</p>
+<pre><code>public void initSearchHistory() {}//初始化
+
+public void save() {}//储存
+
+public void cleanHistory() {}//清除
+</code></pre><p>Demo里面为了代码逻辑的清晰，将历史记录的控件都与流式标签分离了，通常是放在一起的。另外，SharedPreferences也可以单独封装方法提供直接调用，只要能储存，怎么利索怎么写。</p>
+<p>好像就这么点东西，没啥可以写的。。。</p>
+<h2 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h2><p>Demo里面的代码量本身也不大，主要是供新手朋友们参考，也算是自己记录一下这些可以单独抽离出来的小东西。</p>
+<h3 id="上代码！FlowLayout-SearchHistory-1"><a href="#上代码！FlowLayout-SearchHistory-1" class="headerlink" title="上代码！FlowLayout-SearchHistory"></a>上代码！<a href="https://github.com/paradoxie/FlowLayout-SearchHistory/tree/master" target="_blank" rel="external">FlowLayout-SearchHistory</a></h3><h1 id="以上"><a href="#以上" class="headerlink" title="以上"></a>以上</h1><hr>
+<blockquote>
+<p>本文作者：paradoxie</p>
+<p>个人主页：<a href="http://www.paradoxie.cf/" target="_blank" rel="external">谢盒盒的小黑屋</a></p>
+<p>简书地址：<a href="http://www.jianshu.com/users/05f39939cbf3/latest_articles" target="_blank" rel="external">简书主页</a></p>
+<p>github地址：<a href="https://github.com/paradoxie" target="_blank" rel="external">paradoxie</a></p>
+<p>转载请注明出处，蟹蟹!</p>
+<p>——-我的梦想真的是做一条咸鱼！</p>
+</blockquote>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/10/13/版本检测更新/" itemprop="url">
                   《Android APP该有的东西》之功能篇：版本检测更新
                 </a>
@@ -1091,7 +1244,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">6</span>
+              <span class="site-state-item-count">7</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1108,7 +1261,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-count">9</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
