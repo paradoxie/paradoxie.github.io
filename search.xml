@@ -4,6 +4,90 @@
   
     
     <entry>
+      <title><![CDATA[《Android APP可以有的东西》之数据库篇：GreenDao3.0配置使用]]></title>
+      <url>http://blog.prozin.xyz/2016/10/17/greenDao%E9%85%8D%E7%BD%AE%E4%BD%BF%E7%94%A8/</url>
+      <content type="html"><![CDATA[<h2 id="先上一张图"><a href="#先上一张图" class="headerlink" title="先上一张图"></a>先上一张图</h2><p><img src="http://odpd0x6u7.bkt.clouddn.com/greendao.jpeg" alt="国内top500应用分析"></p>
+<p>上图是豌豆荚的某一个时间段的top500应用的分析。我们重点关注数据库部分，排在第一的是GreenDao,有什么优势也不用多说了，关键是怎么用起来是吧？</p>
+<a id="more"></a>
+<p>优势可以忽略，但是特性还是必须得说明一下：将对象映射到SQLite数据库，也就是说操作数据库只需要直接java对象即可，对于我这种半路出家的菜鸡简直是福音啊有木有，为什么？因为我不会数据库语法。。。/手动抠鼻。</p>
+<p>另外，greenDao3.0和之前区别还是蛮大的，采用注解的方式通过编译方式生成Java数据对象和DAO对象，配置方式比以前2.x简易多了啊,所以使用3.0以前的朋友可能要换以下。</p>
+<p>来啊，开始啊！</p>
+<h3 id="上代码！-Demo"><a href="#上代码！-Demo" class="headerlink" title="上代码！ Demo"></a>上代码！ <a href="https://github.com/paradoxie/Demo" target="_blank" rel="external">Demo</a></h3><h2 id="配置和使用"><a href="#配置和使用" class="headerlink" title="配置和使用"></a>配置和使用</h2><p><strong>1.module的build.gradle添加:</strong></p>
+<pre><code>apply plugin: &apos;org.greenrobot.greendao&apos;//添加
+</code></pre><p><strong>2.module的build.gradle依赖添加:</strong></p>
+<pre><code>compile&apos;org.greenrobot:greendao:3.0.1&apos;
+compile&apos;org.greenrobot:greendao-generator:3.0.0&apos;
+</code></pre><p><strong>3.module的build.gradle根级别下配置：</strong></p>
+<pre><code>greendao {
+    schemaVersion 1 //数据库版本号
+    daoPackage &apos;com.paradoxie.demo.dao&apos;  //生成的dao路径
+    targetGenDir &apos;src/main/java&apos;    //数据库文件的目录
+}
+</code></pre><p><strong>4.在project的在build.gradle中配置：</strong></p>
+<pre><code>dependencies {
+   classpath &apos;com.android.tools.build:gradle:2.2.1&apos;
+   classpath &apos;org.greenrobot:greendao-gradle-plugin:3.0.0&apos;//添加
+
+ }
+</code></pre><p><strong>5.编写java实体类，注意注解：</strong></p>
+<pre><code>@Entity
+public class Advert {
+    @Id
+    private Long id;//主键id,必须Long型
+    private String classify;//广告类型
+    private String times;//广告次数
+    private String time;//广告时长
+</code></pre><p><strong>更多注解类型不在此列出，写完以上实体类属性后，编译，编译，编译，自动生成get、set内容以及第三步中配置的com.paradoxie.demo.dao目录下三个文件，就是这个：</strong></p>
+<p><img src="http://odpd0x6u7.bkt.clouddn.com/dir.png" alt="文件目录截图"></p>
+<p><strong>6.编写MyOpenHelper，升级数据库使用，初步使用可以忽略：</strong></p>
+<p><img src="http://odpd0x6u7.bkt.clouddn.com/helper.png" alt="文件目录截图"></p>
+<p><strong>7.编写核心类DbCore，构造方法略过，主要是两个静态方法：</strong></p>
+<pre><code> public static DaoMaster getDaoMaster() {
+    if (daoMaster == null) {
+        //自定义辅助类；DevOpenHelper 会在数据库升级时，删除所有的表，意味着这将导致数据的丢失，此处使用OpenHelper。
+        DaoMaster.OpenHelper helper = new MyOpenHelper(mContext, DB_NAME);
+        daoMaster = new DaoMaster(helper.getWritableDatabase());
+    }
+    return daoMaster;
+}
+
+public static DaoSession getDaoSession() {
+    if (daoSession == null) {
+        if (daoMaster == null) {
+            daoMaster = getDaoMaster();
+        }
+        daoSession = daoMaster.newSession();
+    }
+    return daoSession;
+}
+</code></pre><p><strong>8.在自定义MyApplication中初始化：</strong></p>
+<pre><code> @Override
+public void onCreate() {
+    super.onCreate();
+    //初始化数据库
+    DbCore.init(this);
+}
+</code></pre><p><strong>9.实例化mAdvertDao后，用其操作实体bean对象，例如：</strong></p>
+<pre><code>mAdvertDao.insert(T entity);//增
+mAdvertDao.delete(T entity);//删，也可deleteByKey(K key)
+mAdvertDao.update(T entity);//改
+mAdvertDao.load(K key);//查
+</code></pre><p>以上操作都有其他操作方法，可以跟进源码查看。</p>
+<h2 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h2><p><strong>以上配置和使用的简单说明，下面demo中有两个activity，来看数据库的不用管第二个哈。</strong></p>
+<p><strong>如有帮助，不胜荣幸。</strong></p>
+<h3 id="上代码！-Demo-1"><a href="#上代码！-Demo-1" class="headerlink" title="上代码！ Demo"></a>上代码！ <a href="https://github.com/paradoxie/Demo" target="_blank" rel="external">Demo</a></h3><hr>
+<blockquote>
+<p>本文作者：paradoxie</p>
+<p>个人主页：<a href="http://www.paradoxie.cf/" target="_blank" rel="external">谢盒盒的小黑屋</a></p>
+<p>简书地址：<a href="http://www.jianshu.com/users/05f39939cbf3/latest_articles" target="_blank" rel="external">简书主页</a></p>
+<p>github地址：<a href="https://github.com/paradoxie" target="_blank" rel="external">paradoxie</a></p>
+<p>转载请注明出处，蟹蟹!</p>
+<p>——-我的梦想真的是做一条咸鱼！</p>
+</blockquote>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[《Android APP可能有的东西》之UI篇：流式标签&搜索历史]]></title>
       <url>http://blog.prozin.xyz/2016/10/14/%E6%B5%81%E5%BC%8F%E6%A0%87%E7%AD%BE/</url>
       <content type="html"><![CDATA[<h2 id="说在前面"><a href="#说在前面" class="headerlink" title="说在前面"></a>说在前面</h2><p>很多APP都有热门排行热门搜索什么的，这个时候可能需要用到标签，也就是流式布局，而还有可能用到的就是搜索历史记录，这种一般都是使用listview展示。但是，相当有可能是反过来的UI展示效果，热门排行用listview,历史记录使用流式标签。所以这里给出相结合的Demo实例以及说明。</p>
