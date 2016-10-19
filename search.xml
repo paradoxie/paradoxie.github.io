@@ -4,6 +4,253 @@
   
     
     <entry>
+      <title><![CDATA[《Android APP必须有的东西》之维护篇：命名规范]]></title>
+      <url>http://blog.prozin.xyz/2016/10/18/Android%E5%BC%80%E5%8F%91%E8%A7%84%E8%8C%83/</url>
+      <content type="html"><![CDATA[<pre><code>命名规范要望文知义，简单明了。
+命名规范定制太多，就会让人心烦，反而没人遵守了。
+                                         ---《APP研发录》
+</code></pre><a id="more"></a> 
+<p>命名没有具体的要求，只能说跟上面的要求满足就够了，目前网上能够搜到各种风格的方案，选择一种自己之前没有章法的时候就下意识接近了的，或者自己喜欢的能够快速记住的方案，坚持一两个Demo,大概就能基本记住了。</p>
+<p>方案来源于网络，修改添加了部分自己用的习惯。这里整理记录一下本人将默认采用，并且将统一到开发中的方案。</p>
+<p>忘了就翻出来瞅瞅！！</p>
+<h2 id="命名规范"><a href="#命名规范" class="headerlink" title="命名规范"></a>命名规范</h2><ul>
+<li><ol>
+<li>包命名，单词全部小写</li>
+</ol>
+</li>
+</ul>
+<p>域名反写+项目名称+模块名称,例如：</p>
+<blockquote>
+<p>activity包: cf.paradoxie.demo.activity</p>
+<p>实体包: cf.paradoxie.demo.bean </p>
+<p>工具包: cf.paradoxie.demo.utils</p>
+</blockquote>
+<ul>
+<li><ol>
+<li>接口和类命名，单词首字母大写（大驼峰规则）</li>
+</ol>
+</li>
+</ul>
+<p>以下为几种常用类的命名：</p>
+<blockquote>
+<p>公共父类，命名以Base开头，如：BaseActivity， BaseAdapter</p>
+<p>activity类，命名以Activity为后缀，如：LoginActivity</p>
+<p>fragment类，命名以Fragment为后缀，如：LoginFragment</p>
+<p>service类，命名以Service为后缀，如：DownloadService</p>
+<p>adapter类，命名以Adapter为后缀，如：MyListAdapter</p>
+<p>工具类，命名以Util为后缀，如：StringUtil</p>
+<p>接口类，命名以I为前缀(来源于MVP模式)，如：IUser</p>
+<p>接口实现类，命名以Impl为后缀，如：UserImpl</p>
+</blockquote>
+<ul>
+<li><ol>
+<li>方法命名，除开第一个单词首字母，其余都大写（小驼峰规则）</li>
+</ol>
+</li>
+</ul>
+<p>以下为几种常用方法的命名：</p>
+<blockquote>
+<p>初始化方法，命名以init开头，例：initView</p>
+<p>设置方法，命名以set开头，例：setData</p>
+<p>储存方法，命名以save开头，例：saveData</p>
+<p>具有返回值的获取方法，命名以get开头，例：getData</p>
+<p>通过异步加载数据的方法，命名以load开头，例：loadData</p>
+<p>布尔型的判断方法，命名以is或has，或具有逻辑意义的单词如equals，例：isEmpty</p>
+</blockquote>
+<ul>
+<li><ol>
+<li>常用控件id命名缩写</li>
+</ol>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">控件</th>
+<th style="text-align:center">命名</th>
+<th style="text-align:center"></th>
+<th style="text-align:center">控件</th>
+<th style="text-align:center">命名</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">TextView</td>
+<td style="text-align:center">tv</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">RadioGroup</td>
+<td style="text-align:center">group</td>
+</tr>
+<tr>
+<td style="text-align:center">EditText</td>
+<td style="text-align:center">et</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">RadioButton</td>
+<td style="text-align:center">rbtn</td>
+</tr>
+<tr>
+<td style="text-align:center">Button</td>
+<td style="text-align:center">btn</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">ProgressBar</td>
+<td style="text-align:center">progress</td>
+</tr>
+<tr>
+<td style="text-align:center">ImageView</td>
+<td style="text-align:center">iv</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">CheckBox</td>
+<td style="text-align:center">cb</td>
+</tr>
+<tr>
+<td style="text-align:center">ImageButton</td>
+<td style="text-align:center">ibtn</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">Spinner</td>
+<td style="text-align:center">spinner</td>
+</tr>
+<tr>
+<td style="text-align:center">ListView</td>
+<td style="text-align:center">lv</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">ScrollView</td>
+<td style="text-align:center">sv</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">LinearLayout</td>
+<td style="text-align:center">ll</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">RelativeLayout</td>
+<td style="text-align:center">rl</td>
+</tr>
+<tr>
+<td style="text-align:center">FramLayout</td>
+<td style="text-align:center">fl</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">TableLayout</td>
+<td style="text-align:center">tl</td>
+</tr>
+</tbody>
+</table>
+<p>以上缩写为代表控件的缩写，其id全称需根据配合所在布局及其功能意义而定,缩写_{范围_}意义,例如：</p>
+<blockquote>
+<p>登录按钮：btn_login; </p>
+<p>相对布局的tab栏：rl_tab; </p>
+<p>标题栏文本：tv_head_title</p>
+</blockquote>
+<ul>
+<li><ol>
+<li>布局 layout命名</li>
+</ol>
+</li>
+</ul>
+<p>类型_{范围_}功能，范围可选，只在有明确定义的范围内才需要加上。<br>以下为几种常用的组件类型命名：</p>
+<blockquote>
+<p>activity_{范围_}功能，为Activity的命名格式:activity_login</p>
+<p>fragment_{范围_}功能，为Fragment的命名格式</p>
+<p>dialog_{范围_}功能，为Dialog的命名格式</p>
+<p>header<em>list\</em>{范围_}功能，为ListView的HeaderView命名格式</p>
+<p>footer<em>list\</em>{范围_}功能，为ListView的FooterView命名格式</p>
+</blockquote>
+<ul>
+<li><ol>
+<li>strings的命名</li>
+</ol>
+</li>
+</ul>
+<p>类型_{范围_}功能，范围可选。<br>以下为几种常用的命名：</p>
+<blockquote>
+<p>页面标题，命名格式为：title_页面</p>
+<p>按钮文字，命名格式为：btn_按钮事件</p>
+<p>标签文字，命名格式为：label_标签文字</p>
+<p>选项卡文字，命名格式为：tab_选项卡文字</p>
+<p>消息框文字，命名格式为：toast_消息</p>
+<p>编辑框的提示文字，命名格式为：hint_提示信息</p>
+<p>图片的描述文字，命名格式为：desc_图片文字</p>
+<p>对话框的文字，命名格式为：dialog_文字</p>
+<p>menu的item文字，命名格式为：action_文字</p>
+</blockquote>
+<ul>
+<li><ol>
+<li>colors的命名</li>
+</ol>
+</li>
+</ul>
+<p>前缀{_控件}{_范围}{_后缀}，控件、范围、后缀可选，但控件和范围至少要有一个：</p>
+<blockquote>
+<p>背景颜色，添加bg前缀</p>
+<p>文本颜色，添加text前缀</p>
+<p>分割线颜色，添加div前缀</p>
+<p>区分状态时，默认状态的颜色，添加normal后缀</p>
+<p>区分状态时，按下时的颜色，添加pressed后缀</p>
+<p>区分状态时，选中时的颜色，添加selected后缀</p>
+<p>区分状态时，不可用时的颜色，添加disable后缀</p>
+</blockquote>
+<ul>
+<li><ol>
+<li>drawable的命名</li>
+</ol>
+</li>
+</ul>
+<p>跟以上colors的命名类似，此处多了选择器</p>
+<blockquote>
+<p>添加selector后缀（一般为ListView的selector或按钮的selector）</p>
+</blockquote>
+<ul>
+<li><ol>
+<li>动画文件命名</li>
+</ol>
+</li>
+</ul>
+<p>动画类型_动画方向</p>
+<blockquote>
+<p>fade_in，淡入</p>
+<p>fade_out，淡出</p>
+<p>push_down_in，从下方推入</p>
+<p>push_down_out，从下方推出</p>
+<p>slide_in_from_top，从头部滑动进入</p>
+<p>zoom_enter，变形进入</p>
+<p>shrink_to_middle，中间缩小</p>
+</blockquote>
+<ul>
+<li><ol>
+<li>变量命名</li>
+</ol>
+</li>
+</ul>
+<p>只能包含字母，单词首字母除第一个外，都为大写，其他字母都为小写</p>
+<blockquote>
+<p>普通变量:mXyxy，或userBean</p>
+<p>控件变量，类型为前缀，功能在后面：btnLogin</p>
+</blockquote>
+<ul>
+<li><ol>
+<li>常量命名</li>
+</ol>
+</li>
+</ul>
+<p>全部大写,采用下划线命名法.例如：MAX_VALUE</p>
+<h2 id="上代码！-这次没有代码！"><a href="#上代码！-这次没有代码！" class="headerlink" title="上代码！ 这次没有代码！"></a>上代码！ <a href="http://www.paradoxie.cf/" target="_blank" rel="external">这次没有代码！</a></h2><figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">注<span class="number">1</span>：单词缩写原则：尽量不要用缩写，除非该缩写是约定俗成的</div><div class="line"></div><div class="line">注<span class="number">2</span>：方案来源于网络，修改添加了部分自己用的习惯</div></pre></td></tr></table></figure>
+<hr>
+<blockquote>
+<p>本文作者：paradoxie</p>
+<p>个人主页：<a href="http://www.paradoxie.cf/" target="_blank" rel="external">谢盒盒的小黑屋，不止说技术</a></p>
+<p>简书地址：<a href="http://www.jianshu.com/users/05f39939cbf3/latest_articles" target="_blank" rel="external">简书主页，专注技术类</a></p>
+<p>github地址：<a href="https://github.com/paradoxie" target="_blank" rel="external">paradoxie</a></p>
+<p>转载请注明出处，蟹蟹!</p>
+<p>——-我的梦想真的是做一条咸鱼！</p>
+</blockquote>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[《Android APP可能有的东西》之UI篇：加入购物车动画]]></title>
       <url>http://blog.prozin.xyz/2016/10/18/%E5%8A%A0%E5%85%A5%E8%B4%AD%E7%89%A9%E8%BD%A6%E5%8A%A8%E7%94%BB/</url>
       <content type="html"><![CDATA[<p>很多电商app的加入购物车的动作会要求加上动画效果：飞进购物车，想来也合理，在listview界面时商品快速加入购物车，一直toast用户加入成功好像不太正常，所以添加一个动画，用户自然就懂了，而且也挺美观。这里记录一个这样的demo,demo里面的注释足够详细，这里也会给出部分代码说明。</p>
@@ -63,8 +310,8 @@ buyNumView.setTextSize(9);//数字大小
 <h3 id="上代码-ShopAnimDemo-1"><a href="#上代码-ShopAnimDemo-1" class="headerlink" title="上代码 ShopAnimDemo"></a>上代码 <a href="https://github.com/paradoxie/ShopAnimDemo" target="_blank" rel="external">ShopAnimDemo</a></h3><hr>
 <blockquote>
 <p>本文作者：paradoxie</p>
-<p>个人主页：<a href="http://www.paradoxie.cf/" target="_blank" rel="external">谢盒盒的小黑屋</a></p>
-<p>简书地址：<a href="http://www.jianshu.com/users/05f39939cbf3/latest_articles" target="_blank" rel="external">简书主页</a></p>
+<p>个人主页：<a href="http://www.paradoxie.cf/" target="_blank" rel="external">谢盒盒的小黑屋，不止说技术</a></p>
+<p>简书地址：<a href="http://www.jianshu.com/users/05f39939cbf3/latest_articles" target="_blank" rel="external">简书主页，专注技术类</a></p>
 <p>github地址：<a href="https://github.com/paradoxie" target="_blank" rel="external">paradoxie</a></p>
 <p>转载请注明出处，蟹蟹!</p>
 <p>——-我的梦想真的是做一条咸鱼！</p>
@@ -147,11 +394,11 @@ mAdvertDao.load(K key);//查
 <h3 id="上代码！-Demo-1"><a href="#上代码！-Demo-1" class="headerlink" title="上代码！ Demo"></a>上代码！ <a href="https://github.com/paradoxie/Demo" target="_blank" rel="external">Demo</a></h3><hr>
 <blockquote>
 <p>本文作者：paradoxie</p>
-<p>个人主页：<a href="http://www.paradoxie.cf/" target="_blank" rel="external">谢盒盒的小黑屋</a></p>
-<p>简书地址：<a href="http://www.jianshu.com/users/05f39939cbf3/latest_articles" target="_blank" rel="external">简书主页</a></p>
+<p>个人主页：<a href="http://www.paradoxie.cf/" target="_blank" rel="external">谢盒盒的小黑屋，不止说技术</a></p>
+<p>简书地址：<a href="http://www.jianshu.com/users/05f39939cbf3/latest_articles" target="_blank" rel="external">简书主页，专注技术类</a></p>
 <p>github地址：<a href="https://github.com/paradoxie" target="_blank" rel="external">paradoxie</a></p>
 <p>转载请注明出处，蟹蟹!</p>
-<p>——-我的梦想真的是做一条咸鱼！</p>
+<p>——-我的梦想真的是做一条咸鱼！    </p>
 </blockquote>
 ]]></content>
     </entry>
@@ -179,8 +426,8 @@ public void cleanHistory() {}//清除
 <h3 id="上代码！FlowLayout-SearchHistory-1"><a href="#上代码！FlowLayout-SearchHistory-1" class="headerlink" title="上代码！FlowLayout-SearchHistory"></a>上代码！<a href="https://github.com/paradoxie/FlowLayout-SearchHistory/tree/master" target="_blank" rel="external">FlowLayout-SearchHistory</a></h3><h1 id="以上"><a href="#以上" class="headerlink" title="以上"></a>以上</h1><hr>
 <blockquote>
 <p>本文作者：paradoxie</p>
-<p>个人主页：<a href="http://www.paradoxie.cf/" target="_blank" rel="external">谢盒盒的小黑屋</a></p>
-<p>简书地址：<a href="http://www.jianshu.com/users/05f39939cbf3/latest_articles" target="_blank" rel="external">简书主页</a></p>
+<p>个人主页：<a href="http://www.paradoxie.cf/" target="_blank" rel="external">谢盒盒的小黑屋，不止说技术</a></p>
+<p>简书地址：<a href="http://www.jianshu.com/users/05f39939cbf3/latest_articles" target="_blank" rel="external">简书主页，专注技术类</a></p>
 <p>github地址：<a href="https://github.com/paradoxie" target="_blank" rel="external">paradoxie</a></p>
 <p>转载请注明出处，蟹蟹!</p>
 <p>——-我的梦想真的是做一条咸鱼！</p>
@@ -241,8 +488,8 @@ public void cleanHistory() {}//清除
 <h4 id="上代码！AutoUpdateDemo-1"><a href="#上代码！AutoUpdateDemo-1" class="headerlink" title="上代码！AutoUpdateDemo"></a>上代码！<a href="https://github.com/paradoxie/AutoUpdateDemo" target="_blank" rel="external">AutoUpdateDemo</a></h4><h1 id="以上"><a href="#以上" class="headerlink" title="以上"></a>以上</h1><hr>
 <blockquote>
 <p>本文作者：paradoxie</p>
-<p>个人主页：<a href="http://www.paradoxie.cf/" target="_blank" rel="external">谢盒盒的小黑屋</a></p>
-<p>简书地址：<a href="http://www.jianshu.com/users/05f39939cbf3/latest_articles" target="_blank" rel="external">简书主页</a></p>
+<p>个人主页：<a href="http://www.paradoxie.cf/" target="_blank" rel="external">谢盒盒的小黑屋，不止说技术</a></p>
+<p>简书地址：<a href="http://www.jianshu.com/users/05f39939cbf3/latest_articles" target="_blank" rel="external">简书主页，专注技术类</a></p>
 <p>github地址：<a href="https://github.com/paradoxie" target="_blank" rel="external">paradoxie</a></p>
 <p>转载请注明出处，蟹蟹!</p>
 <p>——-我的梦想真的是做一条咸鱼！</p>
@@ -358,8 +605,8 @@ public void cleanHistory() {}//清除
 <h1 id="以上"><a href="#以上" class="headerlink" title="以上"></a>以上</h1><hr>
 <blockquote>
 <p>本文作者：paradoxie</p>
-<p>个人主页：<a href="http://www.paradoxie.cf/" target="_blank" rel="external">谢盒盒的小黑屋</a></p>
-<p>简书地址：<a href="http://www.jianshu.com/users/05f39939cbf3/latest_articles" target="_blank" rel="external">简书主页</a></p>
+<p>个人主页：<a href="http://www.paradoxie.cf/" target="_blank" rel="external">谢盒盒的小黑屋，不止说技术</a></p>
+<p>简书地址：<a href="http://www.jianshu.com/users/05f39939cbf3/latest_articles" target="_blank" rel="external">简书主页，专注技术类</a></p>
 <p>github地址：<a href="https://github.com/paradoxie" target="_blank" rel="external">paradoxie</a></p>
 <p>转载请注明出处，蟹蟹!</p>
 <p>——-我的梦想真的是做一条咸鱼！</p>
@@ -709,7 +956,14 @@ public void cleanHistory() {}//清除
 <p><img src="http://img.blog.csdn.net/20141122233658247" alt="MD大法好"></p>
 <p>好吧随便盗的图，就提一下这个东西，还没有 Demo…</p>
 <hr>
-<p>本文来自：<a href="http://www.paradoxie.cf/" target="_blank" rel="external">谢盒盒的小黑屋</a>，感谢阅读(<em>^__^</em>)~</p>
+<blockquote>
+<p>本文作者：paradoxie</p>
+<p>个人主页：<a href="http://www.paradoxie.cf/" target="_blank" rel="external">谢盒盒的小黑屋，不止说技术</a></p>
+<p>简书地址：<a href="http://www.jianshu.com/users/05f39939cbf3/latest_articles" target="_blank" rel="external">简书主页，专注技术类</a></p>
+<p>github地址：<a href="https://github.com/paradoxie" target="_blank" rel="external">paradoxie</a></p>
+<p>转载请注明出处，蟹蟹!</p>
+<p>——-我的梦想真的是做一条咸鱼！</p>
+</blockquote>
 ]]></content>
     </entry>
     
@@ -789,6 +1043,15 @@ tags: [hexo,github] #文章标签，多于一项时用这种格式
 <p><strong>以下信息表示部署成功即可访问：[info] Deploy done: git
 </strong></p>
 <h3 id="6-访问"><a href="#6-访问" class="headerlink" title="6.访问"></a>6.访问</h3><p>以我的地址为例：<a href="https://paradoxie(替换用户名).github.io/" target="_blank" rel="external">https://paradoxie(替换用户名).github.io/</a></p>
+<hr>
+<blockquote>
+<p>本文作者：paradoxie</p>
+<p>个人主页：<a href="http://www.paradoxie.cf/" target="_blank" rel="external">谢盒盒的小黑屋，不止说技术</a></p>
+<p>简书地址：<a href="http://www.jianshu.com/users/05f39939cbf3/latest_articles" target="_blank" rel="external">简书主页，专注技术类</a></p>
+<p>github地址：<a href="https://github.com/paradoxie" target="_blank" rel="external">paradoxie</a></p>
+<p>转载请注明出处，蟹蟹!</p>
+<p>——-我的梦想真的是做一条咸鱼！</p>
+</blockquote>
 ]]></content>
     </entry>
     
