@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Android,热修复,动态更新,补丁," />
 
 
 
@@ -84,15 +84,24 @@
 
 
 
-<meta name="description" content="抱歉，我的梦想是当一条咸鱼">
-<meta property="og:type" content="website">
-<meta property="og:title" content="谢盒盒的小黑屋">
-<meta property="og:url" content="http://blog.prozin.xyz/tags/ConstraintLayout/index.html">
+<meta name="description" content="热修复，即在没有更新apk的情况下，对一些bug打补丁，原理简单粗暴，就是替换，载入相关class之前把原来有bug的类替换掉，具体的实现过程比较抽象，这里不多加讨论。主要说说怎么快速上手。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="《Android APP应该有的东西》之功能篇：热修复">
+<meta property="og:url" content="http://blog.prozin.xyz/2016/10/20/热修复/index.html">
 <meta property="og:site_name" content="谢盒盒的小黑屋">
-<meta property="og:description" content="抱歉，我的梦想是当一条咸鱼">
+<meta property="og:description" content="热修复，即在没有更新apk的情况下，对一些bug打补丁，原理简单粗暴，就是替换，载入相关class之前把原来有bug的类替换掉，具体的实现过程比较抽象，这里不多加讨论。主要说说怎么快速上手。">
+<meta property="og:image" content="http://odpd0x6u7.bkt.clouddn.com/1.png">
+<meta property="og:image" content="http://odpd0x6u7.bkt.clouddn.com/2.png">
+<meta property="og:image" content="http://odpd0x6u7.bkt.clouddn.com/3.png">
+<meta property="og:image" content="http://odpd0x6u7.bkt.clouddn.com/4.png">
+<meta property="og:image" content="http://odpd0x6u7.bkt.clouddn.com/5.png">
+<meta property="og:image" content="http://odpd0x6u7.bkt.clouddn.com/6.png">
+<meta property="og:image" content="http://odpd0x6u7.bkt.clouddn.com/7.png">
+<meta property="og:updated_time" content="2016-10-20T09:35:09.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="谢盒盒的小黑屋">
-<meta name="twitter:description" content="抱歉，我的梦想是当一条咸鱼">
+<meta name="twitter:title" content="《Android APP应该有的东西》之功能篇：热修复">
+<meta name="twitter:description" content="热修复，即在没有更新apk的情况下，对一些bug打补丁，原理简单粗暴，就是替换，载入相关class之前把原来有bug的类替换掉，具体的实现过程比较抽象，这里不多加讨论。主要说说怎么快速上手。">
+<meta name="twitter:image" content="http://odpd0x6u7.bkt.clouddn.com/1.png">
 
 
 
@@ -113,9 +122,9 @@
 
 
 
-  <link rel="canonical" href="http://blog.prozin.xyz/tags/ConstraintLayout/"/>
+  <link rel="canonical" href="http://blog.prozin.xyz/2016/10/20/热修复/"/>
 
-  <title> 标签: ConstraintLayout | 谢盒盒的小黑屋 </title>
+  <title> 《Android APP应该有的东西》之功能篇：热修复 | 谢盒盒的小黑屋 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -145,7 +154,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -278,53 +287,307 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-collapse">
-    <div class="collection-title">
-      <h2 >
-        ConstraintLayout
-        <small>标签</small>
-      </h2>
-    </div>
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
 
     
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                《Android APP应该有的东西》之功能篇：热修复
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-10-20T16:00:36+08:00" content="2016-10-20">
+              2016-10-20
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/10/20/热修复/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/20/热修复/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/10/20/热修复/" class="leancloud_visitors" data-flag-title="《Android APP应该有的东西》之功能篇：热修复">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+              &nbsp; | &nbsp;
+              <span class="page-pv"><i class="fa fa-file-o"></i>
+              <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+              </span>
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
       
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+      
+        <p>热修复，即在没有更新apk的情况下，对一些bug打补丁，原理简单粗暴，就是替换，载入相关class之前把原来有bug的类替换掉，具体的实现过程比较抽象，这里不多加讨论。主要说说怎么快速上手。</p>
+<a id="more"></a>
+<p>之前有一篇文章说到了自动检测更新，觉得应该弄篇<strong>热修复</strong>和<strong>增量更新</strong>来配个套，于是研究了一下主流的热修复框架，挑选了适合上手的一个方案：<a href="https://github.com/dodola/RocooFix" target="_blank" rel="external">RocooFix</a></p>
+<blockquote>
+<p>注1：本文实践于 <a href="https://github.com/dodola/RocooFix" target="_blank" rel="external">RocooFix</a>热修复框架方案</p>
+<p>注2：本文demo参考<a href="https://github.com/shoyu666/derocoodemo" target="_blank" rel="external">derocoodemo</a>,里面的key也借用了。</p>
+<p>注3：本文demo与以上参考demo大同小异，可对照食用。</p>
+</blockquote>
+<p><strong>开始啊！</strong></p>
+<h2 id="上代码！-HotFixDemo"><a href="#上代码！-HotFixDemo" class="headerlink" title="上代码！ HotFixDemo"></a>上代码！ <a href="https://github.com/paradoxie/HotFixDemo" target="_blank" rel="external">HotFixDemo</a></h2><h2 id="相关配置"><a href="#相关配置" class="headerlink" title="相关配置"></a>相关配置</h2><h3 id="1-项目的build-gradle："><a href="#1-项目的build-gradle：" class="headerlink" title="1.项目的build.gradle："></a>1.项目的build.gradle：</h3><pre><code>dependencies {
+    classpath &apos;com.android.tools.build:gradle:2.1.2&apos;
+    classpath &apos;com.dodola:rocoofix:1.2.6&apos;//添加
+}
+</code></pre><h3 id="2-module的build-gradle："><a href="#2-module的build-gradle：" class="headerlink" title="2.module的build.gradle："></a>2.module的build.gradle：</h3><pre><code>apply plugin: &apos;com.android.application&apos;
+apply plugin: &apos;com.dodola.rocoofix&apos;//添加
+repositories {
+    flatDir {
+        dirs &apos;libs&apos;
+    }
+}
+</code></pre><p><strong>配置签名</strong>，因为一般都是<strong>在发布情况下</strong>才需要热修复嘛，所以以下操作全都是针对于release版本操作。另外，注意看下面的注释部分</p>
+<pre><code>signingConfigs {
+    test {
+        keyAlias &apos;shoyu&apos;
+        keyPassword &apos;admin22&apos;
+        storeFile file(&apos;doc/test.jks&apos;)
+        storePassword &apos;admin22&apos;
+    }
+}
 
-      <h1 class="post-title">
+defaultConfig {
+        ...
+    minSdkVersion 15 //这里最低版本支持到API 15
+        ...
+    versionCode 1 //这个值涉及到补丁版本发布
+        ...
+}
+
+buildTypes {
+    release {
+        minifyEnabled true // 注意：一定要开启混淆
+        proguardFiles getDefaultProguardFile(&apos;proguard-android.txt&apos;), &apos;proguard-rules.pro&apos;
+        signingConfig signingConfigs.test
+    }
+}
+
+dependencies {
+    ...
+    compile &apos;com.dodola:rocoo:1.1&apos;
+    compile(name: &apos;AndroidQuery-release&apos;, ext: &apos;aar&apos;)
+}
+
+rocoo_fix {
+    includePackage = [&apos;cf/paradoxie/hotfixdemo&apos;]
+    excludeClass = [&apos;MyApplicaton.class&apos;, &apos;HotFixManger.class&apos;, &apos;BasePermissionActivity.class&apos;]
+//    preVersionPath = &apos;1&apos;//制作补丁版本时开启
+//    scanref = true //制作补丁版本事开启
+       enable = true
+}
+</code></pre><p><strong>文件配置</strong></p>
+<blockquote>
+<p>1.libs文件夹下：AndroidQuery-release.aar、commons-codec-1.10.jar 两个文件复制到自己的libs下，编译。</p>
+<p>2.doc文件夹下：jks签名文件，这个自己配置都行，随便放哪，上面storeFile路径对就行。</p>
+<p>3.在main/assets文件夹下：patch.jar、rocoo.dex，示例。MyApplicaton中有注释说明。</p>
+<p>4.最后是java代码：主要是hotfix和util两个包下面的内容。注意导包。<br>5.MyApplicaton在manifest.xml中的</p>
+</blockquote>
+<p><strong>混淆配置</strong></p>
+<blockquote>
+<p>注意看自己的包名</p>
+</blockquote>
+<p>好像就差不多了吧。<br>最终的编译效果会在app路径下生成rocoofix文件夹，如下图：</p>
+<p><img src="http://odpd0x6u7.bkt.clouddn.com/1.png" alt="1"></p>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p><strong>首先部署一个release版本到手机上</strong></p>
+<p>点击右侧gradle projects,选择app/Tasks/install/installRelease,将会部署发布版到设备上。如图：</p>
+<p><img src="http://odpd0x6u7.bkt.clouddn.com/2.png" alt="2"></p>
+<p><strong>根据demo中的设定，运行点击按钮会是下图的反应，嗯，这是一个有bug的版本，修复之前的状态</strong></p>
+<p><img src="http://odpd0x6u7.bkt.clouddn.com/3.png" alt="3"></p>
+<p><strong>然后去修复相关bug，此Demo里就是HelloHack类下的showHello方法的修改，修改之后bug后，修改module的build.gradle相关配置，主要就三个地方</strong></p>
+<pre><code>1.versionCode 2版本号修改
+2.rocoo_fix中，preVersionPath = &apos;1&apos; 取消注释，开启补丁制作
+3.取消scanref = true注释
+</code></pre><p>编译后app路径下生成rocoofix下，如图：</p>
+<p><img src="http://odpd0x6u7.bkt.clouddn.com/4.png" alt="4"></p>
+<p><strong>最后制作补丁包：点击右侧gradle projects,选择app/Tasks/build/assembleRelease,如图：</strong></p>
+<p><img src="http://odpd0x6u7.bkt.clouddn.com/5.png" alt="5"></p>
+<p><strong>完事后会在rocoofix/version2/release/下生成patch.jar,如图：</strong></p>
+<p><img src="http://odpd0x6u7.bkt.clouddn.com/6.png" alt="6"></p>
+<p><strong>最后将patch.jar放置到图3所示的目录下，当然这个目录可以自己指定，最后部署后的运行效果：</strong></p>
+<p><img src="http://odpd0x6u7.bkt.clouddn.com/7.png" alt="7"></p>
+<blockquote>
+<p>注：须重启应用才能完成修复。</p>
+</blockquote>
+<h2 id="说点儿"><a href="#说点儿" class="headerlink" title="说点儿"></a>说点儿</h2><p>热修复听起来不错，但是也只能作为备用，在产品上线后的无奈之举，因为谁也不知道发布后会出现什么情况，热修复就相当于补考，但是补考这种事，还是不要参与最好。另外，热修复肯定不适合大量的代码修改，因为很难预料会出现什么状况.</p>
+<p><a href="https://github.com/dodola/RocooFix" target="_blank" rel="external">RocooFix</a>框架解决了Nuwa因为Gradle1.40 里Transform API无法打包的情况，现在兼容Gradle1.3-Gradle2.1.0版本，基于QQ空间终端开发团队的技术文章实现，更多功能实现和局限性参看<a href="https://github.com/dodola/RocooFix" target="_blank" rel="external">RocooFix</a></p>
+<h2 id="上代码！-HotFixDemo-1"><a href="#上代码！-HotFixDemo-1" class="headerlink" title="上代码！ HotFixDemo"></a>上代码！ <a href="https://github.com/paradoxie/HotFixDemo" target="_blank" rel="external">HotFixDemo</a></h2><h2 id="友情链接-《Android-APP应该有的东西》之功能篇：版本检测更新"><a href="#友情链接-《Android-APP应该有的东西》之功能篇：版本检测更新" class="headerlink" title="友情链接 :《Android APP应该有的东西》之功能篇：版本检测更新"></a>友情链接 :<a href="http://www.jianshu.com/p/4d79a6f20420" target="_blank" rel="external">《Android APP应该有的东西》之功能篇：版本检测更新</a></h2><hr>
+<blockquote>
+<p>本文作者：paradoxie</p>
+<p>个人主页：<a href="http://www.paradoxie.cf/" target="_blank" rel="external">谢盒盒的小黑屋，不止说技术</a></p>
+<p>简书地址：<a href="http://www.jianshu.com/users/05f39939cbf3/latest_articles" target="_blank" rel="external">简书主页，专注技术类</a></p>
+<p>github地址：<a href="https://github.com/paradoxie" target="_blank" rel="external">paradoxie</a></p>
+<p>转载请注明出处，蟹蟹!</p>
+<p>——-我的梦想真的是做一条咸鱼！</p>
+</blockquote>
+
+      
+    </div>
+
+    <div>
+      
         
-            <a class="post-title-link" href="/2016/09/22/constraintlayout/" itemprop="url">
-              
-                <span itemprop="name">【译】使用约束布局(ConstraintLayout)构建灵活的UI</span>
-              
-            </a>
+
+      
+    </div>
+
+    <div>
+      
         
-      </h1>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-09-22T13:17:02+08:00"
-              content="2016-09-22" >
-          09-22
-        </time>
-      </div>
+      
+    </div>
 
-    </header>
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Android/" rel="tag">#Android</a>
+          
+            <a href="/tags/热修复/" rel="tag">#热修复</a>
+          
+            <a href="/tags/动态更新/" rel="tag">#动态更新</a>
+          
+            <a href="/tags/补丁/" rel="tag">#补丁</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/10/18/Android开发规范/" rel="next" title="《Android APP必须有的东西》之维护篇：命名规范">
+                <i class="fa fa-chevron-left"></i> 《Android APP必须有的东西》之维护篇：命名规范
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </article>
 
 
-    
-  </div>
 
-  
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2016/10/20/热修复/"
+     data-title="《Android APP应该有的东西》之功能篇：热修复"
+     data-content=""
+     data-url="http://blog.prozin.xyz/2016/10/20/热修复/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
 
 
           </div>
           
 
+  <p>热评文章</p>
+  <div class="ds-top-threads" data-range="weekly" data-num-items="4"></div>
+
 
           
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/10/20/热修复/"
+           data-title="《Android APP应该有的东西》之功能篇：热修复" data-url="http://blog.prozin.xyz/2016/10/20/热修复/">
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -344,8 +607,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.jpg"
@@ -406,6 +678,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#上代码！-HotFixDemo"><span class="nav-number">1.</span> <span class="nav-text">上代码！ HotFixDemo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#相关配置"><span class="nav-number">2.</span> <span class="nav-text">相关配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-项目的build-gradle："><span class="nav-number">2.1.</span> <span class="nav-text">1.项目的build.gradle：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-module的build-gradle："><span class="nav-number">2.2.</span> <span class="nav-text">2.module的build.gradle：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用"><span class="nav-number">3.</span> <span class="nav-text">使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#说点儿"><span class="nav-number">4.</span> <span class="nav-text">说点儿</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#上代码！-HotFixDemo-1"><span class="nav-number">5.</span> <span class="nav-text">上代码！ HotFixDemo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#友情链接-《Android-APP应该有的东西》之功能篇：版本检测更新"><span class="nav-number">6.</span> <span class="nav-text">友情链接 :《Android APP应该有的东西》之功能篇：版本检测更新</span></a></li></ol></div>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -525,6 +808,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
 
   
 
