@@ -4,6 +4,46 @@
   
     
     <entry>
+      <title><![CDATA[《Android APP可能有的东西》之UI篇：日夜间模式切换]]></title>
+      <url>http://blog.prozin.xyz/2016/10/21/%E6%97%A5%E5%A4%9C%E9%97%B4%E6%A8%A1%E5%BC%8F%E5%88%87%E6%8D%A2/</url>
+      <content type="html"><![CDATA[<h2 id="说在前面"><a href="#说在前面" class="headerlink" title="说在前面"></a>说在前面</h2><p>日夜间模式在app上面的体验不必多说，特别是晚上，所以这玩意儿是个好东西，民间版本的夜间模式实现效果都很友好，但是都很复杂。官方在Android Support Library 23.2开始支持了夜间模式切换，所以大家伙儿不妨试试？</p>
+<a id="more"></a>
+<h2 id="上代码-DayNightDemo"><a href="#上代码-DayNightDemo" class="headerlink" title="上代码 DayNightDemo"></a>上代码 <a href="https://github.com/paradoxie/DayNightDemo" target="_blank" rel="external">DayNightDemo</a></h2><h2 id="上效果"><a href="#上效果" class="headerlink" title="上效果"></a>上效果</h2><p><img src="http://odpd0x6u7.bkt.clouddn.com/DayNightDemo.gif" alt="我是图"></p>
+<h2 id="实践"><a href="#实践" class="headerlink" title="实践"></a>实践</h2><h3 id="1-关于gradle依赖就不多说了，新建项目就会依赖"><a href="#1-关于gradle依赖就不多说了，新建项目就会依赖" class="headerlink" title="1.关于gradle依赖就不多说了，新建项目就会依赖"></a><strong>1.关于gradle依赖就不多说了，新建项目就会依赖</strong></h3><pre><code>compile &apos;com.android.support:appcompat-v7:24.2.1&apos;
+</code></pre><h3 id="2-切换主题的activity必须继承自AppCompatActivity"><a href="#2-切换主题的activity必须继承自AppCompatActivity" class="headerlink" title="2.切换主题的activity必须继承自AppCompatActivity"></a><strong>2.切换主题的activity必须继承自AppCompatActivity</strong></h3><h3 id="3-使用的主题，把Theme-AppCompat-DayNight作为parent："><a href="#3-使用的主题，把Theme-AppCompat-DayNight作为parent：" class="headerlink" title="3.使用的主题，把Theme.AppCompat.DayNight作为parent："></a><strong>3.使用的主题，把Theme.AppCompat.DayNight作为parent：</strong></h3><pre><code>&lt;style name=&quot;AppTheme&quot; parent=&quot;Theme.AppCompat.DayNight.DarkActionBar&quot;&gt;
+</code></pre><h3 id="4-新建value-night文件夹，在此文件夹中准备另一套colors和styles。里面的名字跟对应的value下名字相同，只是值不同，这样系统就会自动获取对应的值了"><a href="#4-新建value-night文件夹，在此文件夹中准备另一套colors和styles。里面的名字跟对应的value下名字相同，只是值不同，这样系统就会自动获取对应的值了" class="headerlink" title="4.新建value-night文件夹，在此文件夹中准备另一套colors和styles。里面的名字跟对应的value下名字相同，只是值不同，这样系统就会自动获取对应的值了"></a><strong>4.新建value-night文件夹，在此文件夹中准备另一套colors和styles。里面的名字跟对应的value下名字相同，只是值不同，这样系统就会自动获取对应的值了</strong></h3><h3 id="5-代码部分-想要切换的地方调用："><a href="#5-代码部分-想要切换的地方调用：" class="headerlink" title="5.代码部分,想要切换的地方调用："></a><strong>5.代码部分,想要切换的地方调用：</strong></h3><pre><code>getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_YES);//切换夜间模式
+recreate();//重新启动当前activity
+
+getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_NO);//切换日间模式
+   recreate();//重新启动当前activity
+</code></pre><h3 id="6-setLocalNightMode的值的说明："><a href="#6-setLocalNightMode的值的说明：" class="headerlink" title="6.setLocalNightMode的值的说明："></a><strong>6.setLocalNightMode的值的说明：</strong></h3><ul>
+<li>MODE_NIGHT_NO： 使用亮色(light)主题，不使用夜间模式</li>
+<li>MODE_NIGHT_YES：使用暗色(dark)主题，使用夜间模式</li>
+<li>MODE_NIGHT_AUTO：根据当前时间自动切换 亮色(light)/暗色(dark)主题</li>
+<li>MODE_NIGHT_FOLLOW_SYSTEM(默认选项)：设置为跟随系统，通常为MODE_NIGHT_NO</li>
+</ul>
+<h3 id="7-补充一下，如何记录上一次设置的状态，可以用sp记录状态然后进来的application时候就读取，具体代码没有，就是任性！"><a href="#7-补充一下，如何记录上一次设置的状态，可以用sp记录状态然后进来的application时候就读取，具体代码没有，就是任性！" class="headerlink" title="7.补充一下，如何记录上一次设置的状态，可以用sp记录状态然后进来的application时候就读取，具体代码没有，就是任性！"></a><strong>7.补充一下，如何记录上一次设置的状态，可以用sp记录状态然后进来的application时候就读取，具体代码没有，就是任性！</strong></h3><h3 id="8-补充两下，我看到很多人说这种模式切换会闪屏，怎么优化？先解释一下闪屏原因，因为必须调用recreate方法才能行，也就是说这里的activity重绘了，图中EditText里面的Hint信息也变化了，所以显得两个activity之间切换生硬，所以这里对切换主题的activity设置一个切换动画就行了，效果就是上面的图"><a href="#8-补充两下，我看到很多人说这种模式切换会闪屏，怎么优化？先解释一下闪屏原因，因为必须调用recreate方法才能行，也就是说这里的activity重绘了，图中EditText里面的Hint信息也变化了，所以显得两个activity之间切换生硬，所以这里对切换主题的activity设置一个切换动画就行了，效果就是上面的图" class="headerlink" title="8.补充两下，我看到很多人说这种模式切换会闪屏，怎么优化？先解释一下闪屏原因，因为必须调用recreate方法才能行，也就是说这里的activity重绘了，图中EditText里面的Hint信息也变化了，所以显得两个activity之间切换生硬，所以这里对切换主题的activity设置一个切换动画就行了，效果就是上面的图"></a><strong>8.补充两下，我看到很多人说这种模式切换会闪屏，怎么优化？先解释一下闪屏原因，因为必须调用recreate方法才能行，也就是说这里的activity重绘了，图中EditText里面的Hint信息也变化了，所以显得两个activity之间切换生硬，所以这里对切换主题的activity设置一个切换动画就行了，效果就是上面的图</strong></h3><pre><code>&lt;item name=&quot;android:windowAnimationStyle&quot;&gt;@android:style/Animation.Toast&lt;/item&gt;
+</code></pre><p><strong>估计这个是大家最需要的。。。。</strong></p>
+<h3 id="9-还有人问到ToolBar中的相关东西怎么修改，这里只说右上角那三个点的menu打开后的背景修改，因为我在这里卡了一下，呃："><a href="#9-还有人问到ToolBar中的相关东西怎么修改，这里只说右上角那三个点的menu打开后的背景修改，因为我在这里卡了一下，呃：" class="headerlink" title="9.还有人问到ToolBar中的相关东西怎么修改，这里只说右上角那三个点的menu打开后的背景修改，因为我在这里卡了一下，呃："></a><strong>9.还有人问到ToolBar中的相关东西怎么修改，这里只说右上角那三个点的menu打开后的背景修改，因为我在这里卡了一下，呃：</strong></h3><pre><code>&lt;!--设置Menu菜单的背景色--&gt;
+    &lt;item name=&quot;android:itemBackground&quot;&gt;@color/bg_content&lt;/item&gt;
+</code></pre><p>具体更多的关于ToolBar的移步：</p>
+<p><a href="http://www.jcodecraeer.com/a/anzhuokaifa/androidkaifa/2014/1118/2006.html" target="_blank" rel="external">android：ToolBar详解（手把手教程）</a></p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>主题模式这个东西涉及的资源本身就很多，需要把每个需要修改的都记录，以便替换另一套修改方案，从另一方面要求了必须把那些资源文件放在value文件夹统一管理，也算是强行纠正一些习惯。</p>
+<h3 id="上代码-DayNightDemo-1"><a href="#上代码-DayNightDemo-1" class="headerlink" title="上代码 DayNightDemo"></a>上代码 <a href="https://github.com/paradoxie/DayNightDemo" target="_blank" rel="external">DayNightDemo</a></h3><h2 id="《UI篇》拓展阅读："><a href="#《UI篇》拓展阅读：" class="headerlink" title="《UI篇》拓展阅读："></a>《UI篇》拓展阅读：</h2><p><a href="http://www.jianshu.com/p/c92a89359f53" target="_blank" rel="external">《Android APP可能有的东西》之UI篇：加入购物车动画</a></p>
+<p><a href="http://www.jianshu.com/p/50675a10fce6" target="_blank" rel="external">《Android APP可能有的东西》之UI篇：流式标签&amp;搜索历史</a></p>
+<hr>
+<blockquote>
+<p>本文作者：paradoxie</p>
+<p>个人主页：<a href="http://www.paradoxie.cf/" target="_blank" rel="external">谢盒盒的小黑屋，不止说技术</a></p>
+<p>简书地址：<a href="http://www.jianshu.com/users/05f39939cbf3/latest_articles" target="_blank" rel="external">简书主页，专注技术类</a></p>
+<p>github地址：<a href="https://github.com/paradoxie" target="_blank" rel="external">paradoxie</a></p>
+<p>转载请注明出处，蟹蟹!</p>
+<p>——-我的梦想真的是做一条咸鱼！</p>
+</blockquote>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[《Android APP应该有的东西》之功能篇：热修复]]></title>
       <url>http://blog.prozin.xyz/2016/10/20/%E7%83%AD%E4%BF%AE%E5%A4%8D/</url>
       <content type="html"><![CDATA[<p>热修复，即在没有更新apk的情况下，对一些bug打补丁，原理简单粗暴，就是替换，载入相关class之前把原来有bug的类替换掉，具体的实现过程比较抽象，这里不多加讨论。主要说说怎么快速上手。</p>

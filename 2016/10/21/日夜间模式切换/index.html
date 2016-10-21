@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="hexo,github," />
+  <meta name="keywords" content="Android,UI,夜间模式," />
 
 
 
@@ -84,19 +84,18 @@
 
 
 
-<meta name="description" content="虽然这样的博客已经很多的，但是自己在搭建的事后还是遇到了不少问题，而且是在我看了好几篇文章的情况下。我觉得主要还是不熟悉，但是谁一开始就会对自己没做过的事情熟悉呢？
-所以我写这篇博客记录一下自己的搭建过程，自己博客的第一篇内容，也算是帮助想要搭建博客的人多一条参考。">
+<meta name="description" content="说在前面日夜间模式在app上面的体验不必多说，特别是晚上，所以这玩意儿是个好东西，民间版本的夜间模式实现效果都很友好，但是都很复杂。官方在Android Support Library 23.2开始支持了夜间模式切换，所以大家伙儿不妨试试？">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Mac OS使用github+hexo搭建自己的博客">
-<meta property="og:url" content="http://blog.prozin.xyz/2016/09/16/macos使用github+hexo搭建自己的博客/index.html">
+<meta property="og:title" content="《Android APP可能有的东西》之UI篇：日夜间模式切换">
+<meta property="og:url" content="http://blog.prozin.xyz/2016/10/21/日夜间模式切换/index.html">
 <meta property="og:site_name" content="谢盒盒的小黑屋">
-<meta property="og:description" content="虽然这样的博客已经很多的，但是自己在搭建的事后还是遇到了不少问题，而且是在我看了好几篇文章的情况下。我觉得主要还是不熟悉，但是谁一开始就会对自己没做过的事情熟悉呢？
-所以我写这篇博客记录一下自己的搭建过程，自己博客的第一篇内容，也算是帮助想要搭建博客的人多一条参考。">
-<meta property="og:updated_time" content="2016-10-19T04:10:07.000Z">
+<meta property="og:description" content="说在前面日夜间模式在app上面的体验不必多说，特别是晚上，所以这玩意儿是个好东西，民间版本的夜间模式实现效果都很友好，但是都很复杂。官方在Android Support Library 23.2开始支持了夜间模式切换，所以大家伙儿不妨试试？">
+<meta property="og:image" content="http://odpd0x6u7.bkt.clouddn.com/DayNightDemo.gif">
+<meta property="og:updated_time" content="2016-10-21T08:17:25.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Mac OS使用github+hexo搭建自己的博客">
-<meta name="twitter:description" content="虽然这样的博客已经很多的，但是自己在搭建的事后还是遇到了不少问题，而且是在我看了好几篇文章的情况下。我觉得主要还是不熟悉，但是谁一开始就会对自己没做过的事情熟悉呢？
-所以我写这篇博客记录一下自己的搭建过程，自己博客的第一篇内容，也算是帮助想要搭建博客的人多一条参考。">
+<meta name="twitter:title" content="《Android APP可能有的东西》之UI篇：日夜间模式切换">
+<meta name="twitter:description" content="说在前面日夜间模式在app上面的体验不必多说，特别是晚上，所以这玩意儿是个好东西，民间版本的夜间模式实现效果都很友好，但是都很复杂。官方在Android Support Library 23.2开始支持了夜间模式切换，所以大家伙儿不妨试试？">
+<meta name="twitter:image" content="http://odpd0x6u7.bkt.clouddn.com/DayNightDemo.gif">
 
 
 
@@ -117,9 +116,9 @@
 
 
 
-  <link rel="canonical" href="http://blog.prozin.xyz/2016/09/16/macos使用github+hexo搭建自己的博客/"/>
+  <link rel="canonical" href="http://blog.prozin.xyz/2016/10/21/日夜间模式切换/"/>
 
-  <title> Mac OS使用github+hexo搭建自己的博客 | 谢盒盒的小黑屋 </title>
+  <title> 《Android APP可能有的东西》之UI篇：日夜间模式切换 | 谢盒盒的小黑屋 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -303,7 +302,7 @@
             
             
               
-                Mac OS使用github+hexo搭建自己的博客
+                《Android APP可能有的东西》之UI篇：日夜间模式切换
               
             
           </h1>
@@ -315,8 +314,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-09-16T00:15:29+08:00" content="2016-09-16">
-              2016-09-16
+            <time itemprop="dateCreated" datetime="2016-10-21T14:59:08+08:00" content="2016-10-21">
+              2016-10-21
             </time>
           </span>
 
@@ -329,8 +328,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/hexo/" itemprop="url" rel="index">
-                    <span itemprop="name">hexo</span>
+                  <a href="/categories/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
                   </a>
                 </span>
 
@@ -345,8 +344,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/09/16/macos使用github+hexo搭建自己的博客/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/16/macos使用github+hexo搭建自己的博客/" itemprop="commentsCount"></span>
+                <a href="/2016/10/21/日夜间模式切换/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/21/日夜间模式切换/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -356,7 +355,7 @@
 
           
           
-             <span id="/2016/09/16/macos使用github+hexo搭建自己的博客/" class="leancloud_visitors" data-flag-title="Mac OS使用github+hexo搭建自己的博客">
+             <span id="/2016/10/21/日夜间模式切换/" class="leancloud_visitors" data-flag-title="《Android APP可能有的东西》之UI篇：日夜间模式切换">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -383,72 +382,31 @@
       
 
       
-        <p>虽然这样的博客已经很多的，但是自己在搭建的事后还是遇到了不少问题，而且是在我看了好几篇文章的情况下。<br>我觉得主要还是不熟悉，但是谁一开始就会对自己没做过的事情熟悉呢？</p>
-<p>所以我写这篇博客记录一下自己的搭建过程，自己博客的第一篇内容，也算是帮助想要搭建博客的人多一条参考。</p>
+        <h2 id="说在前面"><a href="#说在前面" class="headerlink" title="说在前面"></a>说在前面</h2><p>日夜间模式在app上面的体验不必多说，特别是晚上，所以这玩意儿是个好东西，民间版本的夜间模式实现效果都很友好，但是都很复杂。官方在Android Support Library 23.2开始支持了夜间模式切换，所以大家伙儿不妨试试？</p>
 <a id="more"></a>
-<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="http://music.163.com/outchain/player?type=2&id=38576323&auto=1&height=66"></iframe>
+<h2 id="上代码-DayNightDemo"><a href="#上代码-DayNightDemo" class="headerlink" title="上代码 DayNightDemo"></a>上代码 <a href="https://github.com/paradoxie/DayNightDemo" target="_blank" rel="external">DayNightDemo</a></h2><h2 id="上效果"><a href="#上效果" class="headerlink" title="上效果"></a>上效果</h2><p><img src="http://odpd0x6u7.bkt.clouddn.com/DayNightDemo.gif" alt="我是图"></p>
+<h2 id="实践"><a href="#实践" class="headerlink" title="实践"></a>实践</h2><h3 id="1-关于gradle依赖就不多说了，新建项目就会依赖"><a href="#1-关于gradle依赖就不多说了，新建项目就会依赖" class="headerlink" title="1.关于gradle依赖就不多说了，新建项目就会依赖"></a><strong>1.关于gradle依赖就不多说了，新建项目就会依赖</strong></h3><pre><code>compile &apos;com.android.support:appcompat-v7:24.2.1&apos;
+</code></pre><h3 id="2-切换主题的activity必须继承自AppCompatActivity"><a href="#2-切换主题的activity必须继承自AppCompatActivity" class="headerlink" title="2.切换主题的activity必须继承自AppCompatActivity"></a><strong>2.切换主题的activity必须继承自AppCompatActivity</strong></h3><h3 id="3-使用的主题，把Theme-AppCompat-DayNight作为parent："><a href="#3-使用的主题，把Theme-AppCompat-DayNight作为parent：" class="headerlink" title="3.使用的主题，把Theme.AppCompat.DayNight作为parent："></a><strong>3.使用的主题，把Theme.AppCompat.DayNight作为parent：</strong></h3><pre><code>&lt;style name=&quot;AppTheme&quot; parent=&quot;Theme.AppCompat.DayNight.DarkActionBar&quot;&gt;
+</code></pre><h3 id="4-新建value-night文件夹，在此文件夹中准备另一套colors和styles。里面的名字跟对应的value下名字相同，只是值不同，这样系统就会自动获取对应的值了"><a href="#4-新建value-night文件夹，在此文件夹中准备另一套colors和styles。里面的名字跟对应的value下名字相同，只是值不同，这样系统就会自动获取对应的值了" class="headerlink" title="4.新建value-night文件夹，在此文件夹中准备另一套colors和styles。里面的名字跟对应的value下名字相同，只是值不同，这样系统就会自动获取对应的值了"></a><strong>4.新建value-night文件夹，在此文件夹中准备另一套colors和styles。里面的名字跟对应的value下名字相同，只是值不同，这样系统就会自动获取对应的值了</strong></h3><h3 id="5-代码部分-想要切换的地方调用："><a href="#5-代码部分-想要切换的地方调用：" class="headerlink" title="5.代码部分,想要切换的地方调用："></a><strong>5.代码部分,想要切换的地方调用：</strong></h3><pre><code>getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_YES);//切换夜间模式
+recreate();//重新启动当前activity
 
-
-<hr>
-<p>本次搭建主要是参考了以下两篇文章：</p>
-<p>1.<a href="http://www.jianshu.com/p/701b1095da11" target="_blank" rel="external">手把手教你建github技术博客</a></p>
-<p>2.<a href="http://www.jianshu.com/p/0823e387c019" target="_blank" rel="external">CentOS下搭建Hexo + github 博客</a></p>
-<p>所以能看到这篇博客的朋友，可以根据上面两篇对照着看，确保自己踩坑量达到最少。</p>
-<hr>
-<h2 id="好，开始"><a href="#好，开始" class="headerlink" title="好，开始"></a>好，开始</h2><p>先讲讲思路：</p>
-<p>①. 本地在一个特定的环境(hexo文件夹)中写文章(语法markdown)。</p>
-<p>②. 利用命令行把项目『编译』成静态网页(node.js)的形式，达到本地可访问的目的。</p>
-<p>③. 在github新建一个仓库，命名要求：你的github用户名.github.io。(注：用户名就是你新建一个仓库过后，项目名的【/】前面那个)</p>
-<p>④. 配置自己生成的SSH密钥到github，达到链接github的作用。</p>
-<p>⑤. 配置hexo里面的_config.yml文件，这里面倒数第二行的repo: 关键字，链接第三步的仓库用，值为仓库地址。</p>
-<p>⑥. 然后就是hexo的几个常用命令的用法了，新建-&gt;编辑—&gt;部署。</p>
-<pre><code>新建文章：hexo new &quot;标题&quot;
-
-发布之前清除缓存：hexo clean
-
-生成静态页面：hexo generate
-
-本地预览，localhost:4000可访问看看效果：hexo server #&apos;Ctrl+C&apos;关闭
-
-部署到github，外网可访问：hexo deploy
-
-以下信息表示部署成功即可访问：[info] Deploy done: git
-</code></pre><hr>
-<h3 id="1-前提准备工作"><a href="#1-前提准备工作" class="headerlink" title="1.前提准备工作"></a>1.前提准备工作</h3><p>①. 有自己的git环境，没有的去安装，环境变量什么的该弄好弄好。</p>
-<p>②. 熟悉github的套路，至少会新建项目以及clone过别人的项目。</p>
-<p>③. 会用MarkDown语法，可以不用熟悉，写博客的时候临时百度也是可以的。</p>
-<p>④. 安装<a href="https://nodejs.org/en/" target="_blank" rel="external">Node.js</a>环境，一路安装就行了，静态网页依赖于这个。</p>
-<h3 id="2-安装hexo"><a href="#2-安装hexo" class="headerlink" title="2.安装hexo"></a>2.安装hexo</h3><p>①. 命令行输入：</p>
-<figure class="highlight cmake"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm <span class="keyword">install</span> -g hexo</div></pre></td></tr></table></figure>
-<p>②. 在想要存放博客文章的位置新建一个hexo文件夹，比如我直接在Documents文件夹新建的。</p>
-<p>③. 命令行切换到hexo路径下，执行以下命令：</p>
-<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">hexo init</span></div></pre></td></tr></table></figure>
-<p>安装依赖包</p>
-<figure class="highlight cmake"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm <span class="keyword">install</span></div></pre></td></tr></table></figure>
-<h4 id="这样本地的事情就算完了，利用本地地址应该可以访问到了。接下来是如何跟github街上关系，使得大家都能通过互联网访问。"><a href="#这样本地的事情就算完了，利用本地地址应该可以访问到了。接下来是如何跟github街上关系，使得大家都能通过互联网访问。" class="headerlink" title="这样本地的事情就算完了，利用本地地址应该可以访问到了。接下来是如何跟github街上关系，使得大家都能通过互联网访问。"></a>这样本地的事情就算完了，利用本地地址应该可以访问到了。接下来是如何跟github街上关系，使得大家都能通过互联网访问。</h4><h3 id="3-连接github"><a href="#3-连接github" class="headerlink" title="3.连接github"></a>3.连接github</h3><p>①.    新建仓库，仓库名需要和你的账号对应，格式：yourname.github.io，拿我的举例：paradoxie.github.io</p>
-<p>②. 本地生成SSH密钥，命令行：</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">ssh-keygen</span> <span class="selector-tag">-t</span> <span class="selector-tag">rsa</span> <span class="selector-tag">-C</span> <span class="selector-tag">paradoxieix</span>@<span class="keyword">gmail</span>.<span class="keyword">com</span></div></pre></td></tr></table></figure>
-<p>主要C后面的邮箱地址替换成自己的。然后应该回让设置密码，可以全部为空。然后我在我的/Users/用户名/.ssh路径下看到了两个新生成的东西：id_rsa和id_rsa.pub，我们需要复制.pub里面的全部内容，最好用sublime打开。</p>
-<p>③. 打开<a href="https://github.com/settings/ssh，点击New" target="_blank" rel="external">https://github.com/settings/ssh，点击New</a> SSH key,然后粘贴.pub里面的全部内容进去，然后Add SSH key.</p>
-<p>④.然后在hexo文件夹内找到_config.yml配置文件，sublime打开编辑</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Hexo Configuration  </span></div><div class="line"><span class="comment">## Docs: https://hexo.io/docs/configuration.html</span></div><div class="line"><span class="comment">## Source: https://github.com/hexojs/hexo/</span></div><div class="line"></div><div class="line"><span class="comment"># Site 站点信息设置</span></div><div class="line"><span class="attr">title:</span>  <span class="comment">#站名</span></div><div class="line"><span class="attr">subtitle:</span>  <span class="comment">#副标题</span></div><div class="line"><span class="attr">description:</span> <span class="comment">#站描述</span></div><div class="line"><span class="attr">author:</span>  <span class="comment">#作者</span></div><div class="line"><span class="attr">language:</span> zh-CN <span class="comment">#语言</span></div><div class="line"><span class="attr">timezone:</span></div><div class="line"></div><div class="line"><span class="comment"># URL 链接设置</span></div><div class="line"><span class="comment">## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'</span></div><div class="line"><span class="attr">url:</span> http://blog.prozin.xyz</div><div class="line"><span class="attr">root:</span> /</div><div class="line"><span class="attr">permalink:</span> :year/:month/:day/:title/</div><div class="line"><span class="attr">permalink_defaults:</span></div><div class="line"></div><div class="line"><span class="comment"># Directory 文件目录</span></div><div class="line"><span class="attr">source_dir:</span> source</div><div class="line"><span class="attr">public_dir:</span> public</div><div class="line"><span class="attr">tag_dir:</span> tags</div><div class="line"><span class="attr">archive_dir:</span> archives</div><div class="line"><span class="attr">category_dir:</span> categories</div><div class="line"><span class="attr">code_dir:</span> downloads/code</div><div class="line"><span class="attr">i18n_dir:</span> :lang</div><div class="line"><span class="attr">skip_render:</span></div><div class="line"></div><div class="line"><span class="comment"># Writing 文章</span></div><div class="line"><span class="attr">new_post_name:</span> :title.md <span class="comment"># File name of new posts</span></div><div class="line"><span class="attr">default_layout:</span> post</div><div class="line"><span class="attr">titlecase:</span> <span class="literal">false</span> <span class="comment"># Transform title into titlecase</span></div><div class="line"><span class="attr">external_link:</span> <span class="literal">true</span> <span class="comment"># Open external links in new tab</span></div><div class="line"><span class="attr">filename_case:</span> <span class="number">0</span></div><div class="line"><span class="attr">render_drafts:</span> <span class="literal">false</span></div><div class="line"><span class="attr">post_asset_folder:</span> <span class="literal">false</span></div><div class="line"><span class="attr">relative_link:</span> <span class="literal">false</span></div><div class="line"><span class="attr">future:</span> <span class="literal">true</span></div><div class="line"><span class="attr">highlight:</span></div><div class="line"><span class="attr">  enable:</span> <span class="literal">true</span></div><div class="line"><span class="attr">  line_number:</span> <span class="literal">true</span></div><div class="line"><span class="attr">  auto_detect:</span> <span class="literal">true</span></div><div class="line"><span class="attr">  tab_replace:</span></div><div class="line"></div><div class="line"><span class="comment"># Category &amp; Tag</span></div><div class="line"><span class="attr">default_category:</span> uncategorized</div><div class="line"><span class="attr">category_map:</span></div><div class="line"><span class="attr">tag_map:</span></div><div class="line"></div><div class="line"><span class="comment"># Date / Time format 日期</span></div><div class="line"><span class="comment">## Hexo uses Moment.js to parse and display date</span></div><div class="line"><span class="comment">## You can customize the date format as defined in</span></div><div class="line"><span class="comment">## http://momentjs.com/docs/#/displaying/format/</span></div><div class="line"><span class="attr">date_format:</span> YYYY-MM-DD</div><div class="line"><span class="attr">time_format:</span> HH:mm:ss</div><div class="line"></div><div class="line"><span class="comment"># Pagination 分页</span></div><div class="line"><span class="comment">## Set per_page to 0 to disable pagination</span></div><div class="line"><span class="attr">per_page:</span> <span class="number">20</span></div><div class="line"><span class="attr">pagination_dir:</span> page</div><div class="line"></div><div class="line"><span class="comment"># Extensions 扩展</span></div><div class="line"><span class="comment">## Plugins: https://hexo.io/plugins/</span></div><div class="line"><span class="comment">## Themes: https://hexo.io/themes/</span></div><div class="line"><span class="attr">theme:</span> landscape <span class="comment">#默认主题</span></div><div class="line"></div><div class="line"><span class="comment"># Deployment 这里设置了Git获</span></div><div class="line"><span class="comment">#这里一定要注意不要写错了，否则部署到Github上会出问题</span></div><div class="line"><span class="comment">## Docs: https://hexo.io/docs/deployment.html</span></div><div class="line"><span class="attr">deploy:</span></div><div class="line"><span class="attr">  type:</span> git</div><div class="line"><span class="attr">  repo:</span> 仓库地址</div><div class="line"><span class="attr">  branch:</span> master</div><div class="line"><span class="attr">  message:</span> <span class="string">'站点更新:<span class="template-variable">&#123;&#123;now("YYYY-MM-DD HH/mm/ss")&#125;&#125;</span>'</span></div></pre></td></tr></table></figure>
-<h4 id="以上部分有个坑需要注意：——-“-”后面都有一个空格。"><a href="#以上部分有个坑需要注意：——-“-”后面都有一个空格。" class="headerlink" title="以上部分有个坑需要注意：——   “:”后面都有一个空格。"></a>以上部分有个坑需要注意：——   “:”后面都有一个空格。</h4><p>保存后退出，执行生成网页命令，然后部署命令，部署成功后就可以访问了。</p>
-<h3 id="4-更改主题"><a href="#4-更改主题" class="headerlink" title="4.更改主题"></a>4.更改主题</h3><p>默认的主题虽然也不错，但是一般大家还有更好的选择：NexT</p>
-<p>①. 切换到hexo目录下，执行拉去NexT主题项目的命令。<br>②. 好吧具体的流程在这里：<a href="http://theme-next.iissnan.com/getting-started.html" target="_blank" rel="external">NexT的配置使用</a></p>
-<h3 id="5-博客"><a href="#5-博客" class="headerlink" title="5.博客"></a>5.博客</h3><p>①. 命令：</p>
-<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo <span class="keyword">new</span> <span class="string">"标题"</span></div></pre></td></tr></table></figure>
-<p>后会在sourse/ _posts文件夹下生 .md文件，然后就可以编辑内容了</p>
-<pre><code>title: Hello World
-date: 2015-07-30 07:56:29 #发表日期，一般不改动
-categories: hexo #文章文类
-tags: [hexo,github] #文章标签，多于一项时用这种格式
----
-正文，使用Markdown语法书写
-</code></pre><p>②. 发布</p>
-<figure class="highlight verilog"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">hexo clean</div><div class="line">hexo <span class="keyword">generate</span></div><div class="line">hexo deploy</div></pre></td></tr></table></figure>
-<p><strong>以下信息表示部署成功即可访问：[info] Deploy done: git
-</strong></p>
-<h3 id="6-访问"><a href="#6-访问" class="headerlink" title="6.访问"></a>6.访问</h3><p>以我的地址为例：<a href="https://paradoxie(替换用户名).github.io/" target="_blank" rel="external">https://paradoxie(替换用户名).github.io/</a></p>
+getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_NO);//切换日间模式
+   recreate();//重新启动当前activity
+</code></pre><h3 id="6-setLocalNightMode的值的说明："><a href="#6-setLocalNightMode的值的说明：" class="headerlink" title="6.setLocalNightMode的值的说明："></a><strong>6.setLocalNightMode的值的说明：</strong></h3><ul>
+<li>MODE_NIGHT_NO： 使用亮色(light)主题，不使用夜间模式</li>
+<li>MODE_NIGHT_YES：使用暗色(dark)主题，使用夜间模式</li>
+<li>MODE_NIGHT_AUTO：根据当前时间自动切换 亮色(light)/暗色(dark)主题</li>
+<li>MODE_NIGHT_FOLLOW_SYSTEM(默认选项)：设置为跟随系统，通常为MODE_NIGHT_NO</li>
+</ul>
+<h3 id="7-补充一下，如何记录上一次设置的状态，可以用sp记录状态然后进来的application时候就读取，具体代码没有，就是任性！"><a href="#7-补充一下，如何记录上一次设置的状态，可以用sp记录状态然后进来的application时候就读取，具体代码没有，就是任性！" class="headerlink" title="7.补充一下，如何记录上一次设置的状态，可以用sp记录状态然后进来的application时候就读取，具体代码没有，就是任性！"></a><strong>7.补充一下，如何记录上一次设置的状态，可以用sp记录状态然后进来的application时候就读取，具体代码没有，就是任性！</strong></h3><h3 id="8-补充两下，我看到很多人说这种模式切换会闪屏，怎么优化？先解释一下闪屏原因，因为必须调用recreate方法才能行，也就是说这里的activity重绘了，图中EditText里面的Hint信息也变化了，所以显得两个activity之间切换生硬，所以这里对切换主题的activity设置一个切换动画就行了，效果就是上面的图"><a href="#8-补充两下，我看到很多人说这种模式切换会闪屏，怎么优化？先解释一下闪屏原因，因为必须调用recreate方法才能行，也就是说这里的activity重绘了，图中EditText里面的Hint信息也变化了，所以显得两个activity之间切换生硬，所以这里对切换主题的activity设置一个切换动画就行了，效果就是上面的图" class="headerlink" title="8.补充两下，我看到很多人说这种模式切换会闪屏，怎么优化？先解释一下闪屏原因，因为必须调用recreate方法才能行，也就是说这里的activity重绘了，图中EditText里面的Hint信息也变化了，所以显得两个activity之间切换生硬，所以这里对切换主题的activity设置一个切换动画就行了，效果就是上面的图"></a><strong>8.补充两下，我看到很多人说这种模式切换会闪屏，怎么优化？先解释一下闪屏原因，因为必须调用recreate方法才能行，也就是说这里的activity重绘了，图中EditText里面的Hint信息也变化了，所以显得两个activity之间切换生硬，所以这里对切换主题的activity设置一个切换动画就行了，效果就是上面的图</strong></h3><pre><code>&lt;item name=&quot;android:windowAnimationStyle&quot;&gt;@android:style/Animation.Toast&lt;/item&gt;
+</code></pre><p><strong>估计这个是大家最需要的。。。。</strong></p>
+<h3 id="9-还有人问到ToolBar中的相关东西怎么修改，这里只说右上角那三个点的menu打开后的背景修改，因为我在这里卡了一下，呃："><a href="#9-还有人问到ToolBar中的相关东西怎么修改，这里只说右上角那三个点的menu打开后的背景修改，因为我在这里卡了一下，呃：" class="headerlink" title="9.还有人问到ToolBar中的相关东西怎么修改，这里只说右上角那三个点的menu打开后的背景修改，因为我在这里卡了一下，呃："></a><strong>9.还有人问到ToolBar中的相关东西怎么修改，这里只说右上角那三个点的menu打开后的背景修改，因为我在这里卡了一下，呃：</strong></h3><pre><code>&lt;!--设置Menu菜单的背景色--&gt;
+    &lt;item name=&quot;android:itemBackground&quot;&gt;@color/bg_content&lt;/item&gt;
+</code></pre><p>具体更多的关于ToolBar的移步：</p>
+<p><a href="http://www.jcodecraeer.com/a/anzhuokaifa/androidkaifa/2014/1118/2006.html" target="_blank" rel="external">android：ToolBar详解（手把手教程）</a></p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>主题模式这个东西涉及的资源本身就很多，需要把每个需要修改的都记录，以便替换另一套修改方案，从另一方面要求了必须把那些资源文件放在value文件夹统一管理，也算是强行纠正一些习惯。</p>
+<h3 id="上代码-DayNightDemo-1"><a href="#上代码-DayNightDemo-1" class="headerlink" title="上代码 DayNightDemo"></a>上代码 <a href="https://github.com/paradoxie/DayNightDemo" target="_blank" rel="external">DayNightDemo</a></h3><h2 id="《UI篇》拓展阅读："><a href="#《UI篇》拓展阅读：" class="headerlink" title="《UI篇》拓展阅读："></a>《UI篇》拓展阅读：</h2><p><a href="http://www.jianshu.com/p/c92a89359f53" target="_blank" rel="external">《Android APP可能有的东西》之UI篇：加入购物车动画</a></p>
+<p><a href="http://www.jianshu.com/p/50675a10fce6" target="_blank" rel="external">《Android APP可能有的东西》之UI篇：流式标签&amp;搜索历史</a></p>
 <hr>
 <blockquote>
 <p>本文作者：paradoxie</p>
@@ -480,9 +438,11 @@ tags: [hexo,github] #文章标签，多于一项时用这种格式
       
         <div class="post-tags">
           
-            <a href="/tags/hexo/" rel="tag">#hexo</a>
+            <a href="/tags/Android/" rel="tag">#Android</a>
           
-            <a href="/tags/github/" rel="tag">#github</a>
+            <a href="/tags/UI/" rel="tag">#UI</a>
+          
+            <a href="/tags/夜间模式/" rel="tag">#夜间模式</a>
           
         </div>
       
@@ -491,13 +451,13 @@ tags: [hexo,github] #文章标签，多于一项时用这种格式
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2016/10/20/热修复/" rel="next" title="《Android APP应该有的东西》之功能篇：热修复">
+                <i class="fa fa-chevron-left"></i> 《Android APP应该有的东西》之功能篇：热修复
+              </a>
+            
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/09/17/博客需要完善的/" rel="prev" title="博客需要完善的">
-                博客需要完善的 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -512,10 +472,10 @@ tags: [hexo,github] #文章标签，多于一项时用这种格式
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2016/09/16/macos使用github+hexo搭建自己的博客/"
-     data-title="Mac OS使用github+hexo搭建自己的博客"
+        <div class="ds-share flat" data-thread-key="2016/10/21/日夜间模式切换/"
+     data-title="《Android APP可能有的东西》之UI篇：日夜间模式切换"
      data-content=""
-     data-url="http://blog.prozin.xyz/2016/09/16/macos使用github+hexo搭建自己的博客/">
+     data-url="http://blog.prozin.xyz/2016/10/21/日夜间模式切换/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -545,8 +505,8 @@ tags: [hexo,github] #文章标签，多于一项时用这种格式
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/09/16/macos使用github+hexo搭建自己的博客/"
-           data-title="Mac OS使用github+hexo搭建自己的博客" data-url="http://blog.prozin.xyz/2016/09/16/macos使用github+hexo搭建自己的博客/">
+      <div class="ds-thread" data-thread-key="2016/10/21/日夜间模式切换/"
+           data-title="《Android APP可能有的东西》之UI篇：日夜间模式切换" data-url="http://blog.prozin.xyz/2016/10/21/日夜间模式切换/">
       </div>
     
   </div>
@@ -648,7 +608,7 @@ tags: [hexo,github] #文章标签，多于一项时用这种格式
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#好，开始"><span class="nav-number">1.</span> <span class="nav-text">好，开始</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-前提准备工作"><span class="nav-number">1.1.</span> <span class="nav-text">1.前提准备工作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-安装hexo"><span class="nav-number">1.2.</span> <span class="nav-text">2.安装hexo</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#这样本地的事情就算完了，利用本地地址应该可以访问到了。接下来是如何跟github街上关系，使得大家都能通过互联网访问。"><span class="nav-number">1.2.1.</span> <span class="nav-text">这样本地的事情就算完了，利用本地地址应该可以访问到了。接下来是如何跟github街上关系，使得大家都能通过互联网访问。</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-连接github"><span class="nav-number">1.3.</span> <span class="nav-text">3.连接github</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#以上部分有个坑需要注意：——-“-”后面都有一个空格。"><span class="nav-number">1.3.1.</span> <span class="nav-text">以上部分有个坑需要注意：——   “:”后面都有一个空格。</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-更改主题"><span class="nav-number">1.4.</span> <span class="nav-text">4.更改主题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-博客"><span class="nav-number">1.5.</span> <span class="nav-text">5.博客</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-访问"><span class="nav-number">1.6.</span> <span class="nav-text">6.访问</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#说在前面"><span class="nav-number">1.</span> <span class="nav-text">说在前面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#上代码-DayNightDemo"><span class="nav-number">2.</span> <span class="nav-text">上代码 DayNightDemo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#上效果"><span class="nav-number">3.</span> <span class="nav-text">上效果</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实践"><span class="nav-number">4.</span> <span class="nav-text">实践</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-关于gradle依赖就不多说了，新建项目就会依赖"><span class="nav-number">4.1.</span> <span class="nav-text">1.关于gradle依赖就不多说了，新建项目就会依赖</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-切换主题的activity必须继承自AppCompatActivity"><span class="nav-number">4.2.</span> <span class="nav-text">2.切换主题的activity必须继承自AppCompatActivity</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-使用的主题，把Theme-AppCompat-DayNight作为parent："><span class="nav-number">4.3.</span> <span class="nav-text">3.使用的主题，把Theme.AppCompat.DayNight作为parent：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-新建value-night文件夹，在此文件夹中准备另一套colors和styles。里面的名字跟对应的value下名字相同，只是值不同，这样系统就会自动获取对应的值了"><span class="nav-number">4.4.</span> <span class="nav-text">4.新建value-night文件夹，在此文件夹中准备另一套colors和styles。里面的名字跟对应的value下名字相同，只是值不同，这样系统就会自动获取对应的值了</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-代码部分-想要切换的地方调用："><span class="nav-number">4.5.</span> <span class="nav-text">5.代码部分,想要切换的地方调用：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-setLocalNightMode的值的说明："><span class="nav-number">4.6.</span> <span class="nav-text">6.setLocalNightMode的值的说明：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-补充一下，如何记录上一次设置的状态，可以用sp记录状态然后进来的application时候就读取，具体代码没有，就是任性！"><span class="nav-number">4.7.</span> <span class="nav-text">7.补充一下，如何记录上一次设置的状态，可以用sp记录状态然后进来的application时候就读取，具体代码没有，就是任性！</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-补充两下，我看到很多人说这种模式切换会闪屏，怎么优化？先解释一下闪屏原因，因为必须调用recreate方法才能行，也就是说这里的activity重绘了，图中EditText里面的Hint信息也变化了，所以显得两个activity之间切换生硬，所以这里对切换主题的activity设置一个切换动画就行了，效果就是上面的图"><span class="nav-number">4.8.</span> <span class="nav-text">8.补充两下，我看到很多人说这种模式切换会闪屏，怎么优化？先解释一下闪屏原因，因为必须调用recreate方法才能行，也就是说这里的activity重绘了，图中EditText里面的Hint信息也变化了，所以显得两个activity之间切换生硬，所以这里对切换主题的activity设置一个切换动画就行了，效果就是上面的图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-还有人问到ToolBar中的相关东西怎么修改，这里只说右上角那三个点的menu打开后的背景修改，因为我在这里卡了一下，呃："><span class="nav-number">4.9.</span> <span class="nav-text">9.还有人问到ToolBar中的相关东西怎么修改，这里只说右上角那三个点的menu打开后的背景修改，因为我在这里卡了一下，呃：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">5.</span> <span class="nav-text">总结</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#上代码-DayNightDemo-1"><span class="nav-number">5.1.</span> <span class="nav-text">上代码 DayNightDemo</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#《UI篇》拓展阅读："><span class="nav-number">6.</span> <span class="nav-text">《UI篇》拓展阅读：</span></a></li></ol></div>
             
           </div>
         </section>
