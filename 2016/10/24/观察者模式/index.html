@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="hexo,github," />
+  <meta name="keywords" content="Android,设计模式,观察者模式," />
 
 
 
@@ -84,19 +84,18 @@
 
 
 
-<meta name="description" content="虽然这样的博客已经很多的，但是自己在搭建的事后还是遇到了不少问题，而且是在我看了好几篇文章的情况下。我觉得主要还是不熟悉，但是谁一开始就会对自己没做过的事情熟悉呢？
-所以我写这篇博客记录一下自己的搭建过程，自己博客的第一篇内容，也算是帮助想要搭建博客的人多一条参考。">
+<meta name="description" content="先说点儿别的，今天在群里看到了有人问观察者模式，之前觉得好像没有必要写一个这个。但是转念一想，自己刚接触这些模式的时候简直一头雾水，我能一个类一个类的写为什么要用接口？我能实现为什么要去优化？作为一个码渣，功能完全实现不出bug已经是我最大的愿望嘞~然鹅。。。我也知道这是不对滴，代码的系统性看起来很优雅，也是自己能掌握代码的体现，而不是被功能支配。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Mac OS使用github+hexo搭建自己的博客">
-<meta property="og:url" content="http://blog.prozin.xyz/2016/09/16/macos使用github+hexo搭建自己的博客/index.html">
+<meta property="og:title" content="《Android APP一定有的东西》之架构篇：观察者模式">
+<meta property="og:url" content="http://blog.prozin.xyz/2016/10/24/观察者模式/index.html">
 <meta property="og:site_name" content="谢盒盒的小黑屋">
-<meta property="og:description" content="虽然这样的博客已经很多的，但是自己在搭建的事后还是遇到了不少问题，而且是在我看了好几篇文章的情况下。我觉得主要还是不熟悉，但是谁一开始就会对自己没做过的事情熟悉呢？
-所以我写这篇博客记录一下自己的搭建过程，自己博客的第一篇内容，也算是帮助想要搭建博客的人多一条参考。">
-<meta property="og:updated_time" content="2016-10-19T04:10:07.000Z">
+<meta property="og:description" content="先说点儿别的，今天在群里看到了有人问观察者模式，之前觉得好像没有必要写一个这个。但是转念一想，自己刚接触这些模式的时候简直一头雾水，我能一个类一个类的写为什么要用接口？我能实现为什么要去优化？作为一个码渣，功能完全实现不出bug已经是我最大的愿望嘞~然鹅。。。我也知道这是不对滴，代码的系统性看起来很优雅，也是自己能掌握代码的体现，而不是被功能支配。">
+<meta property="og:image" content="http://odpd0x6u7.bkt.clouddn.com/observer.gif">
+<meta property="og:updated_time" content="2016-10-24T13:20:28.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Mac OS使用github+hexo搭建自己的博客">
-<meta name="twitter:description" content="虽然这样的博客已经很多的，但是自己在搭建的事后还是遇到了不少问题，而且是在我看了好几篇文章的情况下。我觉得主要还是不熟悉，但是谁一开始就会对自己没做过的事情熟悉呢？
-所以我写这篇博客记录一下自己的搭建过程，自己博客的第一篇内容，也算是帮助想要搭建博客的人多一条参考。">
+<meta name="twitter:title" content="《Android APP一定有的东西》之架构篇：观察者模式">
+<meta name="twitter:description" content="先说点儿别的，今天在群里看到了有人问观察者模式，之前觉得好像没有必要写一个这个。但是转念一想，自己刚接触这些模式的时候简直一头雾水，我能一个类一个类的写为什么要用接口？我能实现为什么要去优化？作为一个码渣，功能完全实现不出bug已经是我最大的愿望嘞~然鹅。。。我也知道这是不对滴，代码的系统性看起来很优雅，也是自己能掌握代码的体现，而不是被功能支配。">
+<meta name="twitter:image" content="http://odpd0x6u7.bkt.clouddn.com/observer.gif">
 
 
 
@@ -117,9 +116,9 @@
 
 
 
-  <link rel="canonical" href="http://blog.prozin.xyz/2016/09/16/macos使用github+hexo搭建自己的博客/"/>
+  <link rel="canonical" href="http://blog.prozin.xyz/2016/10/24/观察者模式/"/>
 
-  <title> Mac OS使用github+hexo搭建自己的博客 | 谢盒盒的小黑屋 </title>
+  <title> 《Android APP一定有的东西》之架构篇：观察者模式 | 谢盒盒的小黑屋 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -303,7 +302,7 @@
             
             
               
-                Mac OS使用github+hexo搭建自己的博客
+                《Android APP一定有的东西》之架构篇：观察者模式
               
             
           </h1>
@@ -315,8 +314,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-09-16T00:15:29+08:00" content="2016-09-16">
-              2016-09-16
+            <time itemprop="dateCreated" datetime="2016-10-24T17:35:00+08:00" content="2016-10-24">
+              2016-10-24
             </time>
           </span>
 
@@ -329,8 +328,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/hexo/" itemprop="url" rel="index">
-                    <span itemprop="name">hexo</span>
+                  <a href="/categories/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
                   </a>
                 </span>
 
@@ -345,8 +344,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/09/16/macos使用github+hexo搭建自己的博客/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/16/macos使用github+hexo搭建自己的博客/" itemprop="commentsCount"></span>
+                <a href="/2016/10/24/观察者模式/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/24/观察者模式/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -356,7 +355,7 @@
 
           
           
-             <span id="/2016/09/16/macos使用github+hexo搭建自己的博客/" class="leancloud_visitors" data-flag-title="Mac OS使用github+hexo搭建自己的博客">
+             <span id="/2016/10/24/观察者模式/" class="leancloud_visitors" data-flag-title="《Android APP一定有的东西》之架构篇：观察者模式">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -383,72 +382,19 @@
       
 
       
-        <p>虽然这样的博客已经很多的，但是自己在搭建的事后还是遇到了不少问题，而且是在我看了好几篇文章的情况下。<br>我觉得主要还是不熟悉，但是谁一开始就会对自己没做过的事情熟悉呢？</p>
-<p>所以我写这篇博客记录一下自己的搭建过程，自己博客的第一篇内容，也算是帮助想要搭建博客的人多一条参考。</p>
+        <p>先说点儿别的，今天在群里看到了有人问观察者模式，之前觉得好像没有必要写一个这个。但是转念一想，自己刚接触这些模式的时候简直一头雾水，我能一个类一个类的写为什么要用接口？我能实现为什么要去优化？作为一个码渣，功能完全实现不出bug已经是我最大的愿望嘞~然鹅。。。我也知道这是不对滴，代码的系统性看起来很优雅，也是自己能掌握代码的体现，而不是被功能支配。</p>
 <a id="more"></a>
-<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="http://music.163.com/outchain/player?type=2&id=38576323&auto=1&height=66"></iframe>
-
-
-<hr>
-<p>本次搭建主要是参考了以下两篇文章：</p>
-<p>1.<a href="http://www.jianshu.com/p/701b1095da11" target="_blank" rel="external">手把手教你建github技术博客</a></p>
-<p>2.<a href="http://www.jianshu.com/p/0823e387c019" target="_blank" rel="external">CentOS下搭建Hexo + github 博客</a></p>
-<p>所以能看到这篇博客的朋友，可以根据上面两篇对照着看，确保自己踩坑量达到最少。</p>
-<hr>
-<h2 id="好，开始"><a href="#好，开始" class="headerlink" title="好，开始"></a>好，开始</h2><p>先讲讲思路：</p>
-<p>①. 本地在一个特定的环境(hexo文件夹)中写文章(语法markdown)。</p>
-<p>②. 利用命令行把项目『编译』成静态网页(node.js)的形式，达到本地可访问的目的。</p>
-<p>③. 在github新建一个仓库，命名要求：你的github用户名.github.io。(注：用户名就是你新建一个仓库过后，项目名的【/】前面那个)</p>
-<p>④. 配置自己生成的SSH密钥到github，达到链接github的作用。</p>
-<p>⑤. 配置hexo里面的_config.yml文件，这里面倒数第二行的repo: 关键字，链接第三步的仓库用，值为仓库地址。</p>
-<p>⑥. 然后就是hexo的几个常用命令的用法了，新建-&gt;编辑—&gt;部署。</p>
-<pre><code>新建文章：hexo new &quot;标题&quot;
-
-发布之前清除缓存：hexo clean
-
-生成静态页面：hexo generate
-
-本地预览，localhost:4000可访问看看效果：hexo server #&apos;Ctrl+C&apos;关闭
-
-部署到github，外网可访问：hexo deploy
-
-以下信息表示部署成功即可访问：[info] Deploy done: git
-</code></pre><hr>
-<h3 id="1-前提准备工作"><a href="#1-前提准备工作" class="headerlink" title="1.前提准备工作"></a>1.前提准备工作</h3><p>①. 有自己的git环境，没有的去安装，环境变量什么的该弄好弄好。</p>
-<p>②. 熟悉github的套路，至少会新建项目以及clone过别人的项目。</p>
-<p>③. 会用MarkDown语法，可以不用熟悉，写博客的时候临时百度也是可以的。</p>
-<p>④. 安装<a href="https://nodejs.org/en/" target="_blank" rel="external">Node.js</a>环境，一路安装就行了，静态网页依赖于这个。</p>
-<h3 id="2-安装hexo"><a href="#2-安装hexo" class="headerlink" title="2.安装hexo"></a>2.安装hexo</h3><p>①. 命令行输入：</p>
-<figure class="highlight cmake"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm <span class="keyword">install</span> -g hexo</div></pre></td></tr></table></figure>
-<p>②. 在想要存放博客文章的位置新建一个hexo文件夹，比如我直接在Documents文件夹新建的。</p>
-<p>③. 命令行切换到hexo路径下，执行以下命令：</p>
-<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">hexo init</span></div></pre></td></tr></table></figure>
-<p>安装依赖包</p>
-<figure class="highlight cmake"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm <span class="keyword">install</span></div></pre></td></tr></table></figure>
-<h4 id="这样本地的事情就算完了，利用本地地址应该可以访问到了。接下来是如何跟github街上关系，使得大家都能通过互联网访问。"><a href="#这样本地的事情就算完了，利用本地地址应该可以访问到了。接下来是如何跟github街上关系，使得大家都能通过互联网访问。" class="headerlink" title="这样本地的事情就算完了，利用本地地址应该可以访问到了。接下来是如何跟github街上关系，使得大家都能通过互联网访问。"></a>这样本地的事情就算完了，利用本地地址应该可以访问到了。接下来是如何跟github街上关系，使得大家都能通过互联网访问。</h4><h3 id="3-连接github"><a href="#3-连接github" class="headerlink" title="3.连接github"></a>3.连接github</h3><p>①.    新建仓库，仓库名需要和你的账号对应，格式：yourname.github.io，拿我的举例：paradoxie.github.io</p>
-<p>②. 本地生成SSH密钥，命令行：</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">ssh-keygen</span> <span class="selector-tag">-t</span> <span class="selector-tag">rsa</span> <span class="selector-tag">-C</span> <span class="selector-tag">paradoxieix</span>@<span class="keyword">gmail</span>.<span class="keyword">com</span></div></pre></td></tr></table></figure>
-<p>主要C后面的邮箱地址替换成自己的。然后应该回让设置密码，可以全部为空。然后我在我的/Users/用户名/.ssh路径下看到了两个新生成的东西：id_rsa和id_rsa.pub，我们需要复制.pub里面的全部内容，最好用sublime打开。</p>
-<p>③. 打开<a href="https://github.com/settings/ssh，点击New" target="_blank" rel="external">https://github.com/settings/ssh，点击New</a> SSH key,然后粘贴.pub里面的全部内容进去，然后Add SSH key.</p>
-<p>④.然后在hexo文件夹内找到_config.yml配置文件，sublime打开编辑</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Hexo Configuration  </span></div><div class="line"><span class="comment">## Docs: https://hexo.io/docs/configuration.html</span></div><div class="line"><span class="comment">## Source: https://github.com/hexojs/hexo/</span></div><div class="line"></div><div class="line"><span class="comment"># Site 站点信息设置</span></div><div class="line"><span class="attr">title:</span>  <span class="comment">#站名</span></div><div class="line"><span class="attr">subtitle:</span>  <span class="comment">#副标题</span></div><div class="line"><span class="attr">description:</span> <span class="comment">#站描述</span></div><div class="line"><span class="attr">author:</span>  <span class="comment">#作者</span></div><div class="line"><span class="attr">language:</span> zh-CN <span class="comment">#语言</span></div><div class="line"><span class="attr">timezone:</span></div><div class="line"></div><div class="line"><span class="comment"># URL 链接设置</span></div><div class="line"><span class="comment">## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'</span></div><div class="line"><span class="attr">url:</span> http://blog.prozin.xyz</div><div class="line"><span class="attr">root:</span> /</div><div class="line"><span class="attr">permalink:</span> :year/:month/:day/:title/</div><div class="line"><span class="attr">permalink_defaults:</span></div><div class="line"></div><div class="line"><span class="comment"># Directory 文件目录</span></div><div class="line"><span class="attr">source_dir:</span> source</div><div class="line"><span class="attr">public_dir:</span> public</div><div class="line"><span class="attr">tag_dir:</span> tags</div><div class="line"><span class="attr">archive_dir:</span> archives</div><div class="line"><span class="attr">category_dir:</span> categories</div><div class="line"><span class="attr">code_dir:</span> downloads/code</div><div class="line"><span class="attr">i18n_dir:</span> :lang</div><div class="line"><span class="attr">skip_render:</span></div><div class="line"></div><div class="line"><span class="comment"># Writing 文章</span></div><div class="line"><span class="attr">new_post_name:</span> :title.md <span class="comment"># File name of new posts</span></div><div class="line"><span class="attr">default_layout:</span> post</div><div class="line"><span class="attr">titlecase:</span> <span class="literal">false</span> <span class="comment"># Transform title into titlecase</span></div><div class="line"><span class="attr">external_link:</span> <span class="literal">true</span> <span class="comment"># Open external links in new tab</span></div><div class="line"><span class="attr">filename_case:</span> <span class="number">0</span></div><div class="line"><span class="attr">render_drafts:</span> <span class="literal">false</span></div><div class="line"><span class="attr">post_asset_folder:</span> <span class="literal">false</span></div><div class="line"><span class="attr">relative_link:</span> <span class="literal">false</span></div><div class="line"><span class="attr">future:</span> <span class="literal">true</span></div><div class="line"><span class="attr">highlight:</span></div><div class="line"><span class="attr">  enable:</span> <span class="literal">true</span></div><div class="line"><span class="attr">  line_number:</span> <span class="literal">true</span></div><div class="line"><span class="attr">  auto_detect:</span> <span class="literal">true</span></div><div class="line"><span class="attr">  tab_replace:</span></div><div class="line"></div><div class="line"><span class="comment"># Category &amp; Tag</span></div><div class="line"><span class="attr">default_category:</span> uncategorized</div><div class="line"><span class="attr">category_map:</span></div><div class="line"><span class="attr">tag_map:</span></div><div class="line"></div><div class="line"><span class="comment"># Date / Time format 日期</span></div><div class="line"><span class="comment">## Hexo uses Moment.js to parse and display date</span></div><div class="line"><span class="comment">## You can customize the date format as defined in</span></div><div class="line"><span class="comment">## http://momentjs.com/docs/#/displaying/format/</span></div><div class="line"><span class="attr">date_format:</span> YYYY-MM-DD</div><div class="line"><span class="attr">time_format:</span> HH:mm:ss</div><div class="line"></div><div class="line"><span class="comment"># Pagination 分页</span></div><div class="line"><span class="comment">## Set per_page to 0 to disable pagination</span></div><div class="line"><span class="attr">per_page:</span> <span class="number">20</span></div><div class="line"><span class="attr">pagination_dir:</span> page</div><div class="line"></div><div class="line"><span class="comment"># Extensions 扩展</span></div><div class="line"><span class="comment">## Plugins: https://hexo.io/plugins/</span></div><div class="line"><span class="comment">## Themes: https://hexo.io/themes/</span></div><div class="line"><span class="attr">theme:</span> landscape <span class="comment">#默认主题</span></div><div class="line"></div><div class="line"><span class="comment"># Deployment 这里设置了Git获</span></div><div class="line"><span class="comment">#这里一定要注意不要写错了，否则部署到Github上会出问题</span></div><div class="line"><span class="comment">## Docs: https://hexo.io/docs/deployment.html</span></div><div class="line"><span class="attr">deploy:</span></div><div class="line"><span class="attr">  type:</span> git</div><div class="line"><span class="attr">  repo:</span> 仓库地址</div><div class="line"><span class="attr">  branch:</span> master</div><div class="line"><span class="attr">  message:</span> <span class="string">'站点更新:<span class="template-variable">&#123;&#123;now("YYYY-MM-DD HH/mm/ss")&#125;&#125;</span>'</span></div></pre></td></tr></table></figure>
-<h4 id="以上部分有个坑需要注意：——-“-”后面都有一个空格。"><a href="#以上部分有个坑需要注意：——-“-”后面都有一个空格。" class="headerlink" title="以上部分有个坑需要注意：——   “:”后面都有一个空格。"></a>以上部分有个坑需要注意：——   “:”后面都有一个空格。</h4><p>保存后退出，执行生成网页命令，然后部署命令，部署成功后就可以访问了。</p>
-<h3 id="4-更改主题"><a href="#4-更改主题" class="headerlink" title="4.更改主题"></a>4.更改主题</h3><p>默认的主题虽然也不错，但是一般大家还有更好的选择：NexT</p>
-<p>①. 切换到hexo目录下，执行拉去NexT主题项目的命令。<br>②. 好吧具体的流程在这里：<a href="http://theme-next.iissnan.com/getting-started.html" target="_blank" rel="external">NexT的配置使用</a></p>
-<h3 id="5-博客"><a href="#5-博客" class="headerlink" title="5.博客"></a>5.博客</h3><p>①. 命令：</p>
-<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo <span class="keyword">new</span> <span class="string">"标题"</span></div></pre></td></tr></table></figure>
-<p>后会在sourse/ _posts文件夹下生 .md文件，然后就可以编辑内容了</p>
-<pre><code>title: Hello World
-date: 2015-07-30 07:56:29 #发表日期，一般不改动
-categories: hexo #文章文类
-tags: [hexo,github] #文章标签，多于一项时用这种格式
----
-正文，使用Markdown语法书写
-</code></pre><p>②. 发布</p>
-<figure class="highlight verilog"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">hexo clean</div><div class="line">hexo <span class="keyword">generate</span></div><div class="line">hexo deploy</div></pre></td></tr></table></figure>
-<p><strong>以下信息表示部署成功即可访问：[info] Deploy done: git
-</strong></p>
-<h3 id="6-访问"><a href="#6-访问" class="headerlink" title="6.访问"></a>6.访问</h3><p>以我的地址为例：<a href="https://paradoxie(替换用户名).github.io/" target="_blank" rel="external">https://paradoxie(替换用户名).github.io/</a></p>
+<p>Android中的常用的设计模式相关的内容并不多，前面一篇文章说到了工厂模式，这篇就说说观察者。我觉得可以区分一下，这里指的代码架构领域，跟项目架构领域的设计模式比起来，代码领域自由灵活。对了，项目领域经常有一个词：过度设计，也就是为了设计而设计。</p>
+<p>关于什么时候开始学习设计模式，一个建议是不要为了模式去学，学了也用不上，当觉得自己的代码自己看起来非常不顺眼的时候，当你不自觉的发现有些代码有点意思的时候，很自然的就会看到设计模式并且深入进去了，反正我是这么告诉自己的…/姚明笑~</p>
+<h2 id="上个并没有什么暖用的小demo-ObserverDemo"><a href="#上个并没有什么暖用的小demo-ObserverDemo" class="headerlink" title="上个并没有什么暖用的小demo ObserverDemo"></a>上个并没有什么暖用的小demo <a href="https://github.com/paradoxie/ObserverDemo" target="_blank" rel="external">ObserverDemo</a></h2><h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p>这里先说说观察者模式，引用一段来自解说RxJava的话：A 对象（观察者）对 B 对象（被观察者）的某种变化高度敏感，需要在 B 变化的一瞬间做出反应。<strong>举个例子，新闻里喜闻乐见的警察抓小偷，警察需要在小偷伸手作案的时候实施抓捕。在这个例子里，警察是观察者，小偷是被观察者，警察需要时刻盯着小偷的一举一动，才能保证不会漏过任何瞬间。</strong>程序的观察者模式和这种真正的『观察』略有不同，观察者不需要时刻盯着被观察者（例如 A 不需要每过 2ms 就检查一次 B 的状态），而是采用注册(Register)或者称为订阅(Subscribe)的方式，告诉被观察者：我需要你的某某状态，你要在它变化的时候通知我。 Android 开发中一个比较典型的例子是点击监听器 OnClickListener 。对设置 OnClickListener 来说， View 是被观察者， OnClickListener 是观察者，二者通过 setOnClickListener() 方法达成订阅关系。订阅之后用户点击按钮的瞬间，Android Framework 就会将点击事件发送给已经注册的 OnClickListener 。<a href="http://gank.io/post/560e15be2dca930e00da1083#toc_1" target="_blank" rel="external">原文：给 Android 开发者的 RxJava 详解</a></p>
+<p><strong>来啊！实现一个抓小偷的故事！</strong></p>
+<h2 id="定义观察者"><a href="#定义观察者" class="headerlink" title="定义观察者"></a>定义观察者</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Watcher</span> </span>&#123;<span class="comment">//长眼睛的</span></div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">Discover</span><span class="params">(String s)</span></span>;<span class="comment">//好像发现了什么</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="定义被观察者接口，需要被观察的行为"><a href="#定义被观察者接口，需要被观察的行为" class="headerlink" title="定义被观察者接口，需要被观察的行为"></a>定义被观察者接口，需要被观察的行为</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Mistakable</span> </span>&#123;<span class="comment">//可能会搞事的</span></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">add</span><span class="params">(Watcher watcher)</span></span>;<span class="comment">//引起一些长眼睛的人注意,注册</span></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">steal</span><span class="params">(String s)</span></span>;<span class="comment">//搞事</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="被观察者实现被观察者接口里面的方法"><a href="#被观察者实现被观察者接口里面的方法" class="headerlink" title="被观察者实现被观察者接口里面的方法"></a>被观察者实现被观察者接口里面的方法</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Tom</span> <span class="keyword">implements</span> <span class="title">Mistakable</span> </span>&#123;<span class="comment">//Tom就是可能搞事的人，现在他打算搞点什么</span></div><div class="line">    <span class="comment">// 技术不行，可能被好多人看到</span></div><div class="line">    <span class="keyword">private</span> List&lt;Watcher&gt; mWatchers = <span class="keyword">new</span> ArrayList&lt;&gt;();</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">add</span><span class="params">(Watcher watcher)</span> </span>&#123;</div><div class="line">        mWatchers.add(watcher);<span class="comment">//被看到了</span></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">steal</span><span class="params">(String s)</span> </span>&#123;<span class="comment">//开始偷东西的时候被以下这些人发现了，然后发出了一些信号</span></div><div class="line">        <span class="keyword">for</span> (Watcher watcher : mWatchers) &#123;</div><div class="line">            watcher.Discover(s);</div><div class="line">        &#125;</div><div class="line"></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="实现观察者接口并实现发出信号的方法"><a href="#实现观察者接口并实现发出信号的方法" class="headerlink" title="实现观察者接口并实现发出信号的方法"></a>实现观察者接口并实现发出信号的方法</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span> <span class="keyword">implements</span> <span class="title">Watcher</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> TextView mTextView;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</div><div class="line">        setContentView(R.layout.activity_main);</div><div class="line">        mTextView = (TextView) findViewById(R.id.tv);</div><div class="line"></div><div class="line">        mTextView.setText(<span class="string">"听说tom要搞一个炸弹，有人在监视他"</span>);</div><div class="line">        <span class="keyword">new</span> Handler(<span class="keyword">new</span> Handler.Callback() &#123;</div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">handleMessage</span><span class="params">(Message msg)</span> </span>&#123;</div><div class="line">                doSomeThing();<span class="comment">//搞事</span></div><div class="line">                <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;).sendEmptyMessageDelayed(<span class="number">0</span>, <span class="number">3000</span>);</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">doSomeThing</span><span class="params">()</span> </span>&#123;</div><div class="line">        Tom tom = <span class="keyword">new</span> Tom();<span class="comment">//tom来了</span></div><div class="line">        tom.add(<span class="keyword">this</span>);<span class="comment">//引起注意了</span></div><div class="line">        tom.steal(<span class="string">"偷到了一台三桑note7"</span>);<span class="comment">//开始搞事了</span></div><div class="line">    &#125;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Discover</span><span class="params">(String s)</span> </span>&#123;</div><div class="line">        mTextView.setText(<span class="string">"tom被发现"</span> + s + <span class="string">",诶不抓了不抓了~"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="效果图"><a href="#效果图" class="headerlink" title="效果图"></a>效果图</h2><p><img src="http://odpd0x6u7.bkt.clouddn.com/observer.gif" alt="我是图"></p>
+<h2 id="关于接口函数"><a href="#关于接口函数" class="headerlink" title="关于接口函数"></a>关于接口函数</h2><p>接口回调是观察者模式的一种实现方式，属于观察者模式，只不过接口回调在实际运用中只有一个观察者，上面demo改造参看实例：<a href="http://blog.csdn.net/cauchyweierstrass/article/details/44593807" target="_blank" rel="external">Java设计模式-回调函数和观察者模式</a></p>
+<h2 id="【架构篇】扩展阅读"><a href="#【架构篇】扩展阅读" class="headerlink" title="【架构篇】扩展阅读"></a>【架构篇】扩展阅读</h2><p><a href="http://www.jianshu.com/p/6d6648fa74d2" target="_blank" rel="external">《Android APP可以有的东西》之架构篇：工厂设计模式</a></p>
 <hr>
 <blockquote>
 <p>本文作者：paradoxie</p>
@@ -480,9 +426,11 @@ tags: [hexo,github] #文章标签，多于一项时用这种格式
       
         <div class="post-tags">
           
-            <a href="/tags/hexo/" rel="tag">#hexo</a>
+            <a href="/tags/Android/" rel="tag">#Android</a>
           
-            <a href="/tags/github/" rel="tag">#github</a>
+            <a href="/tags/设计模式/" rel="tag">#设计模式</a>
+          
+            <a href="/tags/观察者模式/" rel="tag">#观察者模式</a>
           
         </div>
       
@@ -491,13 +439,13 @@ tags: [hexo,github] #文章标签，多于一项时用这种格式
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2016/10/23/AS常用快捷键/" rel="next" title="《Android APP相关的东西》之工具篇：论AS常用快捷键的必要性">
+                <i class="fa fa-chevron-left"></i> 《Android APP相关的东西》之工具篇：论AS常用快捷键的必要性
+              </a>
+            
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/09/17/博客需要完善的/" rel="prev" title="博客需要完善的">
-                博客需要完善的 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -512,10 +460,10 @@ tags: [hexo,github] #文章标签，多于一项时用这种格式
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2016/09/16/macos使用github+hexo搭建自己的博客/"
-     data-title="Mac OS使用github+hexo搭建自己的博客"
+        <div class="ds-share flat" data-thread-key="2016/10/24/观察者模式/"
+     data-title="《Android APP一定有的东西》之架构篇：观察者模式"
      data-content=""
-     data-url="http://blog.prozin.xyz/2016/09/16/macos使用github+hexo搭建自己的博客/">
+     data-url="http://blog.prozin.xyz/2016/10/24/观察者模式/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -545,8 +493,8 @@ tags: [hexo,github] #文章标签，多于一项时用这种格式
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/09/16/macos使用github+hexo搭建自己的博客/"
-           data-title="Mac OS使用github+hexo搭建自己的博客" data-url="http://blog.prozin.xyz/2016/09/16/macos使用github+hexo搭建自己的博客/">
+      <div class="ds-thread" data-thread-key="2016/10/24/观察者模式/"
+           data-title="《Android APP一定有的东西》之架构篇：观察者模式" data-url="http://blog.prozin.xyz/2016/10/24/观察者模式/">
       </div>
     
   </div>
@@ -648,7 +596,7 @@ tags: [hexo,github] #文章标签，多于一项时用这种格式
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#好，开始"><span class="nav-number">1.</span> <span class="nav-text">好，开始</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-前提准备工作"><span class="nav-number">1.1.</span> <span class="nav-text">1.前提准备工作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-安装hexo"><span class="nav-number">1.2.</span> <span class="nav-text">2.安装hexo</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#这样本地的事情就算完了，利用本地地址应该可以访问到了。接下来是如何跟github街上关系，使得大家都能通过互联网访问。"><span class="nav-number">1.2.1.</span> <span class="nav-text">这样本地的事情就算完了，利用本地地址应该可以访问到了。接下来是如何跟github街上关系，使得大家都能通过互联网访问。</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-连接github"><span class="nav-number">1.3.</span> <span class="nav-text">3.连接github</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#以上部分有个坑需要注意：——-“-”后面都有一个空格。"><span class="nav-number">1.3.1.</span> <span class="nav-text">以上部分有个坑需要注意：——   “:”后面都有一个空格。</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-更改主题"><span class="nav-number">1.4.</span> <span class="nav-text">4.更改主题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-博客"><span class="nav-number">1.5.</span> <span class="nav-text">5.博客</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-访问"><span class="nav-number">1.6.</span> <span class="nav-text">6.访问</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#上个并没有什么暖用的小demo-ObserverDemo"><span class="nav-number">1.</span> <span class="nav-text">上个并没有什么暖用的小demo ObserverDemo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#说明"><span class="nav-number">2.</span> <span class="nav-text">说明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#定义观察者"><span class="nav-number">3.</span> <span class="nav-text">定义观察者</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#定义被观察者接口，需要被观察的行为"><span class="nav-number">4.</span> <span class="nav-text">定义被观察者接口，需要被观察的行为</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#被观察者实现被观察者接口里面的方法"><span class="nav-number">5.</span> <span class="nav-text">被观察者实现被观察者接口里面的方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现观察者接口并实现发出信号的方法"><span class="nav-number">6.</span> <span class="nav-text">实现观察者接口并实现发出信号的方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#效果图"><span class="nav-number">7.</span> <span class="nav-text">效果图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关于接口函数"><span class="nav-number">8.</span> <span class="nav-text">关于接口函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#【架构篇】扩展阅读"><span class="nav-number">9.</span> <span class="nav-text">【架构篇】扩展阅读</span></a></li></ol></div>
             
           </div>
         </section>
