@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Android,UI," />
+  <meta name="keywords" content="Android,TextView," />
 
 
 
@@ -84,18 +84,24 @@
 
 
 
-<meta name="description" content="很多电商app的加入购物车的动作会要求加上动画效果：飞进购物车，想来也合理，在listview界面时商品快速加入购物车，一直toast用户加入成功好像不太正常，所以添加一个动画，用户自然就懂了，而且也挺美观。这里记录一个这样的demo,demo里面的注释足够详细，这里也会给出部分代码说明。">
+<meta name="description" content="前言就像朋友圈里面那样的点击查看全文效果，很有可能是在项目中也会遇到。这里给出不实用自定义控件的方法，原理很简单，代码量也不大，可以直接复制粘贴到自己的项目……">
 <meta property="og:type" content="article">
-<meta property="og:title" content="《Android APP可能有的东西》之UI篇：加入购物车动画">
-<meta property="og:url" content="http://blog.prozin.xyz/2016/10/18/加入购物车动画/index.html">
+<meta property="og:title" content="《Android APP可能有的东西》之UI篇：展开TextView全文">
+<meta property="og:url" content="http://blog.prozin.xyz/2016/10/26/展开全文？/index.html">
 <meta property="og:site_name" content="谢盒盒的小黑屋">
-<meta property="og:description" content="很多电商app的加入购物车的动作会要求加上动画效果：飞进购物车，想来也合理，在listview界面时商品快速加入购物车，一直toast用户加入成功好像不太正常，所以添加一个动画，用户自然就懂了，而且也挺美观。这里记录一个这样的demo,demo里面的注释足够详细，这里也会给出部分代码说明。">
-<meta property="og:image" content="http://odpd0x6u7.bkt.clouddn.com/animation.gif">
-<meta property="og:updated_time" content="2016-10-19T04:11:16.000Z">
+<meta property="og:description" content="前言就像朋友圈里面那样的点击查看全文效果，很有可能是在项目中也会遇到。这里给出不实用自定义控件的方法，原理很简单，代码量也不大，可以直接复制粘贴到自己的项目……">
+<meta property="og:image" content="http://odpd0x6u7.bkt.clouddn.com/expandText.gif">
+<meta property="og:image" content="http://ww4.sinaimg.cn/mw690/87f10601gw1f94cplqt4pj20ao0h0dh9.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/mw690/87f10601gw1f94cpm2tl7j20aq0geq40.jpg">
+<meta property="og:image" content="http://ww3.sinaimg.cn/mw690/87f10601gw1f94cq465rhj20960hnwfk.jpg">
+<meta property="og:image" content="http://ww3.sinaimg.cn/mw690/87f10601gw1f94cpklj7cj20ai0gugmv.jpg">
+<meta property="og:image" content="http://ww4.sinaimg.cn/mw690/87f10601gw1f94dq5pz52j20ap0hbgmo.jpg">
+<meta property="og:image" content="http://ww2.sinaimg.cn/mw690/87f10601gw1f94dq5697kj20ao0d0757.jpg">
+<meta property="og:updated_time" content="2016-10-26T16:51:19.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="《Android APP可能有的东西》之UI篇：加入购物车动画">
-<meta name="twitter:description" content="很多电商app的加入购物车的动作会要求加上动画效果：飞进购物车，想来也合理，在listview界面时商品快速加入购物车，一直toast用户加入成功好像不太正常，所以添加一个动画，用户自然就懂了，而且也挺美观。这里记录一个这样的demo,demo里面的注释足够详细，这里也会给出部分代码说明。">
-<meta name="twitter:image" content="http://odpd0x6u7.bkt.clouddn.com/animation.gif">
+<meta name="twitter:title" content="《Android APP可能有的东西》之UI篇：展开TextView全文">
+<meta name="twitter:description" content="前言就像朋友圈里面那样的点击查看全文效果，很有可能是在项目中也会遇到。这里给出不实用自定义控件的方法，原理很简单，代码量也不大，可以直接复制粘贴到自己的项目……">
+<meta name="twitter:image" content="http://odpd0x6u7.bkt.clouddn.com/expandText.gif">
 
 
 
@@ -116,9 +122,9 @@
 
 
 
-  <link rel="canonical" href="http://blog.prozin.xyz/2016/10/18/加入购物车动画/"/>
+  <link rel="canonical" href="http://blog.prozin.xyz/2016/10/26/展开全文？/"/>
 
-  <title> 《Android APP可能有的东西》之UI篇：加入购物车动画 | 谢盒盒的小黑屋 </title>
+  <title> 《Android APP可能有的东西》之UI篇：展开TextView全文 | 谢盒盒的小黑屋 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -302,7 +308,7 @@
             
             
               
-                《Android APP可能有的东西》之UI篇：加入购物车动画
+                《Android APP可能有的东西》之UI篇：展开TextView全文
               
             
           </h1>
@@ -314,8 +320,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-10-18T00:31:25+08:00" content="2016-10-18">
-              2016-10-18
+            <time itemprop="dateCreated" datetime="2016-10-26T22:59:54+08:00" content="2016-10-26">
+              2016-10-26
             </time>
           </span>
 
@@ -344,8 +350,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/10/18/加入购物车动画/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/18/加入购物车动画/" itemprop="commentsCount"></span>
+                <a href="/2016/10/26/展开全文？/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/26/展开全文？/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -355,7 +361,7 @@
 
           
           
-             <span id="/2016/10/18/加入购物车动画/" class="leancloud_visitors" data-flag-title="《Android APP可能有的东西》之UI篇：加入购物车动画">
+             <span id="/2016/10/26/展开全文？/" class="leancloud_visitors" data-flag-title="《Android APP可能有的东西》之UI篇：展开TextView全文">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -382,61 +388,58 @@
       
 
       
-        <p>很多电商app的加入购物车的动作会要求加上动画效果：飞进购物车，想来也合理，在listview界面时商品快速加入购物车，一直toast用户加入成功好像不太正常，所以添加一个动画，用户自然就懂了，而且也挺美观。这里记录一个这样的demo,demo里面的注释足够详细，这里也会给出部分代码说明。</p>
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>就像朋友圈里面那样的点击查看全文效果，很有可能是在项目中也会遇到。这里给出不实用自定义控件的方法，原理很简单，代码量也不大，可以直接复制粘贴到自己的项目……</p>
 <a id="more"></a>
-<h2 id="上代码-ShopAnimDemo"><a href="#上代码-ShopAnimDemo" class="headerlink" title="上代码 ShopAnimDemo"></a>上代码 <a href="https://github.com/paradoxie/ShopAnimDemo" target="_blank" rel="external">ShopAnimDemo</a></h2><h2 id="上效果"><a href="#上效果" class="headerlink" title="上效果"></a>上效果</h2><p><img src="http://odpd0x6u7.bkt.clouddn.com/animation.gif" alt="动画效果"></p>
-<h2 id="上说明"><a href="#上说明" class="headerlink" title="上说明"></a>上说明</h2><h3 id="使用方法1："><a href="#使用方法1：" class="headerlink" title="使用方法1："></a>使用方法1：</h3><blockquote>
-<p>如果现成的效果还不够自己想要的效果，下载demo，把demo中library中的两个类拷贝出来放进自己的view文件夹，然后直接去修改它们，修改成满足自己需求的效果。</p>
-</blockquote>
-<h3 id="使用方法2："><a href="#使用方法2：" class="headerlink" title="使用方法2："></a>使用方法2：</h3><p>如果觉得现成的效果足够满足自己需求了直接使用gradle依赖的方式：</p>
-<p>1.Add it in your root build.gradle at the end of repositories:</p>
-<pre><code>allprojects {
-    repositories {
-        ...
-        maven { url &quot;https://jitpack.io&quot; }
+<h2 id="上代码-ExpandText"><a href="#上代码-ExpandText" class="headerlink" title="上代码 ExpandText"></a>上代码 <a href="https://github.com/paradoxie/ExpandText" target="_blank" rel="external">ExpandText</a></h2><h2 id="上效果图"><a href="#上效果图" class="headerlink" title="上效果图"></a>上效果图</h2><p><img src="http://odpd0x6u7.bkt.clouddn.com/expandText.gif" alt="我是图"></p>
+<p>看起来十分美好，但是往下看说明。</p>
+<h2 id="上说明"><a href="#上说明" class="headerlink" title="上说明"></a>上说明</h2><p>布局部分省略，就是一个线性布局里面两个textview,一个显示内容，一个显示那个作文按钮的提示。</p>
+<p>思路是这样：提前计算要显示的文字内容，模拟一个相同的textview放到布局中,让它只显示一定的行数，这里为两行，然后计算出这个两行的高度，这就是真正TextView的一开始出现时需要被展开的高度。然后计算出完全显示时需要多少高度，记录这个值，最后展开的时候就能把内容完全展示出来了。</p>
+<p>以下为获取<strong>只显示两行时</strong>的高度代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">getShortHeight</span><span class="params">()</span> </span>&#123;<span class="comment">//虚拟一个tv来获得理论高度值，短文高度</span></div><div class="line">        <span class="keyword">int</span> width = mTextView.getMeasuredWidth();<span class="comment">//宽度</span></div><div class="line"></div><div class="line">        TextView textView = <span class="keyword">new</span> TextView(<span class="keyword">this</span>);</div><div class="line">        textView.setText(R.string.str);</div><div class="line">        textView.setTextSize(TypedValue.COMPLEX_UNIT_SP, <span class="number">16</span>);</div><div class="line">        textView.setMaxLines(mMaxlines);</div><div class="line"></div><div class="line">        <span class="keyword">int</span> measureSpecWidth = View.MeasureSpec.makeMeasureSpec(width, View.MeasureSpec.EXACTLY);<span class="comment">//宽度match</span></div><div class="line">        <span class="keyword">int</span> measureSpecHeight = View.MeasureSpec.makeMeasureSpec(<span class="number">1920</span>, View.MeasureSpec.AT_MOST);<span class="comment">//高度wrap，1920为最大高度</span></div><div class="line">        textView.measure(measureSpecWidth, measureSpecHeight);</div><div class="line"></div><div class="line">        <span class="keyword">return</span> textView.getMeasuredHeight();</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<p>本来以为可以仿照出获取完整文本的高度，理论上是去掉：<figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">textView<span class="selector-class">.setMaxLines</span>(mMaxlines);</div></pre></td></tr></table></figure></p>
+<p>就可以，但是，获取到的一直是1920的具体值，这个地方我查了很多地方都说应该是自适应内容的高度，这里我表示需要大神ಥ_ಥ</p>
+<p>但是问题还是得解决哇，换思路，能拿到最小的那个高度，自己设置了行数，所以每一行的高度我是知道的，所以我只需要知道文本完全显示时需要占多少行就行了。</p>
+<p>兴高采烈的去<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure></p>
+<p>mTextView.post(new Runnable() {<br>            @Override<br>            public void run() {<br>                maxLine = mTextView.getLineCount();//获取完全显示饿行数</p>
+<pre><code>        mLongHeight = getLongHeight();//获取完全显示需要的高度
+
+        Log.d(&quot;MainActivity&quot;, &quot;长的&quot; + mLongHeight + &quot;,短的=&quot; + mShortHeight);
+        if (mLongHeight &lt;= mShortHeight) {
+            mTextViewToggle.setVisibility(View.GONE);//完全显示需要的高度小于低的高度的时候，不需要展开
+        }
     }
-}
-</code></pre><p>2.Add the dependency：</p>
-<pre><code>dependencies {
-        compile &apos;com.github.paradoxie:ShopAnimDemo:0.1&apos;
-}
-</code></pre><h3 id="自定义说明："><a href="#自定义说明：" class="headerlink" title="自定义说明："></a>自定义说明：</h3><pre><code>//启动动画
-public void startAnim(View v) {
-    int[] end_location = new int[2];
-    int[] start_location = new int[2];
-    v.getLocationInWindow(start_location);// 获取购买按钮的在屏幕的X、Y坐标（动画开始的坐标）
-    car.getLocationInWindow(end_location);// 这是用来存储动画结束位置，也就是购物车图标的X、Y坐标
-    buyImg = new ImageView(this);// buyImg是动画的图片
-    buyImg.setImageResource(R.mipmap.sign);// 设置buyImg的图片
+});
+</code></pre><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">完整文本的高度总算是拿到了，其余细节不多说，然后就设置动画了，代码可以直接拷贝了：</div></pre></td></tr></table></figure>
+<p>private void toggle() {<br>        ValueAnimator animator;<br>        if (isOpen) {<br>            animator = ValueAnimator.ofInt(mLongHeight, mShortHeight);<br>            isOpen = false;<br>        } else {<br>            animator = ValueAnimator.ofInt(mShortHeight, mLongHeight);<br>            isOpen = true;<br>        }<br>        animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {<br>            @Override<br>            public void onAnimationUpdate(ValueAnimator valueAnimator) {<br>                Integer value = (Integer) valueAnimator.getAnimatedValue();<br>                mLayoutParams.height = value;<br>                mTextView.setLayoutParams(mLayoutParams);<br>            }<br>        });<br>        animator.addListener(new Animator.AnimatorListener() {<br>            @Override<br>            public void onAnimationStart(Animator animator) {</p>
+<pre><code>        }
 
-    //        mAniManager.setTime(5500);//自定义时间
-    mAniManager.setAnim(this, buyImg, start_location, end_location);// 开始执行动画
-
-    mAniManager.setOnAnimListener(new AniManager.AnimListener() {
         @Override
-        public void setAnimBegin(AniManager a) {
-            //动画开始时的监听
+        public void onAnimationEnd(Animator animator) {
+            if (isOpen) {
+                mTextViewToggle.setText(&quot;收起全文&quot;);
+            } else {
+                mTextViewToggle.setText(&quot;展开全文&quot;);
+            }
         }
 
         @Override
-        public void setAnimEnd(AniManager a) {
-            //动画结束后的监听
-            num += 5;
-            buyNumView.setText(num + &quot;&quot;);
-            buyNumView.show();
+        public void onAnimationCancel(Animator animator) {
+
+        }
+
+        @Override
+        public void onAnimationRepeat(Animator animator) {
+
         }
     });
+    animator.setDuration(500);
+    animator.start();
 }
-</code></pre><p>写一个点击事件中可直接调用的方法，内部实现为动画的配置，包括：动画的起点，即点击view的位置；动画的终点，即购物车图标的位置；界面上飞来飞去那个小图标；动画的持续时间；然后调用方法开始执行动画。这里给出了动画开始和结束的监听回调，因为一般在结束之后是需要修改一些显示状态的，具体查看demo实现效果。</p>
-<p>另外，在图标之上有一个数字标签BadgeView，使用了自定义控件实现，使用时具体配置：</p>
-<pre><code>buyNumView = new BadgeView(this, car);//把这个数字标签放在购物车图标上
-buyNumView.setBadgePosition(BadgeView.POSITION_CENTER);//放在图标中心
-buyNumView.setTextColor(Color.WHITE);//数字颜色
-buyNumView.setBadgeBackgroundColor(Color.BLUE);//背景颜色
-buyNumView.setTextSize(9);//数字大小
-</code></pre><p>注释给得十分清楚了，可去修改自己想要的效果。具体的使用配置只有这些，很容易理解哇</p>
-<p>源码中获取ViewGroup时使用的是Activity.getWindow().getDecorView(),所以理论上支持所有activity和fragment中实现此效果，具体木有测试，如果有问题可以根据情况修改。本人正式项目中就是在fragment实现这个效果，虽然不是用的这个依赖库。</p>
-<h3 id="上代码-ShopAnimDemo-1"><a href="#上代码-ShopAnimDemo-1" class="headerlink" title="上代码 ShopAnimDemo"></a>上代码 <a href="https://github.com/paradoxie/ShopAnimDemo" target="_blank" rel="external">ShopAnimDemo</a></h3><hr>
+</code></pre><p>```</p>
+<h2 id="上代码-ExpandText-1"><a href="#上代码-ExpandText-1" class="headerlink" title="上代码 ExpandText"></a>上代码 <a href="https://github.com/paradoxie/ExpandText" target="_blank" rel="external">ExpandText</a></h2><h2 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h2><p>测量高度的时候直接填充了需要的内容，实际项目中这个内容应该也是能拿到然后替换的吧，这里问题不大。</p>
+<p>没有使用自定义控件的原因是觉得好像没必要，所以就直接写了，完整的代码查看Demo,不过github上面还是有几个不错的类似自定义控件的，github关键词<code>ExpandTextView</code>,各位小伙伴酌情使用哇~</p>
+<h2 id="对了，效果图里面的后文："><a href="#对了，效果图里面的后文：" class="headerlink" title="对了，效果图里面的后文："></a>对了，效果图里面的后文：</h2><p><img src="http://ww4.sinaimg.cn/mw690/87f10601gw1f94cplqt4pj20ao0h0dh9.jpg" alt="1"><br><img src="http://ww1.sinaimg.cn/mw690/87f10601gw1f94cpm2tl7j20aq0geq40.jpg" alt="2"><br><img src="http://ww3.sinaimg.cn/mw690/87f10601gw1f94cq465rhj20960hnwfk.jpg" alt="3"><br><img src="http://ww3.sinaimg.cn/mw690/87f10601gw1f94cpklj7cj20ai0gugmv.jpg" alt="4"><br><img src="http://ww4.sinaimg.cn/mw690/87f10601gw1f94dq5pz52j20ap0hbgmo.jpg" alt="5"><br><img src="http://ww2.sinaimg.cn/mw690/87f10601gw1f94dq5697kj20ao0d0757.jpg" alt="6"></p>
+<hr>
 <blockquote>
 <p>本文作者：paradoxie</p>
 <p>个人主页：<a href="http://www.paradoxie.cf/" target="_blank" rel="external">谢盒盒的小黑屋，不止说技术</a></p>
@@ -469,7 +472,7 @@ buyNumView.setTextSize(9);//数字大小
           
             <a href="/tags/Android/" rel="tag">#Android</a>
           
-            <a href="/tags/UI/" rel="tag">#UI</a>
+            <a href="/tags/TextView/" rel="tag">#TextView</a>
           
         </div>
       
@@ -478,17 +481,13 @@ buyNumView.setTextSize(9);//数字大小
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/10/17/greenDao配置使用/" rel="next" title="《Android APP可以有的东西》之数据库篇：GreenDao3.0配置使用">
-                <i class="fa fa-chevron-left"></i> 《Android APP可以有的东西》之数据库篇：GreenDao3.0配置使用
+              <a href="/2016/10/25/scrollview嵌套listview/" rel="next" title="《Android APP要解决的问题》之显示篇：scrollview嵌套listview">
+                <i class="fa fa-chevron-left"></i> 《Android APP要解决的问题》之显示篇：scrollview嵌套listview
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/10/18/Android开发规范/" rel="prev" title="《Android APP必须有的东西》之维护篇：命名规范">
-                《Android APP必须有的东西》之维护篇：命名规范 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -503,10 +502,10 @@ buyNumView.setTextSize(9);//数字大小
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2016/10/18/加入购物车动画/"
-     data-title="《Android APP可能有的东西》之UI篇：加入购物车动画"
+        <div class="ds-share flat" data-thread-key="2016/10/26/展开全文？/"
+     data-title="《Android APP可能有的东西》之UI篇：展开TextView全文"
      data-content=""
-     data-url="http://blog.prozin.xyz/2016/10/18/加入购物车动画/">
+     data-url="http://blog.prozin.xyz/2016/10/26/展开全文？/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -536,8 +535,8 @@ buyNumView.setTextSize(9);//数字大小
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/10/18/加入购物车动画/"
-           data-title="《Android APP可能有的东西》之UI篇：加入购物车动画" data-url="http://blog.prozin.xyz/2016/10/18/加入购物车动画/">
+      <div class="ds-thread" data-thread-key="2016/10/26/展开全文？/"
+           data-title="《Android APP可能有的东西》之UI篇：展开TextView全文" data-url="http://blog.prozin.xyz/2016/10/26/展开全文？/">
       </div>
     
   </div>
@@ -639,7 +638,7 @@ buyNumView.setTextSize(9);//数字大小
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#上代码-ShopAnimDemo"><span class="nav-number">1.</span> <span class="nav-text">上代码 ShopAnimDemo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#上效果"><span class="nav-number">2.</span> <span class="nav-text">上效果</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#上说明"><span class="nav-number">3.</span> <span class="nav-text">上说明</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#使用方法1："><span class="nav-number">3.1.</span> <span class="nav-text">使用方法1：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用方法2："><span class="nav-number">3.2.</span> <span class="nav-text">使用方法2：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自定义说明："><span class="nav-number">3.3.</span> <span class="nav-text">自定义说明：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#上代码-ShopAnimDemo-1"><span class="nav-number">3.4.</span> <span class="nav-text">上代码 ShopAnimDemo</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#上代码-ExpandText"><span class="nav-number">2.</span> <span class="nav-text">上代码 ExpandText</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#上效果图"><span class="nav-number">3.</span> <span class="nav-text">上效果图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#上说明"><span class="nav-number">4.</span> <span class="nav-text">上说明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#上代码-ExpandText-1"><span class="nav-number">5.</span> <span class="nav-text">上代码 ExpandText</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#最后"><span class="nav-number">6.</span> <span class="nav-text">最后</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对了，效果图里面的后文："><span class="nav-number">7.</span> <span class="nav-text">对了，效果图里面的后文：</span></a></li></ol></div>
             
           </div>
         </section>
