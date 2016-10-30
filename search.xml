@@ -4,7 +4,46 @@
   
     
     <entry>
-      <title><![CDATA[《Android APP可能有的东西》之推荐篇：新功能高亮指引]]></title>
+      <title><![CDATA[《Android APP可以有的东西》之功能篇：右滑返回]]></title>
+      <url>http://blog.prozin.xyz/2016/10/28/%E5%8F%B3%E6%BB%91%E8%BF%94%E5%9B%9E/</url>
+      <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>右滑返回这个功能好像在iOS上蛮实用的，因为它的返回键在左上角，右手握持手机就得穿越整个屏幕去按它，不过对于大屏Android手机也是蛮实用的，右下角的返回键随着屏占比的增大按起来的难度也不小，就算有mBack这样的交互，多一个右滑返回也是极好的是吧？</p>
+<a id="more"></a>
+<h2 id="上代码-SwipBackDemo"><a href="#上代码-SwipBackDemo" class="headerlink" title="上代码 SwipBackDemo"></a>上代码 <a href="https://github.com/paradoxie/SwipBackDemo" target="_blank" rel="external">SwipBackDemo</a></h2><h2 id="上效果图"><a href="#上效果图" class="headerlink" title="上效果图"></a>上效果图</h2><p><img src="http://odpd0x6u7.bkt.clouddn.com/SWIP.gif" alt="我是图"></p>
+<h2 id="SlidingPaneLayout"><a href="#SlidingPaneLayout" class="headerlink" title="SlidingPaneLayout"></a>SlidingPaneLayout</h2><p>这个东西是Support V4中早就存在的，同样是侧滑，远没有侧滑菜单<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">SlidingPaneLayout继承自GroupView，官方的貌似是作为侧滑菜单推出的，然鹅并没有多少人使用？？但是可以根据这东西实现右滑返回。</div><div class="line"></div><div class="line">**原理：假设滑动的时候左侧有侧滑菜单，但是它是全透明的，所以可以看到底部一层的视图，然后拉出整个假设的侧滑菜单之后移除当前activity，就完成了右滑返回。**</div><div class="line"></div><div class="line">所以这个地方要定义的是滑动的anim，以及透明的style.主要是这个style:</div></pre></td></tr></table></figure></p>
+<p><style name="Animation.SlidingBack" parent="@android:style/Animation.Activity"><br>        <item name="android:activityOpenEnterAnimation">@anim/slide_in_right</item><br>        <item name="android:activityOpenExitAnimation">@anim/slide_out_right</item><br>        <item name="android:activityCloseEnterAnimation">@anim/slide_in_right</item><br>        <item name="android:activityCloseExitAnimation">@anim/slide_out_right</item><br>        <item name="android:wallpaperOpenEnterAnimation">@anim/slide_in_right</item><br>        <item name="android:wallpaperOpenExitAnimation">@anim/slide_out_right</item><br>        <item name="android:wallpaperCloseEnterAnimation">@anim/slide_in_right</item><br>        <item name="android:wallpaperCloseExitAnimation">@anim/slide_out_right</item><br>        <item name="android:wallpaperIntraOpenEnterAnimation">@anim/slide_in_right</item><br>        <item name="android:wallpaperIntraOpenExitAnimation">@anim/slide_out_right</item><br>        <item name="android:wallpaperIntraCloseEnterAnimation">@anim/slide_in_right</item><br>        <item name="android:wallpaperIntraCloseExitAnimation">@anim/slide_out_right</item><br>    </style><br><figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">代码思路：实例化出slidingPaneLayout及相关属性设定，然后给slidingPaneLayout*<span class="strong">*添加透明的侧滑视图和真实的内容区域视图*</span><span class="strong">*，关键代码：</span></div></pre></td></tr></table></figure></p>
+<p> SlidingPaneLayout slidingPaneLayout = new SlidingPaneLayout(this);<br>            //通过反射改变mOverhangSize的值为0，这个mOverhangSize值为菜单到右边屏幕的最短距离，默认是32dp，现在给它改成0<br>            try {<br>                //属性<br>                Field f_overHang = SlidingPaneLayout.class.getDeclaredField(“mOverhangSize”);<br>                f_overHang.setAccessible(true);<br>                f_overHang.set(slidingPaneLayout, 0);<br>            } catch (Exception e) {<br>                e.printStackTrace();<br>            }<br>            slidingPaneLayout.setPanelSlideListener(this);<br>            slidingPaneLayout.setSliderFadeColor(getResources().getColor(android.R.color.transparent));</p>
+<pre><code>View leftView = new View(this);
+leftView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
+slidingPaneLayout.addView(leftView, 0);
+
+ViewGroup decor = (ViewGroup) getWindow().getDecorView();
+ViewGroup decorChild = (ViewGroup) decor.getChildAt(0);
+decorChild.setBackgroundColor(getResources().getColor(android.R.color.white));
+decor.removeView(decorChild);
+decor.addView(slidingPaneLayout);
+slidingPaneLayout.addView(decorChild, 1);
+</code></pre><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">可以在一个基类中封装使用以上方法，然后需要返回的继承该类就行了。因为某些界面不需要侧滑返回，所以提供一个设置是否支持返回的方法，不需要返回的重写该方法返回<span class="literal">false</span>：</div></pre></td></tr></table></figure>
+<p>@Override<br>    protected boolean isSupportSwipeBack() {<br>        return false;<br>    }</p>
+<p>```</p>
+<h2 id="上代码-SwipBackDemo-1"><a href="#上代码-SwipBackDemo-1" class="headerlink" title="上代码 SwipBackDemo"></a>上代码 <a href="https://github.com/paradoxie/SwipBackDemo" target="_blank" rel="external">SwipBackDemo</a></h2><h2 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h2><p>这个是全屏滑动，所以我尝试了一些方法来让它只在边缘滑动，但是我失败了…所以如果有上文这种需求的话可以直接使用，解决跟listview和scrollview的滑动冲突的时候去重新判断onInterceptTouchEvent方法就行的，但是如果有边缘滑动的话还是尝试用SlidingMenu吧…</p>
+<p>最后求助一下看到本文的大神看看有什么好的方案咯~</p>
+<h2 id="【功能篇】扩展阅读"><a href="#【功能篇】扩展阅读" class="headerlink" title="【功能篇】扩展阅读"></a>【功能篇】扩展阅读</h2><p><a href="http://www.jianshu.com/p/4d79a6f20420" target="_blank" rel="external">《Android APP应该有的东西》之功能篇：版本检测更新</a></p>
+<p><a href="http://www.jianshu.com/p/237f1a3f9364" target="_blank" rel="external">《Android APP应该有的东西》之功能篇：热修复</a></p>
+<p><a href="http://www.jianshu.com/p/4f324f04584a" target="_blank" rel="external">《Android APP可能有的东西》之功能篇：新功能高亮指引【荐】</a></p>
+<hr>
+<blockquote>
+<p>本文作者：paradoxie</p>
+<p>个人主页：<a href="http://www.paradoxie.cf/" target="_blank" rel="external">谢盒盒的小黑屋，不止说技术</a></p>
+<p>简书地址：<a href="http://www.jianshu.com/users/05f39939cbf3/latest_articles" target="_blank" rel="external">简书主页，专注技术类</a></p>
+<p>github地址：<a href="https://github.com/paradoxie" target="_blank" rel="external">paradoxie</a></p>
+<p>转载请注明出处，蟹蟹!</p>
+<p>——-我的梦想真的是做一条咸鱼！</p>
+</blockquote>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[《Android APP可能有的东西》之功能篇：新功能高亮指引【荐】]]></title>
       <url>http://blog.prozin.xyz/2016/10/27/%E6%96%B0%E5%8A%9F%E8%83%BD%E9%AB%98%E4%BA%AE%E6%8C%87%E5%BC%95/</url>
       <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>一个app用户刚上手的时候可能面对界面上很多信息无所适从，所以这时候可能一个简单的新功能指引是非常必要的，至少用户戳戳戳几下就能知道点了那个地方能干些什么。</p>
 <a id="more"></a>
@@ -31,6 +70,9 @@ tv2.setTextSize(30);
 <h2 id="上代码-1"><a href="#上代码-1" class="headerlink" title="上代码"></a>上代码</h2><p><a href="https://github.com/binIoter/GuideView" target="_blank" rel="external">满足各种界面的GuideView</a></p>
 <p><a href="https://github.com/qiushi123/GuideView-master" target="_blank" rel="external">简单上手的GuideView-master</a></p>
 <p>文中给出的是第二个的代码，虽然demo是我自己的写的，但是跟作者那个也如出一辙，这里就不放我的代码了。</p>
+<h2 id="【功能篇】扩展阅读"><a href="#【功能篇】扩展阅读" class="headerlink" title="【功能篇】扩展阅读"></a>【功能篇】扩展阅读</h2><p><a href="http://www.jianshu.com/p/4d79a6f20420" target="_blank" rel="external">《Android APP应该有的东西》之功能篇：版本检测更新</a></p>
+<p><a href="http://www.jianshu.com/p/237f1a3f9364" target="_blank" rel="external">《Android APP应该有的东西》之功能篇：热修复</a></p>
+<p><a href="http://www.jianshu.com/p/c0a15bdc2690" target="_blank" rel="external">《Android APP可以有的东西》之功能篇：右滑返回</a></p>
 <hr>
 <blockquote>
 <p>本文作者：paradoxie</p>
