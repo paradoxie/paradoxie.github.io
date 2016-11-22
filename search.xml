@@ -4,6 +4,40 @@
   
     
     <entry>
+      <title><![CDATA[《Android APP可以有的东西》之显示篇：快速启动App]]></title>
+      <url>http://blog.prozin.xyz/2016/11/22/%E5%BF%AB%E9%80%9F%E5%90%AF%E5%8A%A8App/</url>
+      <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>又有好久木有更新啦,快成咸鱼了。</p>
+<p>早上看到一篇关于app快速启动的公众号文章，觉得应该全面了解一下这个东西，所以这篇文章就小小地实践一下下记录下来，内容并不多，demo都没有必要上，大家直接看代码实践过程和效果就行了。</p>
+<p>文章最后会附上那篇公众号文章的链接。</p>
+<a id="more"></a>
+<h2 id="上效果图"><a href="#上效果图" class="headerlink" title="上效果图"></a>上效果图</h2><p><img src="http://odpd0x6u7.bkt.clouddn.com/start.gif" alt="我是图"></p>
+<h2 id="上说明"><a href="#上说明" class="headerlink" title="上说明"></a>上说明</h2><p>现在的大厂app一般的套路是这样：点击图标即可启动界面(splash界面)，等几秒出来一个广告界面(welcome界面)，点击跳转链接倒计时跳过按钮应有尽有贼厉害地再显示几秒，然后再进入主页。</p>
+<p>通常在写demo的时候会遇到一个困惑：打开app会白屏或者黑屏一小段时间，大厂点击图标即可就可以启动的效果还是不错的，所以下面开始实现。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SplashActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span> </span>&#123;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(@Nullable Bundle savedInstanceState)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</div><div class="line">        SystemClock.sleep(<span class="number">2000</span>);</div><div class="line">        startActivity(<span class="keyword">new</span> Intent(SplashActivity.<span class="keyword">this</span>, MainActivity.class));</div><div class="line">        finish();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>上面是splash类，作为启动的activity,但是没有layout，重点是它的theme:</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">activity</span> <span class="attr">android:name</span>=<span class="string">".SplashActivity"</span></span></div><div class="line">           <span class="attr">android:theme</span>=<span class="string">"@style/StartStyle"</span>&gt;</div><div class="line">           <span class="tag">&lt;<span class="name">intent-filter</span>&gt;</span></div><div class="line">           ...</div><div class="line"> <span class="tag">&lt;/<span class="name">activity</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>style文件：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">name</span>=<span class="string">"StartStyle"</span> <span class="attr">parent</span>=<span class="string">"AppTheme"</span>&gt;</span><span class="xml"></span></div><div class="line">        <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:windowBackground"</span>&gt;</span>@drawable/splash<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">style</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>然后就是具体的<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure></p>
+<p><layer-list xmlns:android="http://schemas.android.com/apk/res/android" android:opacity="opaque"><br>    <item android:drawable="@color/colorAccent"><br>    <item><br>        <bitmap android:gravity="center" android:src="@mipmap/ic_launcher"><br>    </bitmap></item><br></item></layer-list></p>
+<p>这里随手放置了一个小图标</p>
+<p>````</p>
+<p>然后就是上面动态图的效果啦。</p>
+<h2 id="最后，那篇公众号文章的链接"><a href="#最后，那篇公众号文章的链接" class="headerlink" title="最后，那篇公众号文章的链接"></a>最后，那篇公众号文章的链接</h2><p><strong><a href="http://mp.weixin.qq.com/s?__biz=MzA4NDM2MjAwNw==&amp;mid=2650576315&amp;idx=1&amp;sn=72655307505d4577de88994f1bdcf541&amp;chksm=87e063c3b097ead5b03c371aa8c1acc077e91c34d2c1b8fc1d4beb69bf58e824ca0e82d0a042&amp;mpshare=1&amp;scene=1&amp;srcid=1121xld6xD50B61OOnNdZZSp#rd" target="_blank" rel="external">一触即发 App启动优化最佳实践</a></strong></p>
+<h2 id="【显示篇】扩展阅读"><a href="#【显示篇】扩展阅读" class="headerlink" title="【显示篇】扩展阅读"></a>【显示篇】扩展阅读</h2><p><a href="http://www.jianshu.com/p/b59053cca50b" target="_blank" rel="external">《Android APP要解决的问题》之显示篇：ScrollView嵌套ListView</a></p>
+<hr>
+<blockquote>
+<p>本文作者：paradoxie</p>
+<p>个人主页：<a href="http://www.paradoxie.cf/" target="_blank" rel="external">谢盒盒的小黑屋，不止说技术</a></p>
+<p>简书地址：<a href="http://www.jianshu.com/users/05f39939cbf3/latest_articles" target="_blank" rel="external">简书主页，专注技术类</a></p>
+<p>github地址：<a href="https://github.com/paradoxie" target="_blank" rel="external">paradoxie</a></p>
+<p>转载请注明出处，蟹蟹!</p>
+<p>——-我的梦想真的是做一条咸鱼！</p>
+</blockquote>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[《Android APP可以有的东西》之功能篇：右滑返回]]></title>
       <url>http://blog.prozin.xyz/2016/10/28/%E5%8F%B3%E6%BB%91%E8%BF%94%E5%9B%9E/</url>
       <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>右滑返回这个功能好像在iOS上蛮实用的，因为它的返回键在左上角，右手握持手机就得穿越整个屏幕去按它，不过对于大屏Android手机也是蛮实用的，右下角的返回键随着屏占比的增大按起来的难度也不小，就算有mBack这样的交互，多一个右滑返回也是极好的是吧？</p>
