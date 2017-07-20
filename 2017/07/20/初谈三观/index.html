@@ -4,7 +4,7 @@
     <!-- Title -->
     
     <title>
-        《Android APP可以有的东西》之功能篇：右滑返回 | 谢盒盒的小黑屋
+        关于生活的一些思考--三观 | 谢盒盒的小黑屋
     </title>
     
     <!-- Favicons -->
@@ -40,7 +40,7 @@
     <!-- The Open Graph protocol -->
     <meta property="og:url" content="http://blog.prozin.xyz">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="《Android APP可以有的东西》之功能篇：右滑返回 | 谢盒盒的小黑屋">
+    <meta property="og:title" content="关于生活的一些思考--三观 | 谢盒盒的小黑屋">
     <meta property="og:description" content="抱歉，我的梦想是当一条咸鱼">
     
      <!--[if lte IE 9]>
@@ -219,7 +219,7 @@
 		
 	
         <p class="article-headline-p">
-            《Android APP可以有的东西》之功能篇：右滑返回
+            关于生活的一些思考--三观
         </p>
     </div>
 
@@ -237,7 +237,7 @@
     <!-- Author Name & Date -->
     <div>
         <strong>paradoxie</strong>
-        <span>10月 28, 2016</span>
+        <span>7月 20, 2017</span>
     </div>
     
     <div class="section-spacer"></div>
@@ -257,7 +257,7 @@
     </button>
     <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
         <li class="mdl-menu__item">
-        <a class="post_tag-link" href="/tags/Android/">Android</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/右滑返回/">右滑返回</a>
+        <a class="post_tag-link" href="/tags/生活/">生活</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/观念/">观念</a>
     </ul>
     
     <!-- Share -->
@@ -271,7 +271,7 @@
     <!-- Leancloud Views -->
     <a class="post_share-link" href="#">
         <li class="mdl-menu__item">
-            <span id="/2016/10/28/右滑返回/" class="leancloud-views_num" data-flag-title="《Android APP可以有的东西》之功能篇：右滑返回">
+            <span id="/2017/07/20/初谈三观/" class="leancloud-views_num" data-flag-title="关于生活的一些思考--三观">
      &nbsp;浏览量
 </span>
         </li>
@@ -290,21 +290,21 @@
     
     
     <!-- Share Twitter -->
-    <a class="post_share-link" href="https://twitter.com/intent/tweet?text=《Android APP可以有的东西》之功能篇：右滑返回&url=http://blog.prozin.xyz//2016/10/28/右滑返回/index.html&via=paradoxie" target="_blank">
+    <a class="post_share-link" href="https://twitter.com/intent/tweet?text=关于生活的一些思考--三观&url=http://blog.prozin.xyz//2017/07/20/初谈三观/index.html&via=paradoxie" target="_blank">
         <li class="mdl-menu__item">
             分享到 Twitter
         </li>
     </a>
     
     <!-- Share Google+ -->
-    <a class="post_share-link" href="https://plus.google.com/share?url=http://blog.prozin.xyz//2016/10/28/右滑返回/index.html" target="_blank">
+    <a class="post_share-link" href="https://plus.google.com/share?url=http://blog.prozin.xyz//2017/07/20/初谈三观/index.html" target="_blank">
         <li class="mdl-menu__item">
             分享到 Google+
         </li>
     </a>
     
     <!-- Share Weibo -->
-    <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=《Android APP可以有的东西》之功能篇：右滑返回&url=http://blog.prozin.xyz//2016/10/28/右滑返回/index.html&pic=&searchPic=false&style=simple" target="_blank">
+    <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=关于生活的一些思考--三观&url=http://blog.prozin.xyz//2017/07/20/初谈三观/index.html&pic=&searchPic=false&style=simple" target="_blank">
         <li class="mdl-menu__item">
             分享到微博
         </li>
@@ -316,30 +316,16 @@
                 <!-- Post Content -->
                 <div id="post-content" class="markdown-Github mdl-color-text--grey-700 mdl-card__supporting-text fade out">
 	
-		<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>右滑返回这个功能好像在iOS上蛮实用的，因为它的返回键在左上角，右手握持手机就得穿越整个屏幕去按它，不过对于大屏Android手机也是蛮实用的，右下角的返回键随着屏占比的增大按起来的难度也不小，就算有mBack这样的交互，多一个右滑返回也是极好的是吧？</p>
-<a id="more"></a>
-<h2 id="上代码-SwipBackDemo"><a href="#上代码-SwipBackDemo" class="headerlink" title="上代码 SwipBackDemo"></a>上代码 <a href="https://github.com/paradoxie/SwipBackDemo" target="_blank" rel="external">SwipBackDemo</a></h2><h2 id="上效果图"><a href="#上效果图" class="headerlink" title="上效果图"></a>上效果图</h2><p><img src="http://odpd0x6u7.bkt.clouddn.com/SWIP.gif" alt="我是图"></p>
-<h2 id="SlidingPaneLayout"><a href="#SlidingPaneLayout" class="headerlink" title="SlidingPaneLayout"></a>SlidingPaneLayout</h2><p>这个东西是Support V4中早就存在的，同样是侧滑，远没有侧滑菜单<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">SlidingPaneLayout继承自GroupView，官方的貌似是作为侧滑菜单推出的，然鹅并没有多少人使用？？但是可以根据这东西实现右滑返回。</div><div class="line"></div><div class="line">**原理：假设滑动的时候左侧有侧滑菜单，但是它是全透明的，所以可以看到底部一层的视图，然后拉出整个假设的侧滑菜单之后移除当前activity，就完成了右滑返回。**</div><div class="line"></div><div class="line">所以这个地方要定义的是滑动的anim，以及透明的style.主要是这个style:</div></pre></td></tr></table></figure></p>
-<p><style name="Animation.SlidingBack" parent="@android:style/Animation.Activity"><br>        <item name="android:activityOpenEnterAnimation">@anim/slide_in_right</item><br>        <item name="android:activityOpenExitAnimation">@anim/slide_out_right</item><br>        <item name="android:activityCloseEnterAnimation">@anim/slide_in_right</item><br>        <item name="android:activityCloseExitAnimation">@anim/slide_out_right</item><br>        <item name="android:wallpaperOpenEnterAnimation">@anim/slide_in_right</item><br>        <item name="android:wallpaperOpenExitAnimation">@anim/slide_out_right</item><br>        <item name="android:wallpaperCloseEnterAnimation">@anim/slide_in_right</item><br>        <item name="android:wallpaperCloseExitAnimation">@anim/slide_out_right</item><br>        <item name="android:wallpaperIntraOpenEnterAnimation">@anim/slide_in_right</item><br>        <item name="android:wallpaperIntraOpenExitAnimation">@anim/slide_out_right</item><br>        <item name="android:wallpaperIntraCloseEnterAnimation">@anim/slide_in_right</item><br>        <item name="android:wallpaperIntraCloseExitAnimation">@anim/slide_out_right</item><br>    </style><br><figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">代码思路：实例化出slidingPaneLayout及相关属性设定，然后给slidingPaneLayout*<span class="strong">*添加透明的侧滑视图和真实的内容区域视图*</span><span class="strong">*，关键代码：</span></div></pre></td></tr></table></figure></p>
-<p> SlidingPaneLayout slidingPaneLayout = new SlidingPaneLayout(this);<br>            //通过反射改变mOverhangSize的值为0，这个mOverhangSize值为菜单到右边屏幕的最短距离，默认是32dp，现在给它改成0<br>            try {<br>                //属性<br>                Field f_overHang = SlidingPaneLayout.class.getDeclaredField(“mOverhangSize”);<br>                f_overHang.setAccessible(true);<br>                f_overHang.set(slidingPaneLayout, 0);<br>            } catch (Exception e) {<br>                e.printStackTrace();<br>            }<br>            slidingPaneLayout.setPanelSlideListener(this);<br>            slidingPaneLayout.setSliderFadeColor(getResources().getColor(android.R.color.transparent));</p>
-<pre><code>View leftView = new View(this);
-leftView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
-slidingPaneLayout.addView(leftView, 0);
-
-ViewGroup decor = (ViewGroup) getWindow().getDecorView();
-ViewGroup decorChild = (ViewGroup) decor.getChildAt(0);
-decorChild.setBackgroundColor(getResources().getColor(android.R.color.white));
-decor.removeView(decorChild);
-decor.addView(slidingPaneLayout);
-slidingPaneLayout.addView(decorChild, 1);
-</code></pre><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">可以在一个基类中封装使用以上方法，然后需要返回的继承该类就行了。因为某些界面不需要侧滑返回，所以提供一个设置是否支持返回的方法，不需要返回的重写该方法返回<span class="literal">false</span>：</div></pre></td></tr></table></figure>
-<p>@Override<br>    protected boolean isSupportSwipeBack() {<br>        return false;<br>    }</p>
-<p>```</p>
-<h2 id="上代码-SwipBackDemo-1"><a href="#上代码-SwipBackDemo-1" class="headerlink" title="上代码 SwipBackDemo"></a>上代码 <a href="https://github.com/paradoxie/SwipBackDemo" target="_blank" rel="external">SwipBackDemo</a></h2><h2 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h2><p>这个是全屏滑动，所以我尝试了一些方法来让它只在边缘滑动，但是我失败了…所以如果有上文这种需求的话可以直接使用，解决跟listview和scrollview的滑动冲突的时候去重新判断onInterceptTouchEvent方法就行的，但是如果有边缘滑动的话还是尝试用SlidingMenu吧…</p>
-<p>最后求助一下看到本文的大神看看有什么好的方案咯~</p>
-<h2 id="【功能篇】扩展阅读"><a href="#【功能篇】扩展阅读" class="headerlink" title="【功能篇】扩展阅读"></a>【功能篇】扩展阅读</h2><p><a href="http://www.jianshu.com/p/4d79a6f20420" target="_blank" rel="external">《Android APP应该有的东西》之功能篇：版本检测更新</a></p>
-<p><a href="http://www.jianshu.com/p/237f1a3f9364" target="_blank" rel="external">《Android APP应该有的东西》之功能篇：热修复</a></p>
-<p><a href="http://www.jianshu.com/p/4f324f04584a" target="_blank" rel="external">《Android APP可能有的东西》之功能篇：新功能高亮指引【荐】</a></p>
+		<pre><code>未经思索的人生不值一过
+                        ---苏格拉底
+</code></pre><p>　　首次用到三观这个词是在高中的时候，后来在网上屡次见到，然后知乎这样表达观点的社区更是频繁出现。但是再没有用这词来判断过自己或是别人。这里不讨论基础的是非观，虽然这很重要也不应该单独剥离出去。</p>
+<p>　　三观的普世定义是人生观、世界观、价值观。人生观关系到对自我的认识，世界观关系到对事物的认知，价值观关系到对选择的权衡。然而网络上频繁出现的三观评判大多数情况仅针对了后两者，因为只需要用自己仅有的生存经验，即抛开自我忽略的认知去裁断他人的只言片语，更让人奇怪的是，所得出的结论无非就是【正或是不正】。</p>
+<p>　　你三观正：我(这次)很欣赏你，因为你跟我想的一样；你三观不正：你这不行，你太幼稚了，（你变了，）拉黑了。</p>
+<p>　　更有甚者，有一种政治正确在无形中左右了很多人该次评判的三观是否【正】。这应该警醒，三观的可靠性暂且不论，仅仅是这两个相互对立的结论就是有问题的，这个世界并非非黑即白。再有，三观仅仅是观念或是思想，是观念就会变动，不会变动的没有兼容性的观念，部分老年人才会引以为傲。这是很多高呼三观的人看不见的东西。</p>
+<p>　　这个世界很有意思，如果愿意去读一些书，了解一些故事，会发现很多曾经不曾思考过的问题。其中就有对人生产生质疑的可能性，对自己观念产生质疑的可能性。举个栗子，《霍乱时期的爱情》中的男主，他一生滥情，情人无数，她们的年龄区间令人惊叹，但是他却对女主说：『我为你保守着童贞』，就看这段描述你会觉得他在扯淡，但是如果看了书，则(可能)会觉得他说的是真的(，但好像哪里不太对)。说服自我接纳新事物这种观念，应该时刻准备着进行自我反思。</p>
+<p>　　在三观这个问题上，如果要寻找观念契合对等的人，我认为唯一可靠的只有人生观。只要在对于自我的问题上存在反思性，后两者的变化是可以控制的。但如果笃定了自己的人生信条正确无疑，画地为牢，并且后两者极容易受到引导政治正确的人的鼓动，这变动起来无迹可寻。在寻找三观相合的人这个事情上，这就不是一件容易的事。所以我认为这些年轻人不应时常把三观挂在嘴边，抛掉三观，去接触你想接触的人，做你想做的事，理解事物背后的成因，这时候再去决定取舍。</p>
+<p>　　愿意兼容所在意的形式、所讨论的问题、所思考的方式，在<strong>不停的学习中</strong>不断接纳理解别人的立场缘由不断修正改变自己的看法观点，这是我认为的人生观契合。</p>
+<p>　　以上说的是可能会因为价值追求而迷茫的人，更多的人是浑浑噩噩迷迷糊糊生活在这个世界的人，难得糊涂。</p>
 <hr>
 <blockquote>
 <p>本文作者：paradoxie</p>
@@ -375,7 +361,7 @@ slidingPaneLayout.addView(decorChild, 1);
 </style>
 <div id="comments">
     <!-- 多说评论框 start -->
-        <div class="ds-thread" data-thread-key="undefined" data-title="《Android APP可以有的东西》之功能篇：右滑返回" data-url="http://blog.prozin.xyz//2016/10/28/右滑返回/index.html"></div>
+        <div class="ds-thread" data-thread-key="undefined" data-title="关于生活的一些思考--三观" data-url="http://blog.prozin.xyz//2017/07/20/初谈三观/index.html"></div>
     <!-- 多说评论框 end -->
 </div>
 
@@ -388,21 +374,13 @@ slidingPaneLayout.addView(decorChild, 1);
     
     <!-- Prev Nav -->
     
-        <a href="/2016/11/22/快速启动App/" id="post_nav-newer" class="prev-content">
-            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
-                <i class="material-icons">arrow_back</i>
-            </button>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            新篇
-        </a>
-    
 
     <!-- Section Spacer -->
     <div class="section-spacer"></div>
 
     <!-- Next Nav -->
     
-        <a href="/2016/10/27/新功能高亮指引/" id="post_nav-older" class="next-content">
+        <a href="/2017/06/03/创始人/" id="post_nav-older" class="next-content">
             旧篇
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
@@ -586,11 +564,9 @@ It will not impact the appearance and can give developers a lot of support :)
     
         <!-- Post Nav -->
         
-            <a class="prev-content fab" href="/2016/11/22/快速启动App/" title="《Android APP可以有的东西》之显示篇：快速启动App"><i class="material-icons">keyboard_arrow_left</i></a>
-        
 
         
-            <a class="prev-content fab" href="/2016/10/27/新功能高亮指引/" title="《Android APP可能有的东西》之功能篇：新功能高亮指引【荐】"><i class="material-icons">keyboard_arrow_right</i></a>
+            <a class="prev-content fab" href="/2017/06/03/创始人/" title="关于创业的一些思考--关于创始人"><i class="material-icons">keyboard_arrow_right</i></a>
         
     
     
